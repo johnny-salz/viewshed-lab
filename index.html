@@ -1,1 +1,1292 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Viewshed Lab — live terrain visibility · build 2026-09-26.3</title>
+<style>
+:root{--bg:#0b1118;--panel:#121c27;--panel2:#182433;--line:#2a3a4b;--text:#e8eff6;--muted:#94a9be;--mint:#69f0d2;--gold:#ffce79;--purple:#a3a0d3}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}button,select,input[type=number]{color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-width:0}button{cursor:pointer}button:hover{border-color:var(--mint)}button:disabled{opacity:.4;cursor:wait}button.primary{color:#0b2423;background:var(--mint);border-color:var(--mint);font-weight:700}button.active{border-color:var(--gold);color:var(--gold)}input[type=range]{width:100%;accent-color:var(--mint)}input[type=checkbox]{accent-color:var(--mint)}select{width:100%}a{color:var(--mint)}header{height:77px;padding:15px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.035em;font-size:22px}.brand span{font-weight:400;color:var(--mint)}.eyebrow{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}.badge{font:11px ui-monospace,SFMono-Regular,Consolas,monospace;display:inline-block;border:1px solid var(--line);border-radius:20px;padding:5px 10px;color:var(--mint)}.layout{display:grid;grid-template-columns:302px minmax(0,1fr);height:calc(100vh - 77px);min-height:610px}aside{overflow:auto;background:var(--panel);border-right:1px solid var(--line);padding:18px}section.controls{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:16px}h2{font-size:12px;text-transform:uppercase;letter-spacing:.09em;font-weight:650;margin:0 0 12px;color:var(--muted)}.row{display:flex;gap:8px;margin-top:9px}.row>*{flex:1;min-width:0}.field input{width:100%}.field{min-width:0;display:flex;flex-direction:column;gap:4px}.field label,.subtle{color:var(--muted);font-size:11px}.small{font-size:11px;line-height:1.55;color:var(--muted)}.labelrow{display:flex;justify-content:space-between;margin:11px 0 2px}.labelrow span:last-child{color:var(--mint);font-variant-numeric:tabular-nums}details{font-size:12px}summary{cursor:pointer;color:var(--muted)}details p{margin:8px 0}.check{display:block;margin-top:9px;font-size:12px;color:var(--muted)}.stage{display:flex;flex-direction:column;min-width:0;overflow:hidden}.toolbar{min-height:55px;padding:9px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:10px}.toolbar .hint{color:var(--muted);font-size:12px}.toolbar button{padding:5px 10px;font-size:12px}.map-wrap{position:relative;flex:1;min-height:270px;overflow:hidden;background:#0d1620}.map-wrap canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}.map-wrap #gpuMask{pointer-events:none;z-index:2}.map-wrap #map{z-index:1}.map-label{position:absolute;left:18px;top:15px;pointer-events:none;max-width:70%;text-shadow:0 1px 6px #000}.map-label strong{display:block;font-size:16px}.map-label .eyebrow{color:#c6d7e8}.map-state{position:absolute;top:15px;right:16px;border:1px solid #52616d;background:#111e29d9;backdrop-filter:blur(5px);font-size:10px;padding:5px 9px;border-radius:20px;pointer-events:none;letter-spacing:.06em}.map-state.synthetic{color:var(--gold)}.legend{position:absolute;bottom:14px;left:18px;display:flex;gap:14px;padding:7px 10px;background:#0c1620da;border:1px solid #334659;border-radius:7px;font-size:10px;pointer-events:none}.dot{width:8px;height:8px;display:inline-block;border-radius:50%;margin-right:5px;background:var(--mint)}.dot.gold{background:var(--gold)}.dot.gray{background:#808c99}.mapnotice{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);background:#111e29ee;border:1px solid var(--line);padding:15px 22px;border-radius:10px;text-align:center;pointer-events:none;max-width:400px;box-shadow:0 12px 60px #0008}.mapnotice:empty{display:none}.tile-progress{position:absolute;right:16px;bottom:50px;z-index:4;width:min(330px,45%);padding:7px 9px;border:1px solid #334659;border-radius:7px;background:#0c1620e8;backdrop-filter:blur(4px);pointer-events:none;font-size:10px;color:#b8cad9}.tile-progress:empty{display:none}.tile-progress .bar{height:4px;margin-top:5px;background:#263848;border-radius:3px;overflow:hidden}.tile-progress .bar>i{display:block;height:100%;background:var(--mint);width:0%}.map-attribution{position:absolute;right:12px;bottom:12px;z-index:4;padding:3px 6px;border-radius:4px;background:#08111bd9;color:#b7c7d6;font-size:9px;pointer-events:auto}.map-attribution a{color:#cfe4f5;text-decoration:none}.map-attribution:empty{display:none}.stats{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}.stat{padding:13px 18px;border-right:1px solid var(--line)}.stat:last-child{border:0}.value{font-size:24px;line-height:1.35;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.025em}.value.accent{color:var(--gold)}.value small{font-size:13px;letter-spacing:0;color:var(--muted);font-weight:400}.stat .small{white-space:nowrap}.analysis-strip{height:165px;background:#0e1721}.profile-box{position:relative;padding:9px 18px;min-width:0}.profile-title{font-size:10px;letter-spacing:.07em;color:var(--muted);text-transform:uppercase}.profile-box canvas{width:100%;height:123px;display:block}.footer{padding:8px 18px;min-height:38px;color:var(--muted);font-size:10px;border-top:1px solid var(--line);display:flex;gap:15px;justify-content:space-between}.status{font-size:11px;line-height:1.5;border-left:2px solid var(--mint);padding-left:9px;margin-top:10px;overflow-wrap:anywhere}.status.error{border-color:var(--gold);color:var(--gold)}dialog{color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:650px;padding:24px}dialog::backdrop{background:#000b}dialog pre{white-space:pre-wrap;font-size:12px}kbd{font-size:10px;border:1px solid #465563;border-radius:3px;padding:1px 4px}.linkbuttons{display:flex;gap:6px}.linkbuttons button{font-size:11px;padding:6px}
+@media(max-width:1000px){header{padding:14px 16px}.layout{grid-template-columns:266px minmax(0,1fr)}aside{padding:14px}.toolbar{padding:9px 12px}.toolbar .hint{font-size:10px}.stats .stat{padding:11px}.value{font-size:20px}.stat .small{font-size:9px}.legend{gap:9px;font-size:9px}.footer{font-size:9px}.analysis-strip{height:145px}.profile-box canvas{height:103px}}
+@media(max-width:740px){header{height:65px}.brand{font-size:19px}header>.small{display:none}.layout{height:auto;display:flex;flex-direction:column;min-height:0}aside{order:2;overflow:visible;border:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}.stage{order:1;height:calc(100vh - 65px);min-height:600px}.toolbar .hint{max-width:53%}.toolbar .row{margin:0}.stat .eyebrow{font-size:8px}.value{font-size:18px}.stat .small{white-space:normal}section.controls{margin:0}.legend{font-size:9px}.footer{min-height:35px}.map-label strong{font-size:13px}}
+@media(max-width:480px){aside{grid-template-columns:1fr}.map-label{max-width:95%;top:12px}.map-state{top:60px;font-size:8px;right:12px}.stat{min-width:0}.stats{grid-template-columns:1.1fr .95fr .9fr 1fr}.legend{left:8px;gap:7px;padding:6px;font-size:8px}.footer{gap:8px}.footer>span{min-width:0;overflow-wrap:anywhere}}
+
+/* Stable live UI: dynamic text never changes layout dimensions. */
+header{height:68px;padding:11px 18px;gap:12px}.layout{height:calc(100vh - 68px)}
+header .brand{white-space:nowrap}.badge{width:154px;min-width:154px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dynamic2{height:34px;min-height:34px;max-height:34px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.dynamic1{height:18px;min-height:18px;max-height:18px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.status.dynamic2{height:42px;min-height:42px;max-height:42px}
+.stats{height:104px;min-height:104px;grid-template-columns:1.2fr 1fr 1fr 1fr}
+.stat{height:103px;min-width:0;overflow:hidden;padding:11px 14px}.stat .eyebrow{height:28px;line-height:13px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.value{height:34px;line-height:34px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stat .small{height:18px;line-height:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.analysis-strip{height:165px;min-height:165px}.profile-title{height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toolbar{height:55px;min-height:55px}.toolbar .hint{height:32px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.place-search-results{margin-top:7px}.place-search-note{height:18px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cap-note{color:var(--muted);font-size:10px;margin-top:4px;min-height:15px}
+@media(max-width:1000px){header{height:64px}.layout{height:calc(100vh - 64px)}.badge{width:132px;min-width:132px;font-size:9px}.stats{height:98px;min-height:98px}.stat{height:97px;padding:9px}.value{font-size:19px}.stat .eyebrow{font-size:8px}.stat .small{font-size:9px}}
+@media(max-width:740px){header{height:60px}.layout{height:auto}.brand small{display:none}.badge{width:118px;min-width:118px}.stats{grid-template-columns:1.1fr .9fr .9fr 1fr}.stat{padding:7px}.stat .eyebrow{font-size:7.5px;letter-spacing:.06em}.value{font-size:17px}}
+</style>
+</head>
+<body><div id="protocolWarning" style="display:none;position:fixed;z-index:9999;left:50%;top:10px;transform:translateX(-50%);background:#3b2612;color:#ffd89a;border:1px solid #8b6331;border-radius:8px;padding:8px 12px;font:12px system-ui;box-shadow:0 8px 30px #0008">FILE:// mode: run <code>python -m http.server 8000</code> and open localhost. WebGPU and tile CORS are unreliable from file://.</div>
+<header><div><div class="eyebrow">Terrain visibility / browser prototype</div><div class="brand">VIEWSHED <span>LAB</span> <small style="font-size:9px;color:var(--muted);font-weight:500;letter-spacing:.08em">BUILD 2026-09-26.6 · BASEMAP REPROJECT</small></div></div><span class="badge" id="computeBadge" title="Compute status">WebGPU probe…</span></header>
+<div class="layout"><aside>
+<section class="controls"><h2>01 / Data &amp; area</h2>
+<select id="preset" aria-label="Location preset"><option value="current" selected>Current location</option><option value="hanoi">Hanoi</option><option value="london">London</option><option value="dankova">All The Views #1 · Pik Dankova / Kunlun · 530 km</option><option value="colombia">All The Views #2 · Colombia · 504 km</option><option value="elbrus">All The Views #3 · Elbrus / Pontic · 483 km</option><option value="everest">Everest → Parasnath · 453.3 km</option><option value="custom">Custom coordinates</option></select>
+<div class="row"><input id="placeSearch" type="text" placeholder="Search place…" aria-label="Search place"><button id="searchPlace">Search</button></div>
+<select id="placeResults" class="place-search-results" style="display:none" aria-label="Place search results"></select>
+<div id="placeSearchStatus" class="small dynamic1 place-search-note">Manual place search; no autocomplete.</div>
+<div class="small"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a> · Nominatim</div>
+<div class="row"><div class="field"><label for="lat">Latitude</label><input id="lat" type="number" value="51.5074" min="-80" max="80" step="0.000001"></div><div class="field"><label for="lon">Longitude</label><input id="lon" type="number" value="-0.1278" min="-179" max="179" step="0.000001"></div></div>
+<div class="row"><div class="field"><label for="extent">Area side, km</label><input id="extent" type="number" value="1200" min="2" max="2200" step="2"></div><div class="field"><label for="resolution">Compute grid</label><select id="resolution"><option>256</option><option>512</option><option>768</option><option>1024</option><option>1536</option><option>2048</option><option>3072</option><option selected>4096</option><option id="res8192" value="8192">8192 · heavy</option></select></div></div>
+<div id="resolutionNote" class="cap-note">4k is recommended for live use; 8k is capability-gated and memory-heavy.</div>
+<div class="row"><button id="load" class="primary">Load DEM</button><button id="synthetic">Test terrain</button></div>
+<div id="loadStatus" class="status dynamic2">Mapterhorn global terrain DEM; browser-loaded Terrarium tiles.</div>
+<div id="gridInfo" class="small dynamic2" style="margin-top:8px"></div>
+<div class="row"><div class="field"><label for="surfaceModel">Surface model</label><select id="surfaceModel" disabled><option>Terrain DEM · Mapterhorn</option></select></div></div>
+<div class="cap-note">DSM (buildings / canopy) is not configured in this build.</div>
+<div class="row"><div class="field"><label for="detailMode">Viewport terrain detail</label><select id="detailMode"><option value="auto">Auto · match screen</option><option value="high">High · +1 zoom</option><option value="max" selected>Maximum · up to z17</option><option value="off">Off · base DEM only</option></select></div></div>
+<div id="detailStatus" class="small dynamic2" style="margin-top:7px">Detail resolver waits for a real DEM.</div>
+<div id="pointDetailStatus" class="small dynamic2" style="margin-top:5px">Point detail loads the finest available tile under the observer.</div>
+<div id="refineStatus" class="small dynamic2" style="margin-top:5px">Lock a point to refine promising far sectors along a narrow corridor.</div>
+<div class="row"><div class="field"><label for="baseLayer">Basemap</label><select id="baseLayer"><option value="terrain" selected>DEM only</option><option value="osm">OpenStreetMap</option><option value="sat">Satellite</option></select></div><div class="field"><label for="shadeStrength">Hillshade overlay</label><select id="shadeStrength"><option value="0">Off</option><option value="35">Light · 35%</option><option value="55" selected>Medium · 55%</option><option value="75">Strong · 75%</option></select></div></div>
+<div id="mapLayerStatus" class="small dynamic1" style="margin-top:7px">Basemap: DEM only.</div>
+<label class="check"><input id="roseOnMap" type="checkbox" checked> Draw sight-distance rose on map</label>
+</section>
+<section class="controls"><h2>02 / Observer</h2>
+<div class="row"><div class="field"><label for="eye">Eye above DEM, m</label><input id="eye" type="number" value="40" min="0.1" max="5000" step="0.1"></div><div class="field"><label for="target">Target height, m</label><input id="target" type="number" value="0" min="0" max="5000" step="1"></div></div>
+<div class="labelrow"><label for="range">Compute radius</label><span id="rangeLabel">650 km</span></div><input id="range" type="range" min="0.5" max="1000" step="0.5" value="650"><div id="rangeCoverage" class="small dynamic2" style="margin-top:5px"></div>
+<select id="earth" aria-label="Earth model"><option value="0.857142857" selected>Earth + refraction k = 1/7</option><option value="1">Earth · no refraction</option><option value="0">Flat plane</option></select>
+<p class="small" style="margin-bottom:0">Observer height is measured above the <b>terrain DEM</b>. Buildings and vegetation are not reliable occluders in this source.</p>
+</section>
+<section class="controls"><h2>03 / Compute &amp; display</h2>
+<select id="engine" aria-label="Compute engine"><option value="webgpu" selected>WebGPU live horizon · default</option><option value="fast">CPU reference plane · debug</option><option value="hybrid">CPU hybrid · debug</option><option value="polar">CPU polar prefix-max · debug</option></select>
+<div class="row"><div class="field"><label for="nearRange">Hybrid near-zone, km</label><input id="nearRange" type="number" value="100" min="5" max="1000" step="5"></div><div class="field"><label for="farRays">Min GPU / far rays</label><select id="farRays"><option>360</option><option>720</option><option>1440</option><option>2880</option><option>4096</option><option>6144</option><option>8192</option><option>12288</option><option selected>16384</option></select></div></div>
+<div class="row"><div class="field"><label for="gpuQuality">WebGPU radial quality</label><select id="gpuQuality"><option value="full" selected>Full · radial step 1</option><option value="adaptive">Fast · radial step 2</option></select></div><div class="field"><label for="gpuBudget">GPU frame budget</label><select id="gpuBudget"><option value="8.3" selected>120 Hz · 8.3 ms</option><option value="16.7">60 Hz · 16.7 ms</option><option value="33.3">30 Hz · 33.3 ms</option></select></div></div>
+<div id="gpuStatus" class="small dynamic2" style="margin-top:8px">WebGPU has not been probed yet.</div>
+<p class="small">WebGPU live computes the prefix horizon, rose and longest ray on the GPU and shades only current viewport pixels. Ray count can rise above the selected minimum while staying inside the frame budget. Locking a point also starts high-resolution corridor refinement.</p>
+<button id="verify" style="width:100%">Verify maximum</button>
+<div id="verifyStatus" class="small dynamic2" style="margin-top:8px">Independent coarse-grid LOS verification; 3 s budget.</div>
+<div class="labelrow"><label for="opacity">Visibility fill</label><span id="opacityLabel">48%</span></div><input id="opacity" type="range" min="0" max="85" step="1" value="48">
+<label class="check"><input id="hidden" type="checkbox"> Darken hidden terrain</label>
+<label class="check"><input id="contours" type="checkbox" checked> Contours and coordinate grid</label>
+<label class="check"><input id="detailLOS" type="checkbox" checked> Let high-res viewport seed near/far horizon</label>
+</section>
+<section class="controls"><h2>04 / Export &amp; diagnostics</h2><div class="row"><button id="png">PNG</button><button id="json">JSON</button><button id="selftest">Self-tests</button></div>
+<details style="margin-top:12px"><summary>Model, limitations &amp; sources</summary>
+<p>Run from localhost for reliable WebGPU and tile networking: <code>python -m http.server 8000 --bind 127.0.0.1</code>, then open <code>http://127.0.0.1:8000/viewshed_lab_latest.html</code>. <code>?offline=1</code> disables automatic real-terrain loading.</p>
+<p>The map uses a local spherical AEQD (Azimuthal Equidistant) projection centered on the loaded area. Radial distances and bearings from the center are preserved on the sphere. Earth radius: 6,371,008.8 m. Curvature/refraction correction: −(1−k)d²/(2R).</p>
+<p>WebGPU uses a radial prefix-horizon compute pass and screen-space fragment classification. Narrow obstacles and shadow boundaries remain discretization-sensitive. CPU engines are retained for debugging.</p>
+<p>Record refinement gives the observer and current GPU endpoint the finest available point tile, then checks promising far sectors along a narrow z12–13 terrain corridor without slowing the live path.</p>
+<p>NoData is never replaced by sea level. Base tiles fall back to lower-resolution parents; high-res holes fall back to the global terrain layer. Remaining unknown terrain pauses the live computation under the observer.</p>
+<p>Terrain source: Mapterhorn Terrarium WebP in Web Mercator (EPSG:3857), with a global terrain DEM and regional higher-resolution data. This build does not currently integrate a true DSM.</p>
+<p>Manual place search uses OpenStreetMap Nominatim only on explicit submit, never autocomplete, with local result caching and a 1 request/s throttle. <a href="https://operations.osmfoundation.org/policies/nominatim/" target="_blank" rel="noopener">Nominatim usage policy</a>.</p>
+<p><a href="https://mapterhorn.com/data-access/" target="_blank" rel="noopener">Mapterhorn</a> · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap attribution</a> · <a href="https://gdal.org/en/stable/programs/gdal_viewshed.html" target="_blank" rel="noopener">GDAL viewshed</a> · <a href="https://grass.osgeo.org/grass-stable/manuals/r.viewshed.html" target="_blank" rel="noopener">GRASS viewshed</a> · <a href="https://alltheviews.world/" target="_blank" rel="noopener">All The Views</a></p>
+</details></section>
+</aside>
+<main class="stage"><div class="toolbar"><div class="hint">Move mouse: observer · wheel: zoom · Shift/right/middle drag: pan · click / <kbd>Space</kbd>: lock</div><div class="linkbuttons"><button id="lock">Follow</button><button id="center">Center</button><button id="peak">Highest</button><button id="fitview">Fit</button></div></div>
+<div class="map-wrap" id="mapWrap"><canvas id="map"></canvas><canvas id="gpuMask"></canvas><div class="map-label"><div class="eyebrow" id="sourceLabel">Offline diagnostic terrain</div><strong id="placeLabel">Synthetic terrain</strong></div><div class="map-state synthetic" id="dataBadge">SYNTHETIC</div><div id="notice" class="mapnotice"></div><div id="tileProgress" class="tile-progress"></div><div id="mapAttribution" class="map-attribution"></div><div class="legend"><span><i class="dot"></i>Visible ≈</span><span><i class="dot gold"></i>Farthest point</span><span><i class="dot gray"></i>Outside radius / unknown</span></div></div>
+<div class="stats"><div class="stat"><div class="eyebrow">Farthest visible point</div><div class="value accent" id="distance">—</div><div class="small" id="certLabel">waiting for first result</div></div><div class="stat"><div class="eyebrow">Bearing from north</div><div class="value" id="bearing">—</div><div class="small" id="direction">—</div></div><div class="stat"><div class="eyebrow">Visibility</div><div class="value" id="visible">—</div><div class="small" id="visibleSub">screen-space horizon</div></div><div class="stat"><div class="eyebrow">Compute / worker</div><div class="value" id="timing">—</div><div class="small" id="latency">waiting</div></div></div>
+<div class="analysis-strip"><div class="profile-box"><div class="profile-title" id="profileTitle">Profile to farthest point · gold = line of sight</div><canvas id="profile"></canvas></div></div>
+<div class="footer"><span id="coords">—</span><span>Base domain covers the loaded area · viewport detail is independent</span></div>
+</main></div>
+<dialog id="testDialog"><h3>Algorithm diagnostics</h3><pre id="testResults"></pre><button onclick="document.getElementById('testDialog').close()">Close</button></dialog>
+<script>
+'use strict';
+/* Real terrain is loaded from browser-friendly Mapzen/Tilezen Terrarium PNG tiles
+   on the AWS Open Data Terrain Tiles bucket. Heights are decoded locally; no API key
+   or external JavaScript is required. Missing tiles remain NoData. */
+function makeEngine(){
+  const EARTH=6371008.8,EPS=1e-4;
+  let z=null,n=0,cell=1,envelope=null;
+  const finite=Number.isFinite;
+  function init(a,size,spacing){z=a;n=size;cell=spacing;envelope=null;}
+  function sample(x,y){
+    if(x<0||y<0||x>n-1||y>n-1)return NaN;
+    const ix=Math.min(n-2,Math.floor(x)),iy=Math.min(n-2,Math.floor(y)),u=x-ix,v=y-iy,p=iy*n+ix;
+    const a=z[p],b=z[p+1],c=z[p+n],d=z[p+n+1];
+    if(!finite(a)||!finite(b)||!finite(c)||!finite(d))return NaN;
+    return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;
+  }
+  function common(p){
+    const ox=Math.round(p.ox),oy=Math.round(p.oy),ground=Number.isFinite(p.observerGround)?p.observerGround:z[oy*n+ox],zo=ground+p.eye;
+    const curv=p.curvature*cell*cell/(2*EARTH),rad=p.range/cell;
+    return {ox,oy,zo,curv,rad,rad2:rad*rad};
+  }
+  function summary(mask,p,start,meta){
+    const {ox,oy,rad,rad2}=common(p);let far=-1,best=-1,visible=0,inside=0,unknown=0;
+    const x0=Math.max(0,Math.floor(ox-rad)),x1=Math.min(n-1,Math.ceil(ox+rad)),y0=Math.max(0,Math.floor(oy-rad)),y1=Math.min(n-1,Math.ceil(oy+rad));
+    for(let y=y0;y<=y1;y++){const dy=y-oy,dy2=dy*dy;for(let x=x0;x<=x1;x++){
+      const dx=x-ox,d2=dx*dx+dy2;if(d2>rad2)continue;const i=y*n+x;inside++;
+      if(mask[i]===3)unknown++;if(mask[i]!==1)continue;visible++;if(d2>best){best=d2;far=i;}
+    }}
+    return {mask,far,distance:best<0?0:Math.sqrt(best)*cell,visible,inside,unknown,ms:performance.now()-start,...meta};
+  }
+  function fast(p){
+    const start=performance.now(),{ox,oy,zo,curv,rad2,rad}=common(p),mask=new Uint8Array(n*n);
+    if(!envelope||envelope.length!==n*n)envelope=new Float32Array(n*n);
+    if(!finite(zo)){mask.fill(3);return summary(mask,p,start,{engine:'fast'});}
+    mask[oy*n+ox]=1;
+    // A reference-plane approximation: carry the blocker envelope outward.
+    // Target height influences classification only; it NEVER occludes later cells.
+    function visit(dx,dy,k){
+      const x=ox+dx,y=oy+dy;if(x<0||y<0||x>=n||y>=n)return;
+      const d2=dx*dx+dy*dy;if(d2>rad2)return;
+      const i=y*n+x;if(!finite(z[i])){envelope[i]=Infinity;mask[i]=3;return;}
+      let threshold=-Infinity;
+      if(k>1){
+        const f=(k-1)/k;let j,w;
+        if(Math.abs(dx)===k){const px=ox+(dx>0?k-1:1-k),py=oy+dy*f,iy=Math.floor(py);j=iy*n+px;w=py-iy;
+          threshold=w<1e-10?envelope[j]:w>1-1e-10?envelope[j+n]:envelope[j]*(1-w)+envelope[j+n]*w;
+        }else{const py=oy+(dy>0?k-1:1-k),px=ox+dx*f,ix=Math.floor(px);j=py*n+ix;w=px-ix;
+          threshold=w<1e-10?envelope[j]:w>1-1e-10?envelope[j+1]:envelope[j]*(1-w)+envelope[j+1]*w;
+        }
+        threshold*=k/(k-1);
+      }
+      const h=z[i]-zo-curv*d2;
+      if(threshold===Infinity||Number.isNaN(threshold)){envelope[i]=Infinity;mask[i]=3;}
+      else{mask[i]=h+p.target>=threshold-EPS?1:2;envelope[i]=Math.max(h,threshold);}
+    }
+    const limit=Math.min(Math.ceil(rad),Math.max(ox,oy,n-1-ox,n-1-oy));
+    for(let k=1;k<=limit;k++){
+      for(let dx=-k;dx<=k;dx++){visit(dx,-k,k);visit(dx,k,k);}
+      for(let dy=-k+1;dy<k;dy++){visit(-k,dy,k);visit(k,dy,k);}
+    }
+    return summary(mask,p,start,{engine:'fast'});
+  }
+  function polar(p){
+    const start=performance.now(),{ox,oy,zo,curv,rad}=common(p),mask=new Uint8Array(n*n);
+    if(!finite(zo)){mask.fill(3);return summary(mask,p,start,{engine:'polar'});}
+    const rmax=Math.min(rad,Math.hypot(Math.max(ox,n-1-ox),Math.max(oy,n-1-oy))),step=.75;
+    const angles=Math.min(8192,Math.max(256,Math.ceil(2*Math.PI*rmax/64)*64)),nr=Math.ceil(rmax/step)+1;
+    const horizon=new Float32Array(angles*nr);horizon.fill(-Infinity);
+    for(let a=0;a<angles;a++){
+      const t=a*2*Math.PI/angles,cx=Math.cos(t),cy=Math.sin(t),base=a*nr;let peak=-Infinity;
+      let end=rmax;
+      if(cx>1e-10)end=Math.min(end,(n-1-ox)/cx);else if(cx< -1e-10)end=Math.min(end,-ox/cx);
+      if(cy>1e-10)end=Math.min(end,(n-1-oy)/cy);else if(cy< -1e-10)end=Math.min(end,-oy/cy);
+      const steps=Math.min(nr-1,Math.floor(end/step));
+      for(let j=1;j<=steps;j++){
+        const r=j*step,h=sample(ox+cx*r,oy+cy*r);if(!finite(h))peak=Infinity;
+        else peak=Math.max(peak,(h-zo-curv*r*r)/r);horizon[base+j]=peak;
+      }
+      // A target within a rounded boundary wedge may lie beyond the nearest ray.
+      // Mark such samples unknown rather than inventing unoccluded terrain.
+      horizon.fill(Infinity,base+steps+1,base+nr);
+    }
+    for(let y=0;y<n;y++)for(let x=0;x<n;x++){
+      const dx=x-ox,dy=y-oy,r=Math.hypot(dx,dy),i=y*n+x;if(r>rad)continue;
+      if(!finite(z[i])){mask[i]=3;continue;}if(r<1e-9){mask[i]=1;continue;}
+      let a=Math.round(Math.atan2(dy,dx)*angles/(2*Math.PI));a=(a+angles)%angles;
+      // Exclusive prefix: never include the candidate itself as an occluder.
+      const j=Math.min(nr-1,Math.max(0,Math.ceil(r/step-1e-7)-1)),h=horizon[a*nr+j];
+      mask[i]=h===Infinity?3:(z[i]-zo-curv*r*r+p.target)/r>=h-EPS/r?1:2;
+    }
+    return summary(mask,p,start,{engine:'polar',angles,step,polarMiB:horizon.byteLength/1048576});
+  }
+  function rose(p,bins=Math.max(72,Math.min(8192,p.farRays||720)),step=1){
+    const start=performance.now(),{ox,oy,zo,curv,rad}=common(p),distances=new Float32Array(bins),horizons=new Float32Array(bins),coverage=new Float32Array(bins);
+    horizons.fill(-Infinity);
+    if(!finite(zo))return {rose:distances,horizon:horizons,coverage,far:-1,distance:0,roseAngles:bins,roseStep:step,roseMs:performance.now()-start};
+    const seedH=p.seedHorizon,seedUntil=p.seedUntil,seedRose=p.seedRose;
+    let bestR=-1,far=-1,unknownRays=0;
+    for(let a=0;a<bins;a++){
+      const t=a*2*Math.PI/bins,cx=Math.cos(t),cy=Math.sin(t),seed=seedH&&seedH.length===bins&&Number.isFinite(seedH[a])?seedH[a]:-Infinity,skipM=seedUntil&&seedUntil.length===bins&&Number.isFinite(seedUntil[a])?Math.max(0,seedUntil[a]):0;
+      let peak=seed,last=seedRose&&seedRose.length===bins&&Number.isFinite(seedRose[a])?Math.max(0,seedRose[a]/cell):0,lastIndex=-1,unknown=false;
+      let end=rad;
+      if(cx>1e-10)end=Math.min(end,(n-1-ox)/cx);else if(cx< -1e-10)end=Math.min(end,-ox/cx);
+      if(cy>1e-10)end=Math.min(end,(n-1-oy)/cy);else if(cy< -1e-10)end=Math.min(end,-oy/cy);
+      const steps=Math.max(0,Math.floor(end/step)),skip=skipM/cell;
+      for(let j=1;j<=steps;j++){
+        const r=j*step;if(r<=skip)continue;
+        const x=ox+cx*r,y=oy+cy*r,ix=Math.max(0,Math.min(n-1,Math.round(x))),iy=Math.max(0,Math.min(n-1,Math.round(y))),h=z[iy*n+ix];
+        if(!finite(h)){peak=Infinity;unknown=true;continue;}
+        if(peak===Infinity)continue;
+        const terrain=(h-zo-curv*r*r)/r,target=(h-zo-curv*r*r+p.target)/r;
+        if(target>=peak-EPS/r){last=r;lastIndex=iy*n+ix;}
+        if(terrain>peak)peak=terrain;
+      }
+      distances[a]=last*cell;horizons[a]=peak;coverage[a]=Math.max(skipM,steps*step*cell);if(unknown)unknownRays++;
+      if(last>bestR){bestR=last;if(lastIndex>=0)far=lastIndex;else{const rr=last,fx=Math.max(0,Math.min(n-1,Math.round(ox+cx*rr))),fy=Math.max(0,Math.min(n-1,Math.round(oy+cy*rr)));far=fy*n+fx;}}
+    }
+    return {rose:distances,horizon:horizons,coverage,far,distance:bestR<0?0:bestR*cell,roseAngles:bins,roseStep:step,roseUnknownRays:unknownRays,roseMs:performance.now()-start};
+  }
+  function hybrid(p){
+    const start=performance.now(),nearRange=Math.min(p.range,Math.max(cell,Number.isFinite(p.nearRange)?p.nearRange:80000));
+    const near=fast({...p,range:nearRange}),coarseBins=Math.min(180,p.farRays||720),coarseStep=Math.max(2,p.roseStep||1);
+    const rr=rose(p,coarseBins,coarseStep),useFar=rr.distance>near.distance;
+    return {...near,engine:'hybrid',nearFar:near.far,nearDistance:near.distance,far:useFar?rr.far:near.far,distance:Math.max(near.distance,rr.distance),rose:rr.rose,roseAngles:rr.roseAngles,roseStep:rr.roseStep,roseUnknownRays:rr.roseUnknownRays,roseCoarse:true,nearRange,nearVisible:near.visible,nearInside:near.inside,ms:performance.now()-start};
+  }
+  /* Exact LOS for the chosen piecewise-bilinear grid + quadratic curvature.
+     On each crossed cell patch, terrain-minus-sightline is quadratic in t.
+     Endpoints plus its interior maximum suffice; no fixed-distance sampling. */
+  function los(p,tx,ty){
+    const {ox,oy,zo,curv}=common(p),dx=tx-ox,dy=ty-oy,D2=dx*dx+dy*dy;
+    if(!finite(zo)||!finite(z[ty*n+tx]))return 3;if(D2===0)return 1;
+    const drop=curv*D2,zt=z[ty*n+tx]+p.target-drop,line=zt-zo;
+    const sx=Math.sign(dx),sy=Math.sign(dy),incX=dx?1/Math.abs(dx):Infinity,incY=dy?1/Math.abs(dy):Infinity;
+    // Observer is a grid node; first *positive* crossing lies one grid step away.
+    let nextX=incX,nextY=incY,t=0,unknown=false;
+    for(let iter=0;iter<2*n+8&&t<1-1e-12;iter++){
+      const end=Math.min(1,nextX,nextY),span=end-t,mid=(t+end)*.5;
+      const ix=Math.max(0,Math.min(n-2,Math.floor(ox+dx*mid))),iy=Math.max(0,Math.min(n-2,Math.floor(oy+dy*mid))),i=iy*n+ix;
+      const h00=z[i],h10=z[i+1],h01=z[i+n],h11=z[i+n+1];
+      if(!finite(h00)||!finite(h10)||!finite(h01)||!finite(h11))unknown=true;
+      else{
+        const u=ox+dx*t-ix,v=oy+dy*t-iy,b=h10-h00,c=h01-h00,d=h00-h10-h01+h11;
+        const q0=h00+b*u+c*v+d*u*v-drop*t*t-zo-line*t;
+        const q1=b*dx+c*dy+d*(u*dy+v*dx)-2*drop*t-line;
+        const q2=d*dx*dy-drop;
+        let maximum=Math.max(q0,q0+q1*span+q2*span*span);
+        if(q2<0){const s=-q1/(2*q2);if(s>0&&s<span)maximum=Math.max(maximum,q0+q1*s+q2*s*s);}
+        if(maximum>EPS)return 2;
+      }
+      t=end;if(nextX<=end+1e-12)nextX+=incX;if(nextY<=end+1e-12)nextY+=incY;
+    }
+    return unknown?3:1;
+  }
+  // Max-priority quadtree search: first visible leaf popped is the farthest
+  // remaining grid node. Invalid nodes are never interpreted as zero height.
+  async function farthest(p,seed,budget,cancelled,onProgress){
+    const start=performance.now(),{ox,oy,rad2}=common(p);let best=-1,best2=-1,unknownMax=-1,tests=0,nodes=0;
+    if(seed>=0&&los(p,seed%n,Math.floor(seed/n))===1){best=seed;best2=(seed%n-ox)**2+(Math.floor(seed/n)-oy)**2;}
+    const heap=[];
+    function push(v){let i=heap.length;heap.push(v);while(i>0){const parent=(i-1)>>1;if(heap[parent].bound>=v.bound)break;heap[i]=heap[parent];i=parent;}heap[i]=v;}
+    function pop(){const top=heap[0],last=heap.pop();if(heap.length){let i=0;while(true){let c=i*2+1;if(c>=heap.length)break;if(c+1<heap.length&&heap[c+1].bound>heap[c].bound)c++;if(heap[c].bound<=last.bound)break;heap[i]=heap[c];i=c;}heap[i]=last;}return top;}
+    function add(x0,y0,x1,y1){
+      const minx=ox<x0?x0-ox:ox>x1?ox-x1:0,miny=oy<y0?y0-oy:oy>y1?oy-y1:0;
+      if(minx*minx+miny*miny>rad2+1e-9)return;
+      const mx=Math.max(Math.abs(x0-ox),Math.abs(x1-ox)),my=Math.max(Math.abs(y0-oy),Math.abs(y1-oy)),bound=Math.min(rad2,mx*mx+my*my);
+      if(bound>best2+1e-9)push({x0,y0,x1,y1,bound});
+    }
+    add(0,0,n-1,n-1);let slice=performance.now(),complete=false;
+    while(heap.length){
+      if(cancelled())return {cancelled:true};
+      if(heap[0].bound<=best2+1e-9){complete=true;break;}
+      if(performance.now()-start>budget)break;
+      const v=pop();nodes++;
+      if(v.x0===v.x1&&v.y0===v.y1){
+        const x=v.x0,y=v.y0,d2=(x-ox)**2+(y-oy)**2;if(d2>rad2+1e-9||d2<=best2)continue;
+        tests++;const status=los(p,x,y);
+        if(status===1){best=x+y*n;best2=d2;}else if(status===3)unknownMax=Math.max(unknownMax,d2);
+      }else{
+        const mx=(v.x0+v.x1)>>1,my=(v.y0+v.y1)>>1;
+        add(v.x0,v.y0,mx,my);
+        if(mx<v.x1)add(mx+1,v.y0,v.x1,my);
+        if(my<v.y1)add(v.x0,my+1,mx,v.y1);
+        if(mx<v.x1&&my<v.y1)add(mx+1,my+1,v.x1,v.y1);
+      }
+      if((nodes&255)===0&&performance.now()-slice>15){onProgress?.({tests,nodes,best,ms:performance.now()-start});await new Promise(r=>setTimeout(r,0));slice=performance.now();}
+    }
+    if(!heap.length)complete=true;
+    return {far:best,distance:Math.sqrt(Math.max(0,best2))*cell,certified:complete&&unknownMax<=best2,complete,unknownCouldBeat:unknownMax>best2,tests,nodes,ms:performance.now()-start};
+  }
+  function selftests(){
+    const saved=[z,n,cell],results=[];
+    function test(name,ok,detail=''){results.push({name,ok,detail});}
+    let a=new Float32Array(65*65),p={ox:32,oy:32,eye:2,target:0,range:100000,curvature:0};init(a,65,30);
+    let q=fast(p);test('Flat plane: all nodes visible',q.visible===65*65,`${q.visible}/4225`);
+    test('Flat plane: independent LOS',los(p,64,64)===1);
+    for(let y=0;y<65;y++)a[y*65+40]=100;init(a,65,30);
+    test('Wall hides distant point',los(p,55,32)===2&&fast(p).mask[32*65+55]===2);
+    test('Wall ridge itself is visible',los(p,40,32)===1);
+    test('Tall target above wall is visible',los({...p,target:400},55,32)===1);
+    a=new Float32Array(65*65);init(a,65,500);p={...p,curvature:1};q=fast(p);
+    const horizon=Math.sqrt(2*6371008.8*p.eye);test('Curvature: geometric horizon boundary',Math.abs(q.distance-horizon)<750,`${q.distance.toFixed(0)} m / analytic ${horizon.toFixed(0)} m`);
+    test('Curvature: near visible, far hidden',los(p,35,32)===1&&los(p,64,32)===2);
+    init(new Float32Array([0,100,100,0]),2,30);p={ox:0,oy:0,eye:1,target:1,range:10000,curvature:0};
+    test('Bilinear patch: hidden diagonal midpoint',los(p,1,1)===2);
+    a=new Float32Array(9*9);a[4*9+4]=NaN;init(a,9,30);p={ox:1,oy:4,eye:2,target:0,range:10000,curvature:0};
+    test('NoData on ray: unknown, not zero elevation',los(p,7,4)===3);
+    if(saved[0])init(...saved);return results;
+  }
+  return {init,fast,polar,rose,hybrid,los,farthest,selftests,sample};
+}
+function workerMain(factory){
+  const core=factory();let epoch=0;
+  onmessage=async({data:m})=>{
+    try{
+      if(m.type==='init'){epoch++;core.init(new Float32Array(m.dem),m.n,m.cell);postMessage({type:'ready',id:m.id});return;}
+      if(m.type==='compute'){epoch++;const fn=m.params.engine==='polar'?'polar':m.params.engine==='hybrid'?'hybrid':'fast',r=core[fn](m.params),transfer=[r.mask.buffer];if(r.rose)transfer.push(r.rose.buffer);postMessage({type:'result',id:m.id,params:m.params,...r},transfer);return;}
+      if(m.type==='rose'){const r=core.rose(m.params,m.params.farRays||720,m.params.roseStep||1);postMessage({type:'rose',id:m.id,params:m.params,...r},[r.rose.buffer,r.horizon.buffer,r.coverage.buffer]);return;}
+      if(m.type==='detailCompute'){epoch++;const dense=core.fast(m.params),rr=core.rose(m.params,m.params.farRays||720,m.params.roseStep||1);postMessage({type:'detailResult',id:m.id,params:m.params,mask:dense.mask,visible:dense.visible,inside:dense.inside,unknown:dense.unknown,denseMs:dense.ms,...rr},[dense.mask.buffer,rr.rose.buffer,rr.horizon.buffer,rr.coverage.buffer]);return;}
+      if(m.type==='cancel'){epoch++;return;}
+      if(m.type==='verify'){const e=++epoch;const r=await core.farthest(m.params,m.seed,3000,()=>epoch!==e,p=>postMessage({type:'progress',id:m.id,...p}));if(!r.cancelled)postMessage({type:'verified',id:m.id,params:m.params,...r});return;}
+      if(m.type==='test')postMessage({type:'tests',id:m.id,results:core.selftests()});
+    }catch(e){postMessage({type:'error',id:m.id,message:e.message,stack:e.stack});}
+  };
+}
+const $=id=>document.getElementById(id),R=6371008.8,DEG=Math.PI/180;
+const PRESETS={
+  hanoi:{lat:21.0278,lon:105.8342,extent:800,range:650,farRays:16384,title:'Hanoi'},
+  london:{lat:51.5074,lon:-0.1278,extent:1800,range:900,farRays:16384,title:'London'},
+  dankova:{lat:41.0585504,lon:77.6831040,extent:1200,range:650,eye:1.65,farRays:16384,gpuBudget:8.3,title:'All The Views #1 · Pik Dankova / Kunlun'},
+  colombia:{lat:6.75514,lon:-75.7222,extent:1200,range:650,eye:1.65,farRays:16384,gpuBudget:8.3,title:'All The Views #2 · Cerro Lagos del Congo / Pico Cristóbal Colón'},
+  elbrus:{lat:43.3499,lon:42.4453,extent:1200,range:650,eye:1.65,farRays:16384,gpuBudget:8.3,title:'All The Views #3 · Mount Elbrus / Pontic Mountains'},
+  everest:{lat:27.9881,lon:86.9250,extent:1100,range:550,eye:1.65,farRays:16384,gpuBudget:8.3,title:'Everest → Parasnath · 453.3 km'}
+};
+const state={dem:null,demReadbackBuffer:null,n:512,cell:1,bbox:null,projection:null,baseZoom:null,synthetic:true,title:'Synthetic terrain',customTitle:null,displayEndpoint:null,observer:{x:256,y:256},observerNative:null,targetNative:null,refinedEndpoint:null,refineGeneration:0,lastRayReadback:null,lastRayAngles:0,lastRayGeneration:0,lastRayParams:null,last:null,rose:null,roseMeta:null,verified:null,locked:false,version:0,ready:false,busy:false,desired:null,seq:0,loading:false,verifyId:null,view:null,camera:{cx:255.5,cy:255.5,zoom:1},interaction:{drag:false,suppressClick:false,lastPan:0},detail:null,detailLast:null,detailSeed:null,detailReady:false,detailVersion:0,detailComputeId:0,cpuWorkerPending:false};
+const map=$('map'),ctx=map.getContext('2d'),gpuMaskCanvas=$('gpuMask'),profile=$('profile'),pctx=profile.getContext('2d');
+const base=document.createElement('canvas'),bctx=base.getContext('2d'),shadeBase=document.createElement('canvas'),sbctx=shadeBase.getContext('2d'),overlay=document.createElement('canvas'),octx=overlay.getContext('2d'),detailBase=document.createElement('canvas'),dbctx=detailBase.getContext('2d'),detailShade=document.createElement('canvas'),dsctx=detailShade.getContext('2d'),detailOverlay=document.createElement('canvas'),doctx=detailOverlay.getContext('2d'),basemapCanvas=document.createElement('canvas'),bmctx=basemapCanvas.getContext('2d');
+let loadController=null,loadVersion=0,frameRequested=false,verifyAfter=false,lastPaint=0,overlayKey='',roseTimer=null,detailTimer=null,detailComputeTimer=null,detailController=null,detailLoadToken=0,lastDetailViewSig='',basemapTimer=null,lastBasemapRequestSig='',lastBasemapLoadedSig='',pointDetailTimer=null,pointDetailController=null,pointDetailToken=0,refineTimer=null,refineController=null;
+let roseInFlight=false,rosePending=null,roseFlightId=null;
+const MAP_TILE=256,mapTileCache=new Map(),mapTileInflight=new Map();
+const MAP_PROVIDERS={osm:{label:'OSM',maxZ:19,attribution:'© OpenStreetMap contributors',attributionUrl:'https://www.openstreetmap.org/copyright',url:(z,x,y)=>`https://tile.openstreetmap.org/${z}/${x}/${y}.png`},sat:{label:'Esri World Imagery',maxZ:19,attribution:'Esri World Imagery',attributionUrl:'https://www.esri.com/en-us/legal/terms/full-master-agreement',url:(z,x,y)=>`https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`}};
+function streamingResampleWorkerMain(){
+  const R=6371008.8,DEG=Math.PI/180;let S=null;
+  function aeqdInverse(x,y,lat0d,lon0d){const lat0=lat0d*DEG,lon0=lon0d*DEG,rho=Math.hypot(x,y);if(rho<1e-9)return {lat:lat0d,lon:lon0d};const c=rho/R,sc=Math.sin(c),cc=Math.cos(c),lat=Math.asin(cc*Math.sin(lat0)+y*sc*Math.cos(lat0)/rho),lon=lon0+Math.atan2(x*sc,rho*Math.cos(lat0)*cc-y*Math.sin(lat0)*sc);return {lat:lat/DEG,lon:((lon/DEG+540)%360)-180};}
+  function worldX(lon,z,t){return (lon+180)/360*(t*2**z)-.5;}
+  function worldY(lat,z,t){const p=Math.max(-85.05112878,Math.min(85.05112878,lat))*DEG;return (1-Math.asinh(Math.tan(p))/Math.PI)/2*(t*2**z)-.5;}
+  function init(m){
+    const n=m.n,stride=m.stride||64,bw=Math.ceil((n-1)/stride),bh=Math.ceil((n-1)/stride),mw=bw+1,mh=bh+1,out=new Float32Array(n*n);out.fill(NaN);
+    const mx=new Float64Array(mw*mh),my=new Float64Array(mw*mh),half=m.extent*500;
+    const t0=performance.now();
+    for(let by=0;by<mh;by++){const gy=Math.min(n-1,by*stride),north=(.5-gy/(n-1))*2*half;for(let bx=0;bx<mw;bx++){const gx=Math.min(n-1,bx*stride),east=(gx/(n-1)-.5)*2*half,g=aeqdInverse(east,north,m.lat,m.lon),i=by*mw+bx;mx[i]=worldX(g.lon,m.z,m.tileSize);my[i]=worldY(g.lat,m.z,m.tileSize);}}
+    const tw=m.tx1-m.tx0+1,th=m.ty1-m.ty0+1,tileCount=tw*th,blockCount=bw*bh,deps=Array.from({length:tileCount},()=>[]),pending=new Uint8Array(blockCount),processed=new Uint8Array(blockCount),loaded=new Uint8Array(tileCount),fastTile=new Int32Array(blockCount),tiles=new Map(),ready=[];fastTile.fill(-1);
+    function tileIndex(tx,ty){if(tx<m.tx0||tx>m.tx1||ty<m.ty0||ty>m.ty1)return -1;return (ty-m.ty0)*tw+(tx-m.tx0);}
+    for(let by=0;by<bh;by++)for(let bx=0;bx<bw;bx++){
+      const b=by*bw+bx,i00=by*mw+bx,i10=i00+1,i01=i00+mw,i11=i01+1,minx=Math.min(mx[i00],mx[i10],mx[i01],mx[i11])-1,maxx=Math.max(mx[i00],mx[i10],mx[i01],mx[i11])+1,miny=Math.min(my[i00],my[i10],my[i01],my[i11])-1,maxy=Math.max(my[i00],my[i10],my[i01],my[i11])+1,xa=Math.floor(minx/m.tileSize),xb=Math.floor(maxx/m.tileSize),ya=Math.floor(miny/m.tileSize),yb=Math.floor(maxy/m.tileSize);let count=0;
+      for(let ty=ya;ty<=yb;ty++)for(let tx=xa;tx<=xb;tx++){const ti=tileIndex(tx,ty);if(ti>=0){deps[ti].push(b);count++;}}
+      if(xa===xb&&ya===yb){const ti=tileIndex(xa,ya);if(ti>=0)fastTile[b]=ti;}pending[b]=count;if(!count)ready.push(b);
+    }
+    S={...m,n,stride,bw,bh,mw,mh,out,mx,my,tw,th,tileCount,blockCount,deps,pending,processed,loaded,fastTile,tiles,ready,received:0,blocksDone:0,valid:0,min:Infinity,max:-Infinity,pumping:false,done:false,lastProgress:0,tileIndex};
+    postMessage({type:'prepared',blocks:blockCount,meshNodes:mw*mh,ms:performance.now()-t0});schedulePump();
+  }
+  function receive(m){const s=S;if(!s||s.done)return;const ti=s.tileIndex(m.tx,m.ty);if(ti<0||s.loaded[ti])return;s.loaded[ti]=1;s.received++;
+    if(m.buffer)s.tiles.set(ti,{z:m.srcZ,x:m.srcX,y:m.srcY,a:new Float32Array(m.buffer)});else s.tiles.set(ti,null);
+    for(const b of s.deps[ti])if(!s.processed[b]&&s.pending[b]>0){s.pending[b]--;if(s.pending[b]===0)s.ready.push(b);}schedulePump();
+  }
+  function sampleResolved(r,wx,wy,s){if(!r)return NaN;if(r.z===s.z){const ix=Math.floor(wx),iy=Math.floor(wy),u=wx-ix,v=wy-iy;function px(gx,gy){const tx=Math.floor(gx/s.tileSize),ty=Math.floor(gy/s.tileSize),ti=s.tileIndex(tx,ty),rr=ti>=0?s.tiles.get(ti):null;if(!rr||rr.z!==s.z)return NaN;const lx=((gx%s.tileSize)+s.tileSize)%s.tileSize,ly=((gy%s.tileSize)+s.tileSize)%s.tileSize;return rr.a[ly*s.tileSize+lx];}const h00=px(ix,iy),h10=px(ix+1,iy),h01=px(ix,iy+1),h11=px(ix+1,iy+1);if(!Number.isFinite(h00)||!Number.isFinite(h10)||!Number.isFinite(h01)||!Number.isFinite(h11))return NaN;return h00+(h10-h00)*u+(h01-h00)*v+(h00-h10-h01+h11)*u*v;}const scale=2**(s.z-r.z),rx=(wx+.5)/scale-.5,ry=(wy+.5)/scale-.5,px=rx-r.x*s.tileSize,py=ry-r.y*s.tileSize,ix=Math.max(0,Math.min(s.tileSize-2,Math.floor(px))),iy=Math.max(0,Math.min(s.tileSize-2,Math.floor(py))),u=Math.max(0,Math.min(1,px-ix)),v=Math.max(0,Math.min(1,py-iy)),i=iy*s.tileSize+ix,a=r.a,h00=a[i],h10=a[i+1],h01=a[i+s.tileSize],h11=a[i+s.tileSize+1];if(!Number.isFinite(h00)||!Number.isFinite(h10)||!Number.isFinite(h01)||!Number.isFinite(h11))return NaN;return h00+(h10-h00)*u+(h01-h00)*v+(h00-h10-h01+h11)*u*v;}
+  function sampleOne(r,wx,wy,s){if(!r)return NaN;const scale=2**(s.z-r.z),rx=(wx+.5)/scale-.5,ry=(wy+.5)/scale-.5,px=rx-r.x*s.tileSize,py=ry-r.y*s.tileSize,ix=Math.max(0,Math.min(s.tileSize-2,Math.floor(px))),iy=Math.max(0,Math.min(s.tileSize-2,Math.floor(py))),u=Math.max(0,Math.min(1,px-ix)),v=Math.max(0,Math.min(1,py-iy)),i=iy*s.tileSize+ix,a=r.a,h00=a[i],h10=a[i+1],h01=a[i+s.tileSize],h11=a[i+s.tileSize+1];if(!Number.isFinite(h00)||!Number.isFinite(h10)||!Number.isFinite(h01)||!Number.isFinite(h11))return NaN;return h00+(h10-h00)*u+(h01-h00)*v+(h00-h10-h01+h11)*u*v;}
+  function processBlock(b){const s=S;if(s.processed[b])return;s.processed[b]=1;const bx=b%s.bw,by=Math.floor(b/s.bw),x0=bx*s.stride,x1=Math.min(s.n-1,x0+s.stride),y0=by*s.stride,y1=Math.min(s.n-1,y0+s.stride),i00=by*s.mw+bx,i10=i00+1,i01=i00+s.mw,i11=i01+1,wx00=s.mx[i00],wx10=s.mx[i10],wx01=s.mx[i01],wx11=s.mx[i11],wy00=s.my[i00],wy10=s.my[i10],wy01=s.my[i01],wy11=s.my[i11],dx=Math.max(1,x1-x0),dy=Math.max(1,y1-y0),fti=s.fastTile[b],fast=fti>=0?s.tiles.get(fti):null;
+    for(let y=y0;y<=y1;y++){const v=(y-y0)/dy,wxL=wx00+(wx01-wx00)*v,wxR=wx10+(wx11-wx10)*v,wyL=wy00+(wy01-wy00)*v,wyR=wy10+(wy11-wy10)*v,dwx=(wxR-wxL)/dx,dwy=(wyR-wyL)/dx;let wx=wxL,wy=wyL;for(let x=x0;x<=x1;x++,wx+=dwx,wy+=dwy){let h;if(fast)h=sampleOne(fast,wx,wy,s);else{const tx=Math.floor(wx/s.tileSize),ty=Math.floor(wy/s.tileSize),ti=s.tileIndex(tx,ty);h=ti>=0?sampleResolved(s.tiles.get(ti),wx,wy,s):NaN;}const oi=y*s.n+x;if(Number.isFinite(h)&&!Number.isFinite(s.out[oi])){s.out[oi]=h;s.valid++;if(h<s.min)s.min=h;if(h>s.max)s.max=h;}}}
+    s.blocksDone++;
+  }
+  function schedulePump(){const s=S;if(!s||s.pumping||s.done)return;s.pumping=true;setTimeout(pump,0);}
+  function pump(){const s=S;if(!s||s.done)return;s.pumping=false;const start=performance.now();while(s.ready.length){const b=s.ready.pop();processBlock(b);if(performance.now()-start>10)break;}
+    const now=performance.now();if(now-s.lastProgress>80||s.blocksDone===s.blockCount){s.lastProgress=now;postMessage({type:'progress',blocksDone:s.blocksDone,blockCount:s.blockCount,received:s.received,tileCount:s.tileCount});}
+    if(s.received===s.tileCount&&s.blocksDone===s.blockCount){s.done=true;postMessage({type:'done',buffer:s.out.buffer,valid:s.valid,min:s.min,max:s.max},[s.out.buffer]);return;}if(s.ready.length)schedulePump();
+  }
+  onmessage=({data:m})=>{try{if(m.type==='init')init(m);else if(m.type==='tile')receive(m);}catch(e){postMessage({type:'error',message:e.message,stack:e.stack});}};
+}
+const resampleWorkerURL=URL.createObjectURL(new Blob([`(${streamingResampleWorkerMain.toString()})();`],{type:'text/javascript'}));
+const workerUrl=URL.createObjectURL(new Blob([`(${workerMain.toString()})(${makeEngine.toString()});`],{type:'text/javascript'}));
+const worker=new Worker(workerUrl),detailWorker=new Worker(workerUrl);URL.revokeObjectURL(workerUrl);
+const validationCore=makeEngine();
+const busySent=new Map();
+function ensureCPUWorkerInitialized(){
+  if(state.ready||state.cpuWorkerPending||!state.dem)return state.ready;
+  state.cpuWorkerPending=true;const copy=state.dem.slice();worker.postMessage({type:'init',id:state.version,dem:copy.buffer,n:state.n,cell:state.cell},[copy.buffer]);return false;
+}
+function status(text,error=false){$('loadStatus').textContent=text;$('loadStatus').classList.toggle('error',error);}
+function tileProgress(label,done=0,total=0){const el=$('tileProgress');if(!label){el.textContent='';return;}const pct=total?Math.max(0,Math.min(100,done/total*100)):0;el.innerHTML=`<div>${label}${total?` · ${done}/${total} · ${pct.toFixed(0)}%`:''}</div><div class="bar"><i style="width:${pct}%"></i></div>`;}
+const LAST_LOCATION_KEY='viewshed:last-location:v1',GEOCODE_CACHE_KEY='viewshed:geocode-cache:v1',SETTINGS_KEY='viewshed:settings:v1';
+const SETTINGS_IDS=['preset','lat','lon','extent','resolution','detailMode','baseLayer','shadeStrength','roseOnMap','eye','target','range','earth','engine','nearRange','farRays','gpuQuality','gpuBudget','detailLOS','opacity','hidden','contours'];
+let settingsSaveTimer=null,lastGeocodeAt=0;
+function snapshotSettings(){const out={};for(const id of SETTINGS_IDS){const el=$(id);if(!el)continue;out[id]=el.type==='checkbox'?!!el.checked:el.value;}return out;}
+function saveSettingsNow(){try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(snapshotSettings()));}catch{}}
+function scheduleSaveSettings(delay=120){if(settingsSaveTimer)clearTimeout(settingsSaveTimer);settingsSaveTimer=setTimeout(()=>{settingsSaveTimer=null;saveSettingsNow();},delay);}
+function restoreSettings(){try{const raw=localStorage.getItem(SETTINGS_KEY);if(!raw)return false;const o=JSON.parse(raw);if(!o||typeof o!=='object')return false;for(const id of SETTINGS_IDS){if(!(id in o))continue;const el=$(id);if(!el)continue;const v=o[id];if(el.type==='checkbox'){el.checked=!!v;continue;}if(el.tagName==='SELECT'){const sv=String(v);if([...el.options].some(opt=>opt.value===sv))el.value=sv;continue;}el.value=String(v);}return true;}catch{return false;}}
+function readJSONStorage(key,fallback=null){try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback;}catch{return fallback;}}
+function writeJSONStorage(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
+function setPlaceSearchStatus(s){const el=$('placeSearchStatus');el.textContent=s;el.title=s;}
+function applyLocationValues(lat,lon,{title=null,preset='custom',extent=null,range=null,eye=null,farRays=null,gpuBudget=null}={}){
+  if(!Number.isFinite(lat)||!Number.isFinite(lon))return;
+  $('lat').value=Number(lat).toFixed(6);$('lon').value=Number(lon).toFixed(6);$('preset').value=preset;state.customTitle=title;
+  if(Number.isFinite(extent))$('extent').value=extent;if(Number.isFinite(range)){$('range').value=range;$('rangeLabel').textContent=range+' km';}
+  if(Number.isFinite(eye))$('eye').value=eye;if(Number.isFinite(farRays))$('farRays').value=String(farRays);if(Number.isFinite(gpuBudget))$('gpuBudget').value=String(gpuBudget);scheduleSaveSettings();
+}
+function applyPreset(key,{autoLoad=false}={}){
+  const p=PRESETS[key];if(!p)return false;applyLocationValues(p.lat,p.lon,{title:p.title,preset:key,extent:p.extent,range:p.range,eye:p.eye,farRays:p.farRays,gpuBudget:p.gpuBudget});if(autoLoad)loadDEM();return true;
+}
+async function useCurrentLocation({autoLoad=false}={}){
+  setPlaceSearchStatus('Requesting browser location…');
+  const cached=readJSONStorage(LAST_LOCATION_KEY,null);
+  if(!navigator.geolocation){if(cached){applyLocationValues(cached.lat,cached.lon,{title:'Current location · cached',preset:'current',extent:cached.extent||800});setPlaceSearchStatus('Geolocation unavailable; using cached location.');if(autoLoad)loadDEM();return true;}setPlaceSearchStatus('Geolocation is not available in this browser.');return false;}
+  return await new Promise(resolve=>navigator.geolocation.getCurrentPosition(pos=>{
+    const lat=pos.coords.latitude,lon=pos.coords.longitude,rec={lat,lon,accuracy:pos.coords.accuracy,ts:Date.now(),extent:+$('extent').value||800};writeJSONStorage(LAST_LOCATION_KEY,rec);applyLocationValues(lat,lon,{title:'Current location',preset:'current'});setPlaceSearchStatus(`Current location · ±${Math.round(pos.coords.accuracy||0)} m · saved locally`);if(autoLoad)loadDEM();resolve(true);
+  },err=>{if(cached){applyLocationValues(cached.lat,cached.lon,{title:'Current location · cached',preset:'current',extent:cached.extent||800});setPlaceSearchStatus(`Location request failed (${err.message}); using cached location.`);if(autoLoad)loadDEM();resolve(true);}else{setPlaceSearchStatus(`Location request failed: ${err.message}`);resolve(false);}},{enableHighAccuracy:false,timeout:10000,maximumAge:60000}));
+}
+function geocodeCache(){return readJSONStorage(GEOCODE_CACHE_KEY,{});}
+function putGeocodeCache(q,rows){const c=geocodeCache();c[q]={ts:Date.now(),rows};const keys=Object.keys(c).sort((a,b)=>(c[b]?.ts||0)-(c[a]?.ts||0)).slice(0,30),out={};for(const k of keys)out[k]=c[k];writeJSONStorage(GEOCODE_CACHE_KEY,out);}
+function showPlaceResults(rows){const sel=$('placeResults');sel.innerHTML='';if(!rows?.length){sel.style.display='none';setPlaceSearchStatus('No matching places found.');return;}rows.slice(0,6).forEach((r,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent=r.display_name;o.dataset.lat=r.lat;o.dataset.lon=r.lon;sel.appendChild(o);});sel.style.display='block';const r=rows[0];applyLocationValues(+r.lat,+r.lon,{title:r.display_name,preset:'custom'});setPlaceSearchStatus(`Found ${rows.length} result${rows.length===1?'':'s'} · first result selected`);}
+async function searchPlace(){
+  const q=$('placeSearch').value.trim();if(q.length<2){setPlaceSearchStatus('Type at least 2 characters.');return;}
+  const key=q.toLowerCase(),cached=geocodeCache()[key];if(cached?.rows?.length){showPlaceResults(cached.rows);setPlaceSearchStatus(`Cached search · ${cached.rows.length} result${cached.rows.length===1?'':'s'}`);return;}
+  const wait=Math.max(0,1000-(Date.now()-lastGeocodeAt));if(wait)await new Promise(r=>setTimeout(r,wait));lastGeocodeAt=Date.now();setPlaceSearchStatus('Searching OpenStreetMap Nominatim…');
+  try{const u='https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&accept-language=en&q='+encodeURIComponent(q),res=await fetch(u,{headers:{'Accept':'application/json'}});if(!res.ok)throw Error('HTTP '+res.status);const rows=await res.json();putGeocodeCache(key,rows);showPlaceResults(rows);}catch(e){setPlaceSearchStatus('Place search failed: '+e.message);}
+}
+function updateResolutionCapability(){
+  const opt=$('res8192'),note=$('resolutionNote');if(!opt||!note)return;const need=8192*8192*4,maxBind=Number(gpuEngine.adapter?.limits?.maxStorageBufferBindingSize||0),maxBuf=Number(gpuEngine.adapter?.limits?.maxBufferSize||0),ok=!maxBind||(maxBind>=need&&(!maxBuf||maxBuf>=need));opt.disabled=!ok;if(maxBind){note.textContent=ok?`8k available · DEM buffer 256 MiB · GPU binding limit ${(maxBind/1048576).toFixed(0)} MiB`:`8k disabled · needs a 256 MiB storage binding; GPU limit ${(maxBind/1048576).toFixed(0)} MiB`;}
+}
+
+function nativeGroundForObserver(){const q=state.observerNative;if(!q||q.version!==state.version)return NaN;if(Math.hypot(q.ox-state.observer.x,q.oy-state.observer.y)>.35)return NaN;return q.height;}
+function params(){return {ox:state.observer.x,oy:state.observer.y,observerGround:nativeGroundForObserver(),eye:+$('eye').value,target:+$('target').value,range:+$('range').value*1000,curvature:+$('earth').value,engine:$('engine').value,nearRange:+$('nearRange').value*1000,farRays:+$('farRays').value,gpuBudget:+$('gpuBudget').value,roseStep:state.n>=2048?2:1,version:state.version};}
+function updateRangeCoverage(){const el=$('rangeCoverage');if(!state.dem||!state.n){el.textContent='';return;}const r=+$('range').value*1000,{x,y}=state.observer,c=state.cell,full=Math.max(0,Math.min(x,y,state.n-1-x,state.n-1-y)*c),corn=Math.max(Math.hypot(x,y),Math.hypot(state.n-1-x,y),Math.hypot(x,state.n-1-y),Math.hypot(state.n-1-x,state.n-1-y))*c;if(r<=full+1){el.textContent=`Full circle covered by DEM to ${(full/1000).toFixed(0)} km.`;el.style.color='';}else{el.textContent=`Warning: full DEM circle only to ${(full/1000).toFixed(0)} km; data ends at most around ${(corn/1000).toFixed(0)} km. Radius ${Math.round(r/1000)} km is clipped by map edges.`;el.style.color='var(--gold)';}}
+function validParams(p){return Number.isFinite(p.eye)&&p.eye>=.1&&p.eye<=5000&&Number.isFinite(p.target)&&p.target>=0&&p.target<=5000;}
+const gpuEngine={adapter:null,device:null,layout:null,rayPipeline:null,reduceLayout:null,reduceMaxPipeline:null,reduceAnglePipeline:null,demBuffer:null,demVersion:-1,resources:null,failed:false,failReason:'',generation:0,latest:null,retired:0,autoAngles:null,frameEma:null,lastAngleAdjust:0};
+const WGSL=`
+const TWO_PI:f32=6.283185307179586;
+const BIG:f32=1.0e30;
+const EPS:f32=1.0e-4;
+struct Params {
+  n:u32, nr:u32, angles:u32, pad:u32,
+  ox:f32, oy:f32, zo:f32, cell:f32,
+  rad:f32, curv:f32, targetHeight:f32, step:f32,
+};
+@group(0) @binding(0) var<storage,read> dem:array<f32>;
+@group(0) @binding(1) var<storage,read_write> horizon:array<f32>;
+@group(0) @binding(2) var<storage,read_write> rayFar:array<f32>;
+@group(0) @binding(3) var<uniform> p:Params;
+fn valid(h:f32)->bool{return h==h && abs(h)<BIG;}
+fn sample_dem(x:f32,y:f32)->f32{
+  if(x<0.0||y<0.0||x>f32(p.n-1u)||y>f32(p.n-1u)){return BIG;}
+  let ix=min(p.n-2u,u32(floor(x)));let iy=min(p.n-2u,u32(floor(y)));
+  let u=x-f32(ix);let v=y-f32(iy);let i=iy*p.n+ix;
+  let a=dem[i];let b=dem[i+1u];let c=dem[i+p.n];let d=dem[i+p.n+1u];
+  if(!valid(a)||!valid(b)||!valid(c)||!valid(d)){return BIG;}
+  return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;
+}
+@compute @workgroup_size(64)
+fn rays(@builtin(global_invocation_id) gid:vec3<u32>){
+  let a=gid.x;if(a>=p.angles){return;}let base=a*p.nr;horizon[base]=-BIG;
+  let theta=TWO_PI*f32(a)/f32(p.angles);let cx=cos(theta);let cy=sin(theta);
+  var peak=-BIG;var far=0.0;var dead=false;
+  for(var j:u32=1u;j<p.nr;j=j+1u){
+    let r=f32(j)*p.step;let x=p.ox+cx*r;let y=p.oy+cy*r;
+    if(dead||r>p.rad||x<0.0||y<0.0||x>f32(p.n-1u)||y>f32(p.n-1u)){dead=true;horizon[base+j]=BIG;continue;}
+    let h=sample_dem(x,y);if(!valid(h)){peak=BIG;horizon[base+j]=BIG;continue;}
+    if(peak>=BIG*0.5){horizon[base+j]=BIG;continue;}
+    let terrain=(h-p.zo-p.curv*r*r)/r;let sight=terrain+p.targetHeight/r;
+    if(sight>=peak-EPS/r){far=r*p.cell;}
+    peak=max(peak,terrain);horizon[base+j]=peak;
+  }
+  rayFar[a]=far;
+}`;
+const REDUCE_WGSL=`
+struct Params {
+  n:u32, nr:u32, angles:u32, pad:u32,
+  ox:f32, oy:f32, zo:f32, cell:f32,
+  rad:f32, curv:f32, targetHeight:f32, step:f32,
+};
+@group(0) @binding(0) var<storage,read> rayFar:array<f32>;
+@group(0) @binding(1) var<storage,read_write> summary:array<atomic<u32>>;
+@group(0) @binding(2) var<uniform> p:Params;
+@compute @workgroup_size(64)
+fn reduceMax(@builtin(global_invocation_id) gid:vec3<u32>){
+  let i=gid.x;if(i>=p.angles){return;}let v=rayFar[i];if(v>0.0){atomicMax(&summary[0],bitcast<u32>(v));}
+}
+@compute @workgroup_size(64)
+fn reduceAngle(@builtin(global_invocation_id) gid:vec3<u32>){
+  let i=gid.x;if(i>=p.angles){return;}let bits=bitcast<u32>(rayFar[i]);if(bits==atomicLoad(&summary[0])){atomicMax(&summary[1],i);}
+}`;
+const MASK_WGSL=`
+const TWO_PI:f32=6.283185307179586;
+const BIG:f32=1.0e30;
+const EPS:f32=1.0e-4;
+struct Params {
+  n:u32, nr:u32, angles:u32, pad:u32,
+  ox:f32, oy:f32, zo:f32, cell:f32,
+  rad:f32, curv:f32, targetHeight:f32, step:f32,
+};
+struct RParams { viewport:vec4<f32>, grid:vec4<f32>, extra:vec4<f32>, quality:vec4<f32> };
+@group(0) @binding(0) var<storage,read> dem:array<f32>;
+@group(0) @binding(1) var<storage,read> horizon:array<f32>;
+@group(0) @binding(2) var<storage,read> rayFar:array<f32>;
+@group(0) @binding(3) var<uniform> p:Params;
+@group(0) @binding(4) var<uniform> rp:RParams;
+@group(0) @binding(5) var<storage,read> summary:array<u32>;
+fn valid(h:f32)->bool{return h==h && abs(h)<BIG;}
+fn sample_dem(x:f32,y:f32)->f32{
+  if(x<0.0||y<0.0||x>f32(p.n-1u)||y>f32(p.n-1u)){return BIG;}
+  let ix=min(p.n-2u,u32(floor(x)));let iy=min(p.n-2u,u32(floor(y)));
+  let u=x-f32(ix);let v=y-f32(iy);let i=iy*p.n+ix;
+  let a=dem[i];let b=dem[i+1u];let c=dem[i+p.n];let d=dem[i+p.n+1u];
+  if(!valid(a)||!valid(b)||!valid(c)||!valid(d)){return BIG;}
+  return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;
+}
+fn hidden_color()->vec4<f32>{if(rp.quality.y>0.5){let a=0.18;return vec4<f32>(0.08*a,0.06*a,0.16*a,a);}return vec4<f32>(0.0);}
+struct VOut { @builtin(position) pos:vec4<f32> };
+@vertex fn vs(@builtin(vertex_index) i:u32)->VOut{
+  var q=array<vec2<f32>,3>(vec2<f32>(-1.0,-1.0),vec2<f32>(3.0,-1.0),vec2<f32>(-1.0,3.0));var o:VOut;o.pos=vec4<f32>(q[i],0.0,1.0);return o;
+}
+@fragment fn fs(@builtin(position) pos:vec4<f32>)->@location(0) vec4<f32>{
+  let x0=rp.viewport.x;let y0=rp.viewport.y;let size=rp.viewport.z;let n=rp.viewport.w;
+  if(pos.x<x0||pos.y<y0||pos.x>=x0+size||pos.y>=y0+size){discard;}
+  let gx=rp.grid.x+(pos.x-x0)/size*rp.grid.z;let gy=rp.grid.y+(pos.y-y0)/size*rp.grid.z;
+  if(gx<0.0||gy<0.0||gx>n-1.0||gy>n-1.0){discard;}
+  let dx=gx-p.ox;let dy=gy-p.oy;let r2=dx*dx+dy*dy;if(r2>p.rad*p.rad){discard;}
+  let r=sqrt(r2);let alpha=rp.grid.w;if(r<0.5){return vec4<f32>(0.20*alpha,0.96*alpha,0.78*alpha,alpha);}
+  let gridPerPixel=rp.grid.z/max(1.0,rp.viewport.z);
+  let longestM=bitcast<f32>(summary[0]);let longestA=summary[1];
+  if(longestM>0.0 && longestA<p.angles){
+    let lt=TWO_PI*f32(longestA)/f32(p.angles);let ld=vec2<f32>(cos(lt),sin(lt));let along=dx*ld.x+dy*ld.y;let perp=abs(dx*ld.y-dy*ld.x);let endCells=longestM/p.cell;
+    if(along>=0.0 && along<=endCells+gridPerPixel*3.0 && perp<=gridPerPixel*1.15){return vec4<f32>(1.0,0.78,0.36,0.96);}
+    if(distance(vec2<f32>(dx,dy),ld*endCells)<=gridPerPixel*3.2){return vec4<f32>(1.0,0.78,0.36,0.98);}
+  }
+  var theta=atan2(dy,dx);if(theta<0.0){theta=theta+TWO_PI;}
+  let af=floor(theta*f32(p.angles)/TWO_PI+0.5);let a=u32(af)%p.angles;
+  let farM=rayFar[a];
+  // Draw the rose directly from the CURRENT GPU rayFar buffer. This keeps the
+  // orange boundary in the same generation/frame as the live visibility mask.
+  if(rp.quality.z>0.5){
+    let roseHalfWidth=max(p.cell*0.65,p.cell*gridPerPixel*1.35);
+    if(farM>0.0 && abs(r*p.cell-farM)<=roseHalfWidth){return vec4<f32>(1.0,0.60,0.18,0.92);}
+  }
+  // Rose is an exact upper bound for visibility in this discrete ray model.
+  // Pixels beyond it skip both DEM and prefix-horizon memory reads.
+  if(r*p.cell>farM+p.cell*1.5){return hidden_color();}
+  let h=sample_dem(gx,gy);if(!valid(h)){let ua=0.14;return vec4<f32>(0.55*ua,0.58*ua,0.72*ua,ua);}
+  let jf=max(0.0,ceil(r/p.step-0.00001)-1.0);let j=min(p.nr-1u,u32(jf));let peak=horizon[a*p.nr+j];
+  if(peak>=BIG*0.5){let ua=0.14;return vec4<f32>(0.55*ua,0.58*ua,0.72*ua,ua);}
+  let slope=(h-p.zo-p.curv*r2+p.targetHeight)/r;
+  if(slope>=peak-EPS/r){return vec4<f32>(0.20*alpha,0.96*alpha,0.78*alpha,alpha);}
+  return hidden_color();
+}`;
+async function probeWebGPU(){
+  if(!window.isSecureContext){gpuEngine.failed=true;gpuEngine.failReason='secure context required (localhost or HTTPS)';$('gpuStatus').textContent='WebGPU unavailable: '+gpuEngine.failReason+'. CPU fallback active.';$('computeBadge').textContent='CPU · Worker';return false;}
+  if(!navigator.gpu){gpuEngine.failed=true;gpuEngine.failReason='navigator.gpu is unavailable';$('gpuStatus').textContent='WebGPU is unavailable in this browser. CPU fallback active.';$('computeBadge').textContent='CPU · Worker';return false;}
+  try{gpuEngine.adapter=await navigator.gpu.requestAdapter();if(!gpuEngine.adapter)throw Error('GPU adapter not found');updateResolutionCapability();$('gpuStatus').textContent=`WebGPU ready · storage binding ${(Number(gpuEngine.adapter.limits.maxStorageBufferBindingSize)/1048576).toFixed(0)} MiB`;$('gpuStatus').title=$('gpuStatus').textContent;$('computeBadge').textContent='WebGPU · ready';return true;}catch(e){gpuEngine.failed=true;gpuEngine.failReason=e.message;$('gpuStatus').textContent='WebGPU probe: '+e.message+' · CPU fallback active.';$('computeBadge').textContent='CPU fallback';return false;}
+}
+async function ensureGPUDevice(){
+  if(gpuEngine.failed)throw Error(gpuEngine.failReason||'WebGPU disabled');if(gpuEngine.device)return gpuEngine.device;if(!gpuEngine.adapter){const ok=await probeWebGPU();if(!ok)throw Error(gpuEngine.failReason||'WebGPU unavailable');}
+  const lim=gpuEngine.adapter.limits,req={};const want=256*1024*1024;if(Number(lim.maxStorageBufferBindingSize)>=want)req.maxStorageBufferBindingSize=want;if(Number(lim.maxBufferSize)>=want)req.maxBufferSize=want;const device=await gpuEngine.adapter.requestDevice(Object.keys(req).length?{requiredLimits:req}:undefined);gpuEngine.device=device;
+  device.lost.then(info=>{gpuEngine.failed=true;gpuEngine.failReason='GPU device lost: '+info.message;$('gpuStatus').textContent=gpuEngine.failReason+' · CPU fallback active.';$('computeBadge').textContent='CPU · Worker';});
+  const bgl=device.createBindGroupLayout({entries:[
+    {binding:0,visibility:GPUShaderStage.COMPUTE,buffer:{type:'read-only-storage'}},
+    {binding:1,visibility:GPUShaderStage.COMPUTE,buffer:{type:'storage'}},
+    {binding:2,visibility:GPUShaderStage.COMPUTE,buffer:{type:'storage'}},
+    {binding:3,visibility:GPUShaderStage.COMPUTE,buffer:{type:'uniform'}}]});
+  gpuEngine.layout=bgl;const layout=device.createPipelineLayout({bindGroupLayouts:[bgl]}),module=device.createShaderModule({code:WGSL});
+  if(module.getCompilationInfo){const info=await module.getCompilationInfo(),bad=info.messages.filter(x=>x.type==='error');if(bad.length)throw Error('WGSL: '+bad.map(x=>x.message).join('; '));}
+  gpuEngine.rayPipeline=await device.createComputePipelineAsync({layout,compute:{module,entryPoint:'rays'}});
+  const reduceLayout=device.createBindGroupLayout({entries:[
+    {binding:0,visibility:GPUShaderStage.COMPUTE,buffer:{type:'read-only-storage'}},
+    {binding:1,visibility:GPUShaderStage.COMPUTE,buffer:{type:'storage'}},
+    {binding:2,visibility:GPUShaderStage.COMPUTE,buffer:{type:'uniform'}}]});gpuEngine.reduceLayout=reduceLayout;
+  const reduceModule=device.createShaderModule({code:REDUCE_WGSL});if(reduceModule.getCompilationInfo){const ri=await reduceModule.getCompilationInfo(),bad=ri.messages.filter(x=>x.type==='error');if(bad.length)throw Error('reduce WGSL: '+bad.map(x=>x.message).join('; '));}
+  const reducePipelineLayout=device.createPipelineLayout({bindGroupLayouts:[reduceLayout]});
+  gpuEngine.reduceMaxPipeline=await device.createComputePipelineAsync({layout:reducePipelineLayout,compute:{module:reduceModule,entryPoint:'reduceMax'}});
+  gpuEngine.reduceAnglePipeline=await device.createComputePipelineAsync({layout:reducePipelineLayout,compute:{module:reduceModule,entryPoint:'reduceAngle'}});
+  const maskLayout=device.createBindGroupLayout({entries:[
+    {binding:0,visibility:GPUShaderStage.FRAGMENT,buffer:{type:'read-only-storage'}},
+    {binding:1,visibility:GPUShaderStage.FRAGMENT,buffer:{type:'read-only-storage'}},
+    {binding:2,visibility:GPUShaderStage.FRAGMENT,buffer:{type:'read-only-storage'}},
+    {binding:3,visibility:GPUShaderStage.FRAGMENT,buffer:{type:'uniform'}},
+    {binding:4,visibility:GPUShaderStage.FRAGMENT,buffer:{type:'uniform'}},
+    {binding:5,visibility:GPUShaderStage.FRAGMENT,buffer:{type:'read-only-storage'}}]});gpuEngine.maskLayout=maskLayout;
+  const maskModule=device.createShaderModule({code:MASK_WGSL});if(maskModule.getCompilationInfo){const mi=await maskModule.getCompilationInfo(),bad=mi.messages.filter(x=>x.type==='error');if(bad.length)throw Error('mask WGSL: '+bad.map(x=>x.message).join('; '));}
+  const maskPipelineLayout=device.createPipelineLayout({bindGroupLayouts:[maskLayout]});gpuEngine.maskPipeline=await device.createRenderPipelineAsync({layout:maskPipelineLayout,vertex:{module:maskModule,entryPoint:'vs'},fragment:{module:maskModule,entryPoint:'fs',targets:[{format:navigator.gpu.getPreferredCanvasFormat()}]},primitive:{topology:'triangle-list'}});
+  gpuEngine.maskContext=gpuMaskCanvas.getContext('webgpu');gpuEngine.maskFormat=navigator.gpu.getPreferredCanvasFormat();gpuEngine.maskContext.configure({device,format:gpuEngine.maskFormat,alphaMode:'premultiplied'});
+  return device;
+}
+function destroyBuffersNow(obj,keys){if(!obj)return;for(const k of keys)try{obj[k]?.destroy();}catch{}}
+function retireBuffers(obj,keys){
+  if(!obj)return;const device=gpuEngine.device;if(!device){destroyBuffersNow(obj,keys);return;}gpuEngine.retired++;
+  device.queue.onSubmittedWorkDone().catch(()=>{}).then(()=>{destroyBuffersNow(obj,keys);gpuEngine.retired=Math.max(0,gpuEngine.retired-1);});
+}
+function retireGPUResources(){const r=gpuEngine.resources;if(r){gpuEngine.resources=null;retireBuffers(r,['horizon','rayFar','summary','params','renderParams']);}}
+async function ensureGPUDem(){
+  const device=await ensureGPUDevice();if(gpuEngine.demVersion===state.version&&gpuEngine.demBuffer)return device;
+  retireGPUResources();const old={demBuffer:gpuEngine.demBuffer};gpuEngine.demBuffer=null;if(old.demBuffer)retireBuffers(old,['demBuffer']);const bytes=state.dem.byteLength;
+  if(bytes>Number(device.limits.maxStorageBufferBindingSize))throw Error(`DEM ${(bytes/1048576).toFixed(1)} MiB > WebGPU storage binding limit ${(Number(device.limits.maxStorageBufferBindingSize)/1048576).toFixed(1)} MiB`);
+  const b=device.createBuffer({size:Math.max(4,bytes),usage:GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_DST,mappedAtCreation:true});new Float32Array(b.getMappedRange()).set(state.dem);b.unmap();gpuEngine.demBuffer=b;gpuEngine.demVersion=state.version;return device;
+}
+function ensureGPUResources(device,nr,angles){
+  const key=`${state.version}:${state.n}:${nr}:${angles}`,old=gpuEngine.resources;if(old?.key===key)return old;if(old){gpuEngine.resources=null;retireBuffers(old,['horizon','rayFar','summary','params','renderParams']);}
+  const horizonSize=nr*angles*4,raySize=angles*4,maxBind=Number(device.limits.maxStorageBufferBindingSize);if(horizonSize>maxBind)throw Error(`horizon ${(horizonSize/1048576).toFixed(1)} MiB > storage limit ${(maxBind/1048576).toFixed(1)} MiB`);
+  const horizon=device.createBuffer({size:horizonSize,usage:GPUBufferUsage.STORAGE});
+  const rayFar=device.createBuffer({size:raySize,usage:GPUBufferUsage.STORAGE});
+  const summary=device.createBuffer({size:8,usage:GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_SRC|GPUBufferUsage.COPY_DST});
+  const params=device.createBuffer({size:48,usage:GPUBufferUsage.UNIFORM|GPUBufferUsage.COPY_DST});
+  const renderParams=device.createBuffer({size:64,usage:GPUBufferUsage.UNIFORM|GPUBufferUsage.COPY_DST});
+  const bind=device.createBindGroup({layout:gpuEngine.layout,entries:[{binding:0,resource:{buffer:gpuEngine.demBuffer}},{binding:1,resource:{buffer:horizon}},{binding:2,resource:{buffer:rayFar}},{binding:3,resource:{buffer:params}}]});
+  const reduceBind=device.createBindGroup({layout:gpuEngine.reduceLayout,entries:[{binding:0,resource:{buffer:rayFar}},{binding:1,resource:{buffer:summary}},{binding:2,resource:{buffer:params}}]});
+  const renderBind=device.createBindGroup({layout:gpuEngine.maskLayout,entries:[{binding:0,resource:{buffer:gpuEngine.demBuffer}},{binding:1,resource:{buffer:horizon}},{binding:2,resource:{buffer:rayFar}},{binding:3,resource:{buffer:params}},{binding:4,resource:{buffer:renderParams}},{binding:5,resource:{buffer:summary}}]});
+  return gpuEngine.resources={key,horizon,rayFar,summary,params,renderParams,bind,reduceBind,renderBind,horizonSize,raySize,nr,angles};
+}
+function chooseGPUAngles(p,rmax,nr,maxBind){
+  const requested=Math.max(360,Math.min(32768,Math.round(p.farRays||2880))),maxByBuffer=Math.floor(maxBind/(nr*4*64))*64;if(maxByBuffer<360)throw Error('insufficient WebGPU storage for horizon buffer');
+  const gridDesired=Math.max(requested,Math.ceil((2*Math.PI*rmax*1.10)/64)*64),cap=Math.max(360,Math.min(32768,maxByBuffer,gridDesired));
+  if(!Number.isFinite(gpuEngine.autoAngles))gpuEngine.autoAngles=requested;gpuEngine.autoAngles=Math.max(Math.min(requested,cap),Math.min(cap,Math.round(gpuEngine.autoAngles/64)*64));
+  return {angles:gpuEngine.autoAngles,minimum:Math.min(requested,cap),cap};
+}
+function adaptGPUAngles(done,p,cap){
+  const budget=Number.isFinite(p.gpuBudget)?p.gpuBudget:16.7;gpuEngine.frameEma=gpuEngine.frameEma==null?done:gpuEngine.frameEma*.72+done*.28;const now=performance.now();if(now-gpuEngine.lastAngleAdjust<1000)return;
+  const min=Math.max(360,Math.min(cap,Math.round((p.farRays||2880)/64)*64)),tiers=[min,4096,6144,8192,12288,16384,24576,32768].map(x=>Math.max(min,Math.min(cap,Math.round(x/64)*64))).filter((x,i,a)=>i===0||x!==a[i-1]);let cur=tiers.reduce((best,x)=>Math.abs(x-gpuEngine.autoAngles)<Math.abs(best-gpuEngine.autoAngles)?x:best,tiers[0]),idx=tiers.indexOf(cur);
+  if(gpuEngine.frameEma<budget*.85&&idx<tiers.length-1){gpuEngine.autoAngles=tiers[idx+1];gpuEngine.lastAngleAdjust=now;}else if(gpuEngine.frameEma>budget*1.05&&idx>0){gpuEngine.autoAngles=tiers[idx-1];gpuEngine.lastAngleAdjust=now;}
+}
+function decodePositiveFloatBits(bits){const b=new ArrayBuffer(4),u=new Uint32Array(b),f=new Float32Array(b);u[0]=bits;return f[0];}
+function encodePositiveFloatBits(v){const b=new ArrayBuffer(4),u=new Uint32Array(b),f=new Float32Array(b);f[0]=Math.max(0,v);return u[0];}
+function consumeGPUSummary(readback,generation,id,p,angles){
+  readback.mapAsync(GPUMapMode.READ).then(()=>{const copy=new Uint32Array(2);copy.set(new Uint32Array(readback.getMappedRange(),0,2));readback.unmap();if(gpuEngine.latest?.generation!==generation||state.last?.id!==id||state.last?.engine!=='webgpu')return;const distance=decodePositiveFloatBits(copy[0]),a=Math.min(angles-1,copy[1]);if(!(distance>0))return;const rr=distance/state.cell,t=a*2*Math.PI/angles,x=Math.max(0,Math.min(state.n-1,Math.round(p.ox+Math.cos(t)*rr))),y=Math.max(0,Math.min(state.n-1,Math.round(p.oy+Math.sin(t)*rr)));state.last.far=y*state.n+x;state.last.distance=distance;state.last.farValidated=false;state.last.gpuSummary=true;updateStats();requestDraw();if(state.locked){const tg=gridToGeo(x,y);if(tg)loadTargetPointDetailCandidate(tg.lat,tg.lon,p.ox,p.oy);scheduleRecordRefinement(180);}}).catch(()=>{}).finally(()=>{try{readback.destroy();}catch{}});
+}
+async function runWebGPU(p,id){
+  const start=performance.now(),generation=++gpuEngine.generation,device=await ensureGPUDem(),n=state.n,cell=state.cell,ox=p.ox,oy=p.oy,ground=Number.isFinite(p.observerGround)?p.observerGround:sampleMain(ox,oy),zo=ground+p.eye;if(!Number.isFinite(zo))throw Error('observer lies on NoData');
+  const fast=$('gpuQuality').value==='adaptive',step=fast?2:1,rad=p.range/cell,rmax=Math.min(rad,Math.hypot(Math.max(ox,n-1-ox),Math.max(oy,n-1-oy))),nr=Math.max(2,Math.ceil(rmax/step)+1),maxBind=Number(device.limits.maxStorageBufferBindingSize);
+  const aq=chooseGPUAngles(p,rmax,nr,maxBind),angles=aq.angles;
+  const r=ensureGPUResources(device,nr,angles);
+  const ab=new ArrayBuffer(48),dv=new DataView(ab);dv.setUint32(0,n,true);dv.setUint32(4,nr,true);dv.setUint32(8,angles,true);dv.setUint32(12,0,true);dv.setFloat32(16,ox,true);dv.setFloat32(20,oy,true);dv.setFloat32(24,zo,true);dv.setFloat32(28,cell,true);dv.setFloat32(32,rad,true);dv.setFloat32(36,p.curvature*cell*cell/(2*R),true);dv.setFloat32(40,p.target,true);dv.setFloat32(44,step,true);device.queue.writeBuffer(r.params,0,ab);
+  const readback=device.createBuffer({size:8,usage:GPUBufferUsage.COPY_DST|GPUBufferUsage.MAP_READ});const enc=device.createCommandEncoder();enc.clearBuffer(r.summary,0,8);
+  const pass=enc.beginComputePass();pass.setPipeline(gpuEngine.rayPipeline);pass.setBindGroup(0,r.bind);pass.dispatchWorkgroups(Math.ceil(angles/64));pass.end();
+  const r1=enc.beginComputePass();r1.setPipeline(gpuEngine.reduceMaxPipeline);r1.setBindGroup(0,r.reduceBind);r1.dispatchWorkgroups(Math.ceil(angles/64));r1.end();
+  const r2=enc.beginComputePass();r2.setPipeline(gpuEngine.reduceAnglePipeline);r2.setBindGroup(0,r.reduceBind);r2.dispatchWorkgroups(Math.ceil(angles/64));r2.end();enc.copyBufferToBuffer(r.summary,0,readback,0,8);device.queue.submit([enc.finish()]);
+  consumeGPUSummary(readback,generation,id,p,angles);
+  // Throttle only compute submissions, not UI/rose updates. When this pass finishes, immediately launch the newest coalesced request.
+  device.queue.onSubmittedWorkDone().then(()=>{if(state.computeId===id){state.busy=false;if(state.desired)sendDesired();else if(verifyAfter){verifyAfter=false;beginVerify();}}}).catch(()=>{if(state.computeId===id){state.busy=false;if(state.desired)sendDesired();}});
+  const submitMs=performance.now()-start;gpuEngine.latest={resourceKey:r.key,params:p,id,generation,startTime:start,measurePending:true,angleCap:aq.cap,angleMinimum:aq.minimum};
+  $('gpuStatus').textContent=`WebGPU live · ${angles} rays (auto ≤${aq.cap}) × ${nr} radial · horizon ${(r.horizonSize/1048576).toFixed(1)} MiB · submitted ${submitMs.toFixed(1)} ms · screen-space mask pending`;$('computeBadge').textContent='WebGPU · live horizon';
+  return {type:'result',id,params:p,mask:null,gpuResident:true,far:-1,distance:0,visible:NaN,inside:NaN,unknown:NaN,ms:submitMs,engine:'webgpu',angles,step,gpuHorizonMiB:r.horizonSize/1048576,liveMask:true};
+}
+function renderGPUMask(dpr=1){
+  const r=gpuEngine.resources,device=gpuEngine.device,v=state.view,last=state.last,latest=gpuEngine.latest;if(!r||!device||!v||last?.engine!=='webgpu'||latest?.resourceKey!==r.key){gpuMaskCanvas.style.display='none';return;}
+  const rect=map.getBoundingClientRect(),w=Math.max(1,Math.round(rect.width*dpr)),h=Math.max(1,Math.round(rect.height*dpr));if(gpuMaskCanvas.width!==w||gpuMaskCanvas.height!==h){gpuMaskCanvas.width=w;gpuMaskCanvas.height=h;gpuEngine.maskContext.configure({device,format:gpuEngine.maskFormat,alphaMode:'premultiplied'});}
+  gpuMaskCanvas.style.display='block';const p=last.params,ab=new ArrayBuffer(64),f=new Float32Array(ab);f[0]=v.x0*dpr;f[1]=v.y0*dpr;f[2]=v.size*dpr;f[3]=state.n;f[4]=v.sx;f[5]=v.sy;f[6]=v.sw;f[7]=+$('opacity').value/100;f[8]=p.ox;f[9]=p.oy;f[10]=p.range/state.cell;f[11]=0;f[12]=0;f[13]=$('hidden').checked?1:0;f[14]=$('roseOnMap').checked?1:0;f[15]=0;device.queue.writeBuffer(r.renderParams,0,ab);
+  const enc=device.createCommandEncoder(),pass=enc.beginRenderPass({colorAttachments:[{view:gpuEngine.maskContext.getCurrentTexture().createView(),clearValue:{r:0,g:0,b:0,a:0},loadOp:'clear',storeOp:'store'}]});pass.setPipeline(gpuEngine.maskPipeline);pass.setBindGroup(0,r.renderBind);pass.draw(3);pass.end();device.queue.submit([enc.finish()]);
+  if(latest.measurePending){latest.measurePending=false;const gen=latest.generation,id=latest.id,start=latest.startTime;device.queue.onSubmittedWorkDone().then(()=>{if(gpuEngine.latest?.generation!==gen)return;const done=performance.now()-start;if(state.last?.engine==='webgpu'&&state.last.id===id){state.last.ms=done;state.last.gpuDoneMs=done;adaptGPUAngles(done,state.last.params,latest.angleCap||r.angles);updateStats();}$('gpuStatus').textContent=`WebGPU live · ${r.angles} rays · ${(gpuEngine.frameEma??done).toFixed(1)} ms EMA / ${(state.last?.params?.gpuBudget||16.7).toFixed(1)} ms budget · next ${gpuEngine.autoAngles||r.angles} · visible ${done.toFixed(1)} ms`;$('computeBadge').textContent='WebGPU · live';}).catch(()=>{});}
+}
+function fallbackFromWebGPU(err,p,id){
+  if(!gpuEngine.failed)console.warn('WebGPU fallback',err);gpuEngine.failed=true;gpuEngine.failReason=err.message||String(err);$('gpuStatus').textContent=`WebGPU error: ${gpuEngine.failReason}. CPU reference-plane fallback active; repeated GPU attempts suppressed.`;$('computeBadge').textContent='CPU fallback';
+  worker.postMessage({type:'compute',id,params:{...p,engine:'fast',requestedEngine:'webgpu'}});
+}
+function queueCompute(){
+  if(!state.dem)return;updateRangeCoverage();const p=params();if(!validParams(p))return;const observerGround=Number.isFinite(p.observerGround)?p.observerGround:sampleMain(p.ox,p.oy);if(!Number.isFinite(observerGround)){state.desired=null;state.last=null;state.verified=null;gpuMaskCanvas.style.display='none';$('gpuStatus').textContent='NoData under observer: live viewshed paused; trying point-detail/fallback terrain.';$('computeBadge').textContent='NoData · paused';schedulePointDetail(20);requestDraw();return;}
+  state.verified=null;state.refinedEndpoint=null;state.lastRayReadback=null;state.lastRayAngles=0;state.refineGeneration++;if(refineController)refineController.abort();if(p.engine==='webgpu'){state.rose=null;state.roseMeta=null;rosePending=null;}else state.roseMeta=null;state.detailSeed=null;state.detailLast=null;detailOverlay.width=detailOverlay.height=0;if(roseTimer){clearTimeout(roseTimer);roseTimer=null;}$('verifyStatus').textContent='Observer or parameters changed; maximum not verified yet.';if(state.verifyId!==null){worker.postMessage({type:'cancel'});state.verifyId=null;$('verify').disabled=false;}
+  state.desired=p;if(state.ready&&p.engine!=='webgpu')requestRoseFirst(p);sendDesired();scheduleDetailCompute(130);requestDraw();
+}
+function applyWebGPURoseEndpoint(meta,last=state.last){
+  if(!meta||!last||last.engine!=='webgpu')return false;const p=last.params;
+  if(meta.params.version!==p.version||meta.params.ox!==p.ox||meta.params.oy!==p.oy||meta.params.range!==p.range)return false;
+  let ok=false;if(meta.far>=0){const fx=meta.far%state.n,fy=Math.floor(meta.far/state.n);ok=validationCore.los(p,fx,fy)===1;}
+  last.far=ok?meta.far:-1;last.distance=ok?meta.distance:0;last.roseAngles=meta.roseAngles;last.farValidated=ok;return ok;
+}
+function finishCompute(m,sent){
+  // CPU jobs release immediately. WebGPU live stays busy until the submitted horizon pass actually completes,
+  // so mousemove events coalesce to the newest requested observer instead of building a GPU queue backlog.
+  if(m.id===state.computeId&&m.engine!=='webgpu')state.busy=false;busySent.delete(m.id);
+  if(m.params.version===state.version){m.latency=performance.now()-sent;state.last=m;state.verified=null;if(m.rose){state.rose=m.rose;state.roseMeta=m;if(m.roseCoarse)scheduleRose(m.params);}else if(m.engine!=='webgpu')scheduleRose(m.params);makeOverlay();updateStats();requestDraw();}
+  if(!state.busy&&state.desired)sendDesired();else if(!state.busy&&verifyAfter){verifyAfter=false;beginVerify();}
+}
+function sendDesired(){
+  if(state.busy||!state.desired)return;
+  const p=state.desired;if(p.engine!=='webgpu'&&!state.ready){ensureCPUWorkerInitialized();return;}state.desired=null;state.busy=true;const id=++state.seq;state.computeId=id;const sent=performance.now();busySent.set(id,sent);
+  if(p.engine==='webgpu'){if(gpuEngine.failed){worker.postMessage({type:'compute',id,params:{...p,engine:'fast'}});return;}runWebGPU(p,id).then(m=>finishCompute(m,sent)).catch(err=>fallbackFromWebGPU(err,p,id));return;}
+  worker.postMessage({type:'compute',id,params:p});
+}
+worker.onmessage=({data:m})=>{
+  if(m.type==='ready'){if(m.id!==state.version)return;state.cpuWorkerPending=false;state.ready=true;if(state.desired&&state.desired.engine!=='webgpu')requestRoseFirst(state.desired);sendDesired();if(verifyAfter&&!state.busy&&!state.desired){verifyAfter=false;beginVerify();}return;}
+  if(m.type==='result'){const sent=busySent.get(m.id)??performance.now();finishCompute(m,sent);return;}
+  if(m.type==='rose'){
+    if(m.id===roseFlightId){roseInFlight=false;roseFlightId=null;}
+    const q=params();if(m.params.version===state.version&&m.params.ox===q.ox&&m.params.oy===q.oy&&m.params.range===q.range&&q.engine!=='webgpu'){state.rose=m.rose;state.roseMeta=m;if(state.last?.engine==='hybrid'){if(m.params.detailSeedVersion&&state.last){state.last.far=m.far;state.last.distance=m.distance;state.last.roseAngles=m.roseAngles;state.last.roseCoarse=false;state.last.detailRefined=true;updateStats();}else{const useFar=m.distance>(state.last.nearDistance||0);state.last.far=useFar?m.far:state.last.nearFar;state.last.distance=Math.max(m.distance,state.last.nearDistance||0);state.last.roseAngles=m.roseAngles;state.last.roseCoarse=false;updateStats();}}requestDraw();}
+    pumpRoseLatest();return;
+  }
+  if(m.type==='progress'&&m.id===state.verifyId){$('verifyStatus').textContent=`Checking… ${m.tests} LOS, ${Math.round(m.ms)} ms`;return;}
+  if(m.type==='verified'&&m.id===state.verifyId){
+    state.verified=m;state.verifyId=null;$('verify').disabled=false;
+    $('verifyStatus').textContent=(m.certified?'Maximum proven for the current bilinear grid. ':m.unknownCouldBeat?'More distant unknown rays exist; maximum not proven. ':'Budget exhausted; showing best confirmed candidate. ')+`${m.tests} LOS · ${m.ms.toFixed(1)} ms`;
+    updateStats();requestDraw();return;
+  }
+  if(m.type==='tests'){
+    $('testResults').textContent=m.results.map(t=>`${t.ok?'PASS':'FAIL'}  ${t.name}${t.detail?'\n      '+t.detail:''}`).join('\n\n');$('testDialog').showModal();return;
+  }
+  if(m.type==='error'){console.error(m.message,m.stack);state.busy=false;state.verifyId=null;$('verify').disabled=false;$('verifyStatus').textContent='Compute error: '+m.message;}
+};
+worker.onerror=e=>{console.error(e);status('Web Worker failed to start. Open the HTML in a modern browser or via localhost.',true);};
+detailWorker.onmessage=({data:m})=>{
+  if(m.type==='ready'){if(state.detail&&m.id===state.detail.version){state.detailReady=true;scheduleDetailCompute(20);}return;}
+  if(m.type==='detailResult'){
+    const q=state.detail;if(!q||m.params.version!==q.version||m.id!==state.detailComputeId)return;state.detailLast=m;makeDetailOverlay();
+    state.detailSeed={horizon:m.horizon,coverage:m.coverage,rose:m.rose,observerGround:m.params.observerGround,ox:m.params.globalObserverX,oy:m.params.globalObserverY,farRays:m.params.farRays,detailVersion:q.version,globalVersion:state.version};
+    const stat=q.sourceStats.map(([z,c])=>`z${z}:${c}`).join(' · ');$('detailStatus').textContent=`Detail active · ${q.n}² @ ${q.cell.toFixed(2)} m · ${stat} · local mask ${m.denseMs.toFixed(0)} ms + horizon ${m.roseMs.toFixed(0)} ms`;$('dataBadge').textContent=`DEM · DETAIL z${q.maxSource}`;
+    if(params().engine!=='webgpu')scheduleRose(params());requestDraw();return;
+  }
+  if(m.type==='error'){$('detailStatus').textContent='Detail compute error: '+m.message+' · terrain patch remains visual only.';console.warn('detail worker',m.message,m.stack);}
+};
+detailWorker.onerror=e=>{console.warn(e);$('detailStatus').textContent='Detail worker failed; high-resolution terrain remains visual only.';};
+function geographicBounds(lat,lon,km){const dlat=km*1000/(2*R)/DEG,dlon=dlat/Math.cos(lat*DEG);return [lon-dlon,lat-dlat,lon+dlon,lat+dlat];}
+const terrainParams=new URLSearchParams(location.search);
+const TERRAIN_BASE=(terrainParams.get('terrainBase')||'https://tiles.mapterhorn.com').replace(/\/$/,'');
+const TERRAIN_TILE=Math.max(64,Math.min(2048,+(terrainParams.get('terrainTileSize')||512)));
+const TERRAIN_EXT=(terrainParams.get('terrainExt')||'webp').replace(/^\./,'');
+const TERRAIN_MAX_Z=Math.max(0,Math.min(20,+(terrainParams.get('terrainMaxZ')||12))),TERRAIN_DETAIL_MAX_Z=Math.max(13,Math.min(20,+(terrainParams.get('terrainDetailMaxZ')||17))),TERRAIN_CACHE_MAX=192,DETAIL_TILE_LIMIT=160;
+const terrainTileCache=new Map(),terrainMissingCache=new Set(),terrainMissingSubtrees=new Set(),terrainTileInflight=new Map(),detailResolveCache=new Map();
+const MAPTERHORN_MANIFEST_URL='https://download.mapterhorn.com/download_urls.json';
+const highResCoverage={tiles:null,promise:null,failed:false};
+function collectStrings(v,out){if(typeof v==='string')out.push(v);else if(Array.isArray(v))for(const x of v)collectStrings(x,out);else if(v&&typeof v==='object')for(const x of Object.values(v))collectStrings(x,out);}
+async function ensureHighResCoverageManifest(){
+  if(highResCoverage.tiles||highResCoverage.failed)return highResCoverage.tiles;if(highResCoverage.promise)return highResCoverage.promise;
+  highResCoverage.promise=(async()=>{try{const r=await fetch(MAPTERHORN_MANIFEST_URL,{mode:'cors',cache:'force-cache'});if(!r.ok)throw Error('manifest HTTP '+r.status);const j=await r.json(),strings=[];collectStrings(j,strings);const set=new Set();for(const v of strings){for(const m of v.matchAll(/(?:^|\/)6-(\d+)-(\d+)\.pmtiles(?:$|[?#])/g))set.add(`${+m[1]}:${+m[2]}`);}if(!set.size)throw Error('manifest contains no z6 archives');highResCoverage.tiles=set;return set;}catch(e){highResCoverage.failed=true;console.info('Mapterhorn coverage manifest unavailable; using z13 gate + negative cache:',e.message);return null;}finally{highResCoverage.promise=null;}})();return highResCoverage.promise;
+}
+function normalizedTileX(z,x){const m=2**z;return ((x%m)+m)%m;}
+function ancestorTile(z,x,y,ancestorZ){const nx=normalizedTileX(z,x),scale=2**(z-ancestorZ);return {x:Math.floor(nx/scale),y:Math.floor(y/scale)};}
+function highResZ6Key(z,x,y){const q=ancestorTile(z,x,y,6);return `${q.x}:${q.y}`;}
+function missingSubtreeKey(z,x,y){return `${z}/${normalizedTileX(z,x)}/${y}`;}
+function hasMissingHighResAncestor(z,x,y,minZ=13){for(let a=minZ;a<=z;a++){const q=ancestorTile(z,x,y,a);if(terrainMissingSubtrees.has(missingSubtreeKey(a,q.x,q.y)))return true;}return false;}
+
+function terrainURL(z,x,y){const m=2**z,nx=((x%m)+m)%m;return `${TERRAIN_BASE}/${z}/${nx}/${y}.${TERRAIN_EXT}`;}
+function worldPixelX(lon,z){return (lon+180)/360*(TERRAIN_TILE*2**z);}
+function worldPixelY(lat,z){const p=Math.max(-85.05112878,Math.min(85.05112878,lat))*DEG;return (1-Math.asinh(Math.tan(p))/Math.PI)/2*(TERRAIN_TILE*2**z);}
+function chooseTerrainZoom(lat,extentKm,n){
+  const target=extentKm*1000/(n-1),c=Math.max(.01,Math.cos(lat*DEG));let best=0;
+  for(let z=0;z<=TERRAIN_MAX_Z;z++){const mpp=2*Math.PI*6378137*c/(TERRAIN_TILE*2**z);best=z;if(mpp<=target*1.1)break;}
+  return best;
+}
+function cacheTerrainTile(key,value){
+  terrainTileCache.delete(key);terrainTileCache.set(key,value);
+  while(terrainTileCache.size>TERRAIN_CACHE_MAX)terrainTileCache.delete(terrainTileCache.keys().next().value);
+}
+async function decodeTerrariumTile(z,x,y,signal,{allowMissing=false}={}){
+  const m=2**z,nx=((x%m)+m)%m,key=`${z}/${nx}/${y}`;
+  if(terrainTileCache.has(key)){const v=terrainTileCache.get(key);terrainTileCache.delete(key);terrainTileCache.set(key,v);return {...v,cached:true};}
+  if(allowMissing&&terrainMissingCache.has(key))return null;
+  if(y<0||y>=m){if(allowMissing)return null;throw Error(`tile outside Web Mercator: ${key}`);}
+  if(terrainTileInflight.has(key)){const v=await terrainTileInflight.get(key);return v?{...v,cached:true}:null;}
+  const job=(async()=>{const url=terrainURL(z,x,y),r=await fetch(url,{signal,mode:'cors',cache:'force-cache'});if(!r.ok){if(allowMissing&&(r.status===404||r.status===204||r.status===410)){terrainMissingCache.add(key);if(z>=13)terrainMissingSubtrees.add(missingSubtreeKey(z,nx,y));return null;}throw Error(`Terrain HTTP ${r.status}: ${z}/${nx}/${y}`);}const blob=await r.blob(),bitmap=await createImageBitmap(blob);if(bitmap.width!==TERRAIN_TILE||bitmap.height!==TERRAIN_TILE){bitmap.close?.();throw Error(`unexpected terrain tile size: ${bitmap.width}×${bitmap.height}`);}const c=document.createElement('canvas');c.width=c.height=TERRAIN_TILE;const g=c.getContext('2d',{willReadFrequently:true});g.drawImage(bitmap,0,0);bitmap.close?.();const rgba=g.getImageData(0,0,TERRAIN_TILE,TERRAIN_TILE).data,a=new Float32Array(TERRAIN_TILE*TERRAIN_TILE);for(let i=0,j=0;i<a.length;i++,j+=4)a[i]=rgba[j+3]===0?NaN:(rgba[j]*256+rgba[j+1]+rgba[j+2]/256-32768);const v={a,url,bytes:blob.size,z,x:nx,y};cacheTerrainTile(key,v);terrainMissingCache.delete(key);return v;})();
+  terrainTileInflight.set(key,job);try{const v=await job;return v?{...v,cached:false}:null;}finally{terrainTileInflight.delete(key);}
+}
+async function mapLimit(items,limit,fn){
+  let next=0;const out=new Array(items.length);async function runner(){for(;;){const i=next++;if(i>=items.length)return;out[i]=await fn(items[i],i);}};
+  await Promise.all(Array.from({length:Math.min(limit,items.length)},runner));return out;
+}
+const BASE_RESAMPLE_WGSL=`
+const PI:f32=3.141592653589793;
+const TWO_PI:f32=6.283185307179586;
+struct P{n:u32,tileSize:u32,targetZ:u32,srcZ:u32,targetTx:i32,targetTy:i32,srcX:i32,srcY:i32,gx0:u32,gy0:u32,width:u32,height:u32,extentM:f32,lat0:f32,lon0:f32,radius:f32,world:f32,scale:f32,pad0:f32,pad1:f32};
+@group(0) @binding(0) var<storage,read> src:array<f32>;
+@group(0) @binding(1) var<storage,read_write> dst:array<f32>;
+@group(0) @binding(2) var<uniform> p:P;
+@compute @workgroup_size(16,16)
+fn main(@builtin(global_invocation_id) gid:vec3<u32>){
+ if(gid.x>=p.width||gid.y>=p.height){return;}let gx=p.gx0+gid.x;let gy=p.gy0+gid.y;if(gx>=p.n||gy>=p.n){return;}
+ let denom=max(1.0,f32(p.n-1u));let east=(f32(gx)/denom-0.5)*p.extentM;let north=(0.5-f32(gy)/denom)*p.extentM;let rho=sqrt(east*east+north*north);var lat=p.lat0;var lon=p.lon0;
+ if(rho>0.001){let c=rho/p.radius;let sc=sin(c);let cc=cos(c);lat=asin(cc*sin(p.lat0)+north*sc*cos(p.lat0)/rho);lon=p.lon0+atan2(east*sc,rho*cos(p.lat0)*cc-north*sin(p.lat0)*sc);lon=atan2(sin(lon),cos(lon));}
+ let wx=(lon+PI)/TWO_PI*p.world-0.5;let merc=log(tan(PI*0.25+lat*0.5));let wy=(1.0-merc/PI)*0.5*p.world-0.5;let tx=i32(floor(wx/f32(p.tileSize)));let ty=i32(floor(wy/f32(p.tileSize)));if(tx!=p.targetTx||ty!=p.targetTy){return;}
+ let rx=(wx+0.5)/p.scale-0.5;let ry=(wy+0.5)/p.scale-0.5;let px=rx-f32(p.srcX)*f32(p.tileSize);let py=ry-f32(p.srcY)*f32(p.tileSize);let ix=clamp(i32(floor(px)),0,i32(p.tileSize)-2);let iy=clamp(i32(floor(py)),0,i32(p.tileSize)-2);let u=clamp(px-f32(ix),0.0,1.0);let v=clamp(py-f32(iy),0.0,1.0);let i=u32(iy)*p.tileSize+u32(ix);let h00=src[i];let h10=src[i+1u];let h01=src[i+p.tileSize];let h11=src[i+p.tileSize+1u];if(h00!=h00||h10!=h10||h01!=h01||h11!=h11){return;}dst[gy*p.n+gx]=h00+(h10-h00)*u+(h01-h00)*v+(h00-h10-h01+h11)*u*v;
+}`;
+const BASE_STATS_WGSL=`
+@group(0) @binding(0) var<storage,read> dem:array<f32>;
+@group(0) @binding(1) var<storage,read_write> stats:array<atomic<i32>>;
+@compute @workgroup_size(256)
+fn main(@builtin(global_invocation_id) gid:vec3<u32>, @builtin(num_workgroups) nw:vec3<u32>){
+  let i=gid.x + gid.y*nw.x*256u;
+  if(i>=arrayLength(&dem)){return;}
+  let h=dem[i];if(h!=h){return;}
+  let q=i32(round(h*10.0));
+  atomicMin(&stats[0],q);atomicMax(&stats[1],q);atomicAdd(&stats[2],1);
+}`;
+async function ensureBaseResamplePipelines(device){if(gpuEngine.baseResamplePipeline&&gpuEngine.baseStatsPipeline)return;const mod=device.createShaderModule({code:BASE_RESAMPLE_WGSL}),sm=device.createShaderModule({code:BASE_STATS_WGSL});if(mod.getCompilationInfo){const [a,b]=await Promise.all([mod.getCompilationInfo(),sm.getCompilationInfo()]),errs=[...a.messages,...b.messages].filter(x=>x.type==='error');if(errs.length)throw Error('base resample WGSL: '+errs.map(x=>x.message).join('; '));}gpuEngine.baseResamplePipeline=device.createComputePipeline({layout:'auto',compute:{module:mod,entryPoint:'main'}});gpuEngine.baseStatsPipeline=device.createComputePipeline({layout:'auto',compute:{module:sm,entryPoint:'main'}});}
+function terrainPixelToGeo(wx,wy,z){const world=TERRAIN_TILE*2**z,xx=((wx%world)+world)%world,lon=xx/world*360-180,n=Math.PI-2*Math.PI*wy/world;return {lon,lat:Math.atan(Math.sinh(n))/DEG};}
+async function createGPUBaseResampler({n,extent,lat,lon,z}){const device=await ensureGPUDevice();await ensureBaseResamplePipelines(device);const bytes=n*n*4;if(bytes>Number(device.limits.maxStorageBufferBindingSize)||bytes>Number(device.limits.maxBufferSize))throw Error('GPU cannot bind the requested base DEM');const output=device.createBuffer({size:bytes,usage:GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_SRC,mappedAtCreation:true});new Uint32Array(output.getMappedRange()).fill(0x7fc00000);output.unmap();const params=device.createBuffer({size:80,usage:GPUBufferUsage.UNIFORM|GPUBufferUsage.COPY_DST}),extentM=extent*1000,world=TERRAIN_TILE*2**z,pendingSources=[];let disposed=false,tilesSubmitted=0;
+  function gridBounds(tx,ty){let minx=Infinity,miny=Infinity,maxx=-Infinity,maxy=-Infinity;const samples=8;function add(px,py){const g0=terrainPixelToGeo(px,py,z),q=aeqdForward(g0.lat,g0.lon,lat,lon),gx=(q.x/extentM+.5)*(n-1),gy=(.5-q.y/extentM)*(n-1);if(Number.isFinite(gx)&&Number.isFinite(gy)){minx=Math.min(minx,gx);maxx=Math.max(maxx,gx);miny=Math.min(miny,gy);maxy=Math.max(maxy,gy);}}for(let i=0;i<=samples;i++){const u=TERRAIN_TILE*i/samples;add(tx*TERRAIN_TILE+u,ty*TERRAIN_TILE);add(tx*TERRAIN_TILE+u,(ty+1)*TERRAIN_TILE);add(tx*TERRAIN_TILE,ty*TERRAIN_TILE+u);add((tx+1)*TERRAIN_TILE,ty*TERRAIN_TILE+u);}if(!Number.isFinite(minx))return null;const x0=Math.max(0,Math.floor(minx)-3),y0=Math.max(0,Math.floor(miny)-3),x1=Math.min(n-1,Math.ceil(maxx)+3),y1=Math.min(n-1,Math.ceil(maxy)+3);if(x1<x0||y1<y0)return null;return {x0,y0,w:x1-x0+1,h:y1-y0+1};}
+  function retireSource(b){pendingSources.push(b);if(pendingSources.length>=16){const batch=pendingSources.splice(0);device.queue.onSubmittedWorkDone().then(()=>batch.forEach(x=>{try{x.destroy();}catch{}}));}}
+  function addTile(target,src){if(disposed)return;const box=gridBounds(target.x,target.y);if(!box)return;const sb=device.createBuffer({size:src.a.byteLength,usage:GPUBufferUsage.STORAGE,mappedAtCreation:true});new Float32Array(sb.getMappedRange()).set(src.a);sb.unmap();const ab=new ArrayBuffer(80),dv=new DataView(ab),m=2**z,tx=((target.x%m)+m)%m;dv.setUint32(0,n,true);dv.setUint32(4,TERRAIN_TILE,true);dv.setUint32(8,z,true);dv.setUint32(12,src.z,true);dv.setInt32(16,tx,true);dv.setInt32(20,target.y,true);dv.setInt32(24,src.x,true);dv.setInt32(28,src.y,true);dv.setUint32(32,box.x0,true);dv.setUint32(36,box.y0,true);dv.setUint32(40,box.w,true);dv.setUint32(44,box.h,true);dv.setFloat32(48,extentM,true);dv.setFloat32(52,lat*DEG,true);dv.setFloat32(56,lon*DEG,true);dv.setFloat32(60,R,true);dv.setFloat32(64,world,true);dv.setFloat32(68,2**(z-src.z),true);device.queue.writeBuffer(params,0,ab);const bind=device.createBindGroup({layout:gpuEngine.baseResamplePipeline.getBindGroupLayout(0),entries:[{binding:0,resource:{buffer:sb}},{binding:1,resource:{buffer:output}},{binding:2,resource:{buffer:params}}]});const enc=device.createCommandEncoder(),pass=enc.beginComputePass();pass.setPipeline(gpuEngine.baseResamplePipeline);pass.setBindGroup(0,bind);pass.dispatchWorkgroups(Math.ceil(box.w/16),Math.ceil(box.h/16));pass.end();device.queue.submit([enc.finish()]);tilesSubmitted++;retireSource(sb);}
+  async function finish(){await device.queue.onSubmittedWorkDone();const batch=pendingSources.splice(0);batch.forEach(x=>{try{x.destroy();}catch{}});try{params.destroy();}catch{}const stats=device.createBuffer({size:12,usage:GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_SRC|GPUBufferUsage.COPY_DST}),statsRead=device.createBuffer({size:12,usage:GPUBufferUsage.COPY_DST|GPUBufferUsage.MAP_READ}),read=device.createBuffer({size:bytes,usage:GPUBufferUsage.COPY_DST|GPUBufferUsage.MAP_READ});device.queue.writeBuffer(stats,0,new Int32Array([2147483647,-2147483647,0]));const bind=device.createBindGroup({layout:gpuEngine.baseStatsPipeline.getBindGroupLayout(0),entries:[{binding:0,resource:{buffer:output}},{binding:1,resource:{buffer:stats}}]});const enc=device.createCommandEncoder(),pass=enc.beginComputePass();pass.setPipeline(gpuEngine.baseStatsPipeline);pass.setBindGroup(0,bind);const statGroups=Math.ceil(n*n/256),wgLimit=Math.max(1,Number(device.limits.maxComputeWorkgroupsPerDimension)||65535);let wgX=Math.min(wgLimit,Math.ceil(Math.sqrt(statGroups))),wgY=Math.ceil(statGroups/wgX);if(wgY>wgLimit){wgX=wgLimit;wgY=Math.ceil(statGroups/wgX);}if(wgY>wgLimit)throw Error(`Stats pass requires ${wgX}×${wgY} workgroups, exceeding adapter limit ${wgLimit}`);pass.dispatchWorkgroups(wgX,wgY);pass.end();enc.copyBufferToBuffer(output,0,read,0,bytes);enc.copyBufferToBuffer(stats,0,statsRead,0,12);device.queue.submit([enc.finish()]);await Promise.all([read.mapAsync(GPUMapMode.READ),statsRead.mapAsync(GPUMapMode.READ)]);const s=new Int32Array(statsRead.getMappedRange()),known={min:s[0]/10,max:s[1]/10,valid:s[2]};statsRead.unmap();statsRead.destroy();stats.destroy();const dem=new Float32Array(read.getMappedRange());return {dem,readBuffer:read,gpuBuffer:output,known,tilesSubmitted};}
+  function dispose(){if(disposed)return;disposed=true;device.queue.onSubmittedWorkDone().then(()=>{for(const b of pendingSources)try{b.destroy();}catch{}try{params.destroy();}catch{}try{output.destroy();}catch{}});}
+  return {device,output,params,addTile,finish,dispose};}
+function aeqdInverse(x,y,lat0,lon0){
+  const phi0=lat0*DEG,lambda0=lon0*DEG,rho=Math.hypot(x,y);if(rho<1e-9)return {lat:lat0,lon:lon0};
+  const c=rho/R,sc=Math.sin(c),cc=Math.cos(c),sp0=Math.sin(phi0),cp0=Math.cos(phi0);
+  const phi=Math.asin(cc*sp0+(y*sc*cp0/rho));const lambda=lambda0+Math.atan2(x*sc,rho*cp0*cc-y*sp0*sc);
+  let lon=lambda/DEG;while(lon>180)lon-=360;while(lon<-180)lon+=360;return {lat:phi/DEG,lon};
+}
+function aeqdForward(lat,lon,lat0,lon0){
+  const phi=lat*DEG,lambda=lon*DEG,phi0=lat0*DEG,lambda0=lon0*DEG,dl=lambda-lambda0,sp=Math.sin(phi),cp=Math.cos(phi),sp0=Math.sin(phi0),cp0=Math.cos(phi0);
+  const cosc=Math.max(-1,Math.min(1,sp0*sp+cp0*cp*Math.cos(dl))),c=Math.acos(cosc);if(c<1e-12)return {x:0,y:0};const k=c/Math.sin(c);
+  return {x:R*k*cp*Math.sin(dl),y:R*k*(cp0*sp-sp0*cp*Math.cos(dl))};
+}
+function aeqdBounds(lat0,lon0,extentKm){
+  const half=extentKm*500,pts=[];for(let i=0;i<=16;i++){const t=-half+2*half*i/16;pts.push(aeqdInverse(t,-half,lat0,lon0),aeqdInverse(t,half,lat0,lon0),aeqdInverse(-half,t,lat0,lon0),aeqdInverse(half,t,lat0,lon0));}
+  let west=Infinity,south=Infinity,east=-Infinity,north=-Infinity;for(const q of pts){west=Math.min(west,q.lon);east=Math.max(east,q.lon);south=Math.min(south,q.lat);north=Math.max(north,q.lat);}return [west,south,east,north];
+}
+function gridToGeo(x,y){
+  if(state.projection?.type==='aeqd'){const d=state.n-1,half=state.extent*500,east=(x/d-.5)*2*half,north=(.5-y/d)*2*half;return aeqdInverse(east,north,state.projection.lat0,state.projection.lon0);}
+  if(!state.bbox)return null;const b=state.bbox,d=state.n-1;return {lon:b[0]+(b[2]-b[0])*x/d,lat:b[3]-(b[3]-b[1])*y/d};
+}
+function geoToGrid(lon,lat){
+  if(state.projection?.type==='aeqd'){const q=aeqdForward(lat,lon,state.projection.lat0,state.projection.lon0),d=state.n-1,half=state.extent*500;return {x:(q.x/(2*half)+.5)*d,y:(.5-q.y/(2*half))*d};}
+  if(!state.bbox)return null;const b=state.bbox,d=state.n-1;return {x:(lon-b[0])/(b[2]-b[0])*d,y:(b[3]-lat)/(b[3]-b[1])*d};
+}
+function terrainMpp(lat,z){return 2*Math.PI*6378137*Math.max(.01,Math.cos(lat*DEG))/(TERRAIN_TILE*2**z);}
+function tileRangeForBBox(bbox,z){
+  const left=worldPixelX(bbox[0],z)-.5,right=worldPixelX(bbox[2],z)-.5,top=worldPixelY(bbox[3],z)-.5,bottom=worldPixelY(bbox[1],z)-.5;
+  return {tx0:Math.floor(left/TERRAIN_TILE),tx1:Math.floor((right+1)/TERRAIN_TILE),ty0:Math.floor(top/TERRAIN_TILE),ty1:Math.floor((bottom+1)/TERRAIN_TILE)};
+}
+function tileCountForBBox(bbox,z){const r=tileRangeForBBox(bbox,z);return Math.max(0,r.tx1-r.tx0+1)*Math.max(0,r.ty1-r.ty0+1);}
+function chooseDetailZoom(){
+  if(!state.view||!state.bbox||state.synthetic||$('detailMode').value==='off')return null;
+  const v=state.view,center=gridToGeo(v.sx+v.sw/2,v.sy+v.sw/2),viewMeters=v.sw*state.cell,screenMpp=viewMeters/Math.max(1,v.size),mode=$('detailMode').value;
+  let auto=0;for(let z=0;z<=TERRAIN_DETAIL_MAX_Z;z++){auto=z;if(terrainMpp(center.lat,z)<=screenMpp*.9)break;}
+  state.detailSkipReason='';
+  if(mode==='auto'&&auto<13){state.detailSkipReason=`Viewport ${Math.round(viewMeters/1000)} km: screen ≈ ${screenMpp.toFixed(0)} m/px; high-res z13+ is unnecessary.`;return null;}
+  let z=mode==='max'?TERRAIN_DETAIL_MAX_Z:mode==='high'?Math.min(TERRAIN_DETAIL_MAX_Z,auto+1):auto;
+  z=Math.max(13,z);if(z<=Math.max(12,state.baseZoom||0)&&mode==='auto'){state.detailSkipReason='Base DEM is already detailed enough at this scale.';return null;}
+  const span=Math.min(state.n-1,v.sw*1.24),cx=v.sx+v.sw/2,cy=v.sy+v.sw/2;
+  let gx0=cx-span/2,gy0=cy-span/2;if(gx0<0)gx0=0;if(gy0<0)gy0=0;if(gx0+span>state.n-1)gx0=state.n-1-span;if(gy0+span>state.n-1)gy0=state.n-1-span;
+  const gx1=gx0+span,gy1=gy0+span,corners=[gridToGeo(gx0,gy0),gridToGeo(gx1,gy0),gridToGeo(gx0,gy1),gridToGeo(gx1,gy1)],bbox=[Math.min(...corners.map(q=>q.lon)),Math.min(...corners.map(q=>q.lat)),Math.max(...corners.map(q=>q.lon)),Math.max(...corners.map(q=>q.lat))];
+  while(z>13&&tileCountForBBox(bbox,z)>DETAIL_TILE_LIMIT)z--;
+  const tileCount=tileCountForBBox(bbox,z);
+  if(tileCount>DETAIL_TILE_LIMIT){state.detailSkipReason=`Viewport too wide for high resolution: even z${z} requires ${tileCount} tiles (limit ${DETAIL_TILE_LIMIT}). Zoom in.`;return null;}
+  return {z,bbox,gx0,gy0,gx1,gy1,span,screenMpp,viewMeters,lat:center.lat,tileCount};
+}
+async function resolveLowResAncestor(targetZ,x,y,maxZ,minZ,signal){
+  const nx=normalizedTileX(targetZ,x);for(let z=Math.min(maxZ,targetZ);z>=minZ;z--){const scale=2**(targetZ-z),tx=Math.floor(nx/scale),ty=Math.floor(y/scale),tile=await decodeTerrariumTile(z,tx,ty,signal,{allowMissing:true});if(tile)return {z,x:tx,y:ty,a:tile.a,url:tile.url,bytes:tile.bytes,cached:tile.cached};}return null;
+}
+async function resolveDetailTile(targetZ,x,y,minZ,signal){
+  const nx=normalizedTileX(targetZ,x),key=`${targetZ}/${nx}/${y}->${minZ}`;if(detailResolveCache.has(key))return detailResolveCache.get(key);
+  // z13 is the coverage gate for Mapterhorn's regional z13-z17 archives. If the published
+  // z6 archive manifest says this region has no high-res archive, skip all high-res HTTP probes.
+  if(targetZ>=13){
+    const coverage=await ensureHighResCoverageManifest();
+    if(coverage&&!coverage.has(highResZ6Key(targetZ,nx,y))){const low=await resolveLowResAncestor(targetZ,nx,y,12,minZ,signal);detailResolveCache.set(key,low);return low;}
+    const q13=ancestorTile(targetZ,nx,y,13),k13=missingSubtreeKey(13,q13.x,q13.y);
+    if(terrainMissingSubtrees.has(k13)){const low=await resolveLowResAncestor(targetZ,nx,y,12,minZ,signal);detailResolveCache.set(key,low);return low;}
+    // Probe coarse-to-fine. This intentionally stops at the FIRST missing child: a terrain
+    // pyramid is hierarchical, so there is no point hammering z15/z16/z17 after z14 is absent.
+    const gate=await decodeTerrariumTile(13,q13.x,q13.y,signal,{allowMissing:true});
+    if(!gate){terrainMissingSubtrees.add(k13);const low=await resolveLowResAncestor(targetZ,nx,y,12,minZ,signal);detailResolveCache.set(key,low);return low;}
+    let best={z:13,x:q13.x,y:q13.y,a:gate.a,url:gate.url,bytes:gate.bytes,cached:gate.cached};
+    for(let z=14;z<=targetZ;z++){
+      const q=ancestorTile(targetZ,nx,y,z);if(hasMissingHighResAncestor(z,q.x,q.y,14))break;
+      const tile=await decodeTerrariumTile(z,q.x,q.y,signal,{allowMissing:true});if(!tile){terrainMissingSubtrees.add(missingSubtreeKey(z,q.x,q.y));break;}
+      best={z,x:q.x,y:q.y,a:tile.a,url:tile.url,bytes:tile.bytes,cached:tile.cached};
+    }
+    // Always keep a global fallback underneath high-res. Regional source footprints often leave
+    // transparent pixels at their edges; falling back pixel-by-pixel prevents giant NoData wedges.
+    if(best.z>=13)best.fallback=await resolveLowResAncestor(targetZ,nx,y,12,minZ,signal);
+    detailResolveCache.set(key,best);return best;
+  }
+  const low=await resolveLowResAncestor(targetZ,nx,y,targetZ,minZ,signal);detailResolveCache.set(key,low);return low;
+}
+function sampleSingleResolvedTile(r,lon,lat){
+  if(!r)return NaN;const wx=worldPixelX(lon,r.z)-.5,wy=worldPixelY(lat,r.z)-.5,px=wx-r.x*TERRAIN_TILE,py=wy-r.y*TERRAIN_TILE;
+  const x=Math.max(0,Math.min(TERRAIN_TILE-2,Math.floor(px))),y=Math.max(0,Math.min(TERRAIN_TILE-2,Math.floor(py))),u=Math.max(0,Math.min(1,px-x)),v=Math.max(0,Math.min(1,py-y)),i=y*TERRAIN_TILE+x,a=r.a;
+  const h00=a[i],h10=a[i+1],h01=a[i+TERRAIN_TILE],h11=a[i+TERRAIN_TILE+1];if(![h00,h10,h01,h11].every(Number.isFinite))return NaN;
+  return h00+(h10-h00)*u+(h01-h00)*v+(h00-h10-h01+h11)*u*v;
+}
+function sampleResolvedTileInfo(r,lon,lat){if(!r)return null;const h=sampleSingleResolvedTile(r,lon,lat);if(Number.isFinite(h))return {height:h,tile:r};return r.fallback?sampleResolvedTileInfo(r.fallback,lon,lat):null;}
+function sampleResolvedTile(r,lon,lat){const q=sampleResolvedTileInfo(r,lon,lat);return q?q.height:NaN;}
+function tileForPoint(lat,lon,z){const wx=worldPixelX(lon,z)-.5,wy=worldPixelY(lat,z)-.5;return {x:Math.floor(wx/TERRAIN_TILE),y:Math.floor(wy/TERRAIN_TILE)};}
+async function resolvePointMaxDetail(lat,lon,signal){
+  const t=tileForPoint(lat,lon,TERRAIN_DETAIL_MAX_Z),r=await resolveDetailTile(TERRAIN_DETAIL_MAX_Z,t.x,t.y,12,signal);if(!r)return null;
+  const info=sampleResolvedTileInfo(r,lon,lat);if(!info)return null;const src=info.tile,height=info.height;
+  return {lat,lon,height,z:src.z,x:src.x,y:src.y,url:src.url,west:tileLon(src.x,src.z),east:tileLon(src.x+1,src.z),north:tileLat(src.y,src.z),south:tileLat(src.y+1,src.z),mpp:terrainMpp(lat,src.z)};
+}
+function schedulePointDetail(delay=120){if(pointDetailTimer)clearTimeout(pointDetailTimer);pointDetailTimer=setTimeout(()=>{pointDetailTimer=null;loadObserverPointDetail();},delay);}
+async function loadObserverPointDetail(){
+  if(!state.dem||state.synthetic||!state.bbox)return;if(pointDetailController)pointDetailController.abort();pointDetailController=new AbortController();const signal=pointDetailController.signal,token=++pointDetailToken,ox=state.observer.x,oy=state.observer.y,g=gridToGeo(ox,oy);if(!g)return;
+  $('pointDetailStatus').textContent=`Point detail: finding finest available tile under ${g.lat.toFixed(5)}°, ${g.lon.toFixed(5)}°…`;
+  try{const q=await resolvePointMaxDetail(g.lat,g.lon,signal);if(signal.aborted||token!==pointDetailToken||Math.hypot(ox-state.observer.x,oy-state.observer.y)>.35)return;if(!q)throw Error('no valid terrain tile');const coarse=sampleMain(ox,oy);state.observerNative={...q,version:state.version,ox,oy};state.refinedEndpoint=null;state.refineGeneration++;$('pointDetailStatus').textContent=`Point detail z${q.z} · ≈${q.mpp.toFixed(1)} m/px · DEM ${q.height.toFixed(1)} m${Number.isFinite(coarse)?` · coarse ${coarse.toFixed(1)} m · Δ ${(q.height-coarse).toFixed(1)} m`:''}`;queueCompute();if(state.locked)scheduleRecordRefinement(180);requestDraw();}
+  catch(e){if(signal.aborted)return;$('pointDetailStatus').textContent=`Point detail: ${e.message}; using coarse DEM.`;}
+}
+async function loadTargetPointDetailCandidate(lat,lon,ox,oy){const version=state.version;try{const q=await resolvePointMaxDetail(lat,lon,undefined);if(!q||version!==state.version||Math.hypot(ox-state.observer.x,oy-state.observer.y)>.35)return;state.targetNative={...q,version,role:'target'};requestDraw();}catch{}}
+function geodesicDestination(lat,lon,bearingDeg,distanceM){const phi1=lat*DEG,lam1=lon*DEG,th=bearingDeg*DEG,d=distanceM/R,sp1=Math.sin(phi1),cp1=Math.cos(phi1),sd=Math.sin(d),cd=Math.cos(d),phi2=Math.asin(sp1*cd+cp1*sd*Math.cos(th)),lam2=lam1+Math.atan2(Math.sin(th)*sd*cp1,cd-sp1*Math.sin(phi2));let lo=lam2/DEG;while(lo>180)lo-=360;while(lo<-180)lo+=360;return {lat:phi2/DEG,lon:lo};}
+function angleIndexToBearing(i,n){return (i*360/n+90)%360;}
+function bearingToAngleRad(b){return ((b-90)*DEG+Math.PI*4)%(Math.PI*2);}
+function pushRefinedSummaryToGPU(distance,bearing){const r=gpuEngine.resources;if(!r||!gpuEngine.device||state.last?.engine!=='webgpu')return;const t=((bearing-90)%360+360)%360,a=Math.round(t/360*r.angles)%r.angles;gpuEngine.device.queue.writeBuffer(r.summary,0,new Uint32Array([encodePositiveFloatBits(distance),a]));}
+function signedAngleDeltaIndex(a,b,n){let d=Math.abs(a-b);return Math.min(d,n-d);}
+async function readCurrentRayFar(){
+  const r=gpuEngine.resources,last=state.last,latest=gpuEngine.latest,device=gpuEngine.device;if(!r||!last||last.engine!=='webgpu'||!latest||latest.resourceKey!==r.key)return null;
+  if(state.lastRayReadback&&state.lastRayGeneration===latest.generation&&state.lastRayAngles===r.angles)return state.lastRayReadback;
+  await device.queue.onSubmittedWorkDone();if(gpuEngine.latest?.generation!==latest.generation||gpuEngine.resources!==r)return null;
+  const read=device.createBuffer({size:r.raySize,usage:GPUBufferUsage.COPY_DST|GPUBufferUsage.MAP_READ}),enc=device.createCommandEncoder();enc.copyBufferToBuffer(r.rayFar,0,read,0,r.raySize);device.queue.submit([enc.finish()]);
+  try{await read.mapAsync(GPUMapMode.READ);const a=new Float32Array(r.angles);a.set(new Float32Array(read.getMappedRange(),0,r.angles));read.unmap();read.destroy();if(gpuEngine.latest?.generation!==latest.generation)return null;state.lastRayReadback=a;state.lastRayAngles=r.angles;state.lastRayGeneration=latest.generation;state.lastRayParams={...last.params};return a;}catch(e){try{read.destroy();}catch{}return null;}
+}
+function topRayCandidates(rayFar,angles,count=3){
+  const c=[];for(let i=0;i<angles;i++){const v=rayFar[i],p=rayFar[(i-1+angles)%angles],q=rayFar[(i+1)%angles];if(v>0&&v>=p&&v>=q)c.push({i,distance:v,bearing:angleIndexToBearing(i,angles)});}c.sort((a,b)=>b.distance-a.distance);const out=[],sep=Math.max(2,Math.round(angles*.12/360));for(const q of c){if(out.every(x=>signedAngleDeltaIndex(x.i,q.i,angles)>=sep)){out.push(q);if(out.length>=count)break;}}return out;
+}
+function targetTileKeyForGeo(lat,lon,z){const t=tileForPoint(lat,lon,z);return `${t.x}:${t.y}`;}
+function corridorTileSet(origin,bearings,maxDistance,z){
+  const set=new Map(),tileSpan=Math.max(1200,terrainMpp(origin.lat,z)*TERRAIN_TILE*.42),step=Math.max(900,tileSpan);
+  for(const b of bearings)for(let d=0;d<=maxDistance+step;d+=step){const g=geodesicDestination(origin.lat,origin.lon,b,Math.min(maxDistance,d)),t=tileForPoint(g.lat,g.lon,z);set.set(`${t.x}:${t.y}`,t);}return set;
+}
+async function loadCorridorTiles(origin,bearings,maxDistance,signal){
+  const LIMIT=320,regionalHint=(state.observerNative?.z||0)>=13||(state.targetNative?.z||0)>=13;let z=regionalHint?13:12,set=corridorTileSet(origin,bearings,maxDistance,z);if(set.size>LIMIT&&z>12){z=12;set=corridorTileSet(origin,bearings,maxDistance,z);}
+  const items=[...set.values()],resolved=new Map(),stats=new Map();let done=0;tileProgress(`Record corridor z${z}`,0,items.length);await mapLimit(items,8,async t=>{if(signal.aborted)throw new DOMException('Aborted','AbortError');const r=await resolveDetailTile(z,t.x,t.y,12,signal);resolved.set(`${t.x}:${t.y}`,r);if(r)stats.set(r.z,(stats.get(r.z)||0)+1);done++;if((done&7)===0||done===items.length)tileProgress(`Record corridor z${z}`,done,items.length);});tileProgress('',0,0);return {z,resolved,stats,count:items.length};
+}
+function sampleCorridorTerrain(corr,lat,lon){const t=tileForPoint(lat,lon,corr.z),r=corr.resolved.get(`${t.x}:${t.y}`);return sampleResolvedTile(r,lon,lat);}
+function refineOneBearing(origin,bearing,maxDistance,corr,p,observerGround,sampleStep){
+  const zo=observerGround+p.eye,curv=p.curvature/(2*R);let peak=-Infinity,last=0,lastGeo=origin,unknown=false,prevD=0;
+  for(let d=sampleStep;d<=maxDistance+1;d+=sampleStep){const dd=Math.min(maxDistance,d),g=geodesicDestination(origin.lat,origin.lon,bearing,dd),h=sampleCorridorTerrain(corr,g.lat,g.lon);if(!Number.isFinite(h)){unknown=true;break;}const adj=h-zo-curv*dd*dd,terrain=adj/dd,target=(adj+p.target)/dd;if(target>=peak-1e-4/dd){last=dd;lastGeo=g;}if(terrain>peak)peak=terrain;prevD=dd;if(dd>=maxDistance)break;}
+  return {bearing,distance:last,lat:lastGeo.lat,lon:lastGeo.lon,peak,unknown,step:sampleStep};
+}
+function scheduleRecordRefinement(delay=260){if(refineTimer)clearTimeout(refineTimer);refineTimer=setTimeout(()=>{refineTimer=null;runRecordRefinement();},delay);}
+async function runRecordRefinement(){
+  if(!state.locked||state.synthetic||!state.dem)return;if(state.busy||state.desired){scheduleRecordRefinement(120);return;}const now=params(),lp=state.last?.params;if(state.last?.engine!=='webgpu'||!lp||lp.version!==now.version||Math.hypot(lp.ox-now.ox,lp.oy-now.oy)>.35){scheduleRecordRefinement(120);return;}const gen=++state.refineGeneration;if(refineController)refineController.abort();refineController=new AbortController();const signal=refineController.signal,p={...now},origin=gridToGeo(p.ox,p.oy);if(!origin)return;
+  $('refineStatus').textContent='Record refinement: reading GPU rayFar and selecting best sectors…';
+  try{if(!Number.isFinite(p.observerGround)){const q=await resolvePointMaxDetail(origin.lat,origin.lon,signal);if(q&&gen===state.refineGeneration){state.observerNative={...q,version:state.version,ox:p.ox,oy:p.oy};p.observerGround=q.height;}}
+    const rays=await readCurrentRayFar();if(signal.aborted||gen!==state.refineGeneration||!rays)return;const angles=rays.length,top=topRayCandidates(rays,angles,2);if(!top.length)throw Error('GPU produced no far candidates');
+    const bearings=[];for(const q of top){for(let off=-.20;off<=.2001;off+=.02)bearings.push((q.bearing+off+360)%360);}const maxD=Math.min(p.range,Math.max(...top.map(q=>q.distance))+120000),corr=await loadCorridorTiles(origin,bearings,maxD,signal);if(signal.aborted||gen!==state.refineGeneration)return;
+    const sourceZ=Math.max(12,...[...corr.stats.keys()]),sampleStep=Math.max(60,Math.min(110,terrainMpp(origin.lat,sourceZ)*4)),ground=Number.isFinite(p.observerGround)?p.observerGround:sampleMain(p.ox,p.oy);let best=null,tested=0;
+    for(const b of bearings){const nearest=top.reduce((a,q)=>Math.abs((((b-q.bearing+540)%360)-180))<Math.abs((((b-a.bearing+540)%360)-180))?q:a,top[0]),limit=Math.min(p.range,nearest.distance+120000),r=refineOneBearing(origin,b,limit,corr,p,ground,sampleStep);tested++;if(!r.unknown&&(!best||r.distance>best.distance))best=r;}
+    if(!best||best.distance<=0)throw Error('could not confirm a far high-resolution LOS');const gxy=geoToGrid(best.lon,best.lat);if(!gxy)throw Error('refined endpoint is outside the loaded map');const tq=await resolvePointMaxDetail(best.lat,best.lon,signal);if(signal.aborted||gen!==state.refineGeneration)return;state.targetNative=tq?{...tq,version:state.version,role:'target'}:null;state.refinedEndpoint={version:state.version,ox:p.ox,oy:p.oy,distance:best.distance,bearing:best.bearing,lat:best.lat,lon:best.lon,x:gxy.x,y:gxy.y,corridorZ:corr.z,sourceZ,sampleStep,tested};if(state.last){state.last.distance=best.distance;state.last.far=Math.max(0,Math.min(state.n*state.n-1,Math.round(gxy.y)*state.n+Math.round(gxy.x)));state.last.refined=true;}pushRefinedSummaryToGPU(best.distance,best.bearing);const st=[...corr.stats.entries()].sort((a,b)=>b[0]-a[0]).map(([z,c])=>`z${z}:${c}`).join(' · ');$('refineStatus').textContent=`Refined LOS ${best.distance/1000>=100?(best.distance/1000).toFixed(2):(best.distance/1000).toFixed(3)} km · ${best.bearing.toFixed(2)}° · ${tested} fine rays · step ${sampleStep.toFixed(0)} m · corridor target z${corr.z} · ${st}${tq?` · endpoint z${tq.z}`:''}`;updateStats();requestDraw();}
+  catch(e){if(signal.aborted||gen!==state.refineGeneration)return;$('refineStatus').textContent=`Record refinement: ${e.message}`;tileProgress('',0,0);}
+}
+function tileLon(x,z){return x/2**z*360-180;}
+function tileLat(y,z){const n=Math.PI-2*Math.PI*y/2**z;return Math.atan(Math.sinh(n))/DEG;}
+function chooseBasemapZoom(){
+  if(!state.view||!state.bbox)return null;const v=state.view,c=gridToGeo(v.sx+v.sw/2,v.sy+v.sw/2);if(!c)return null;const provider=MAP_PROVIDERS[$('baseLayer').value];if(!provider)return null;
+  const mpp=v.sw*state.cell/Math.max(1,v.size);const cos=Math.max(.01,Math.cos(c.lat*DEG));let best=0;
+  for(let z=0;z<=provider.maxZ;z++){const here=2*Math.PI*6378137*cos/(MAP_TILE*2**z);best=z;if(here<=mpp*1.25)break;}
+  return best;
+}
+async function fetchMapTile(provider,z,x,y){
+  const m=2**z,nx=((x%m)+m)%m;if(y<0||y>=m)return null;const key=`${provider}:${z}/${nx}/${y}`;
+  if(mapTileCache.has(key))return mapTileCache.get(key);if(mapTileInflight.has(key))return mapTileInflight.get(key);
+  const job=new Promise(resolve=>{
+    const img=new Image();let done=false;const finish=v=>{if(done)return;done=true;mapTileInflight.delete(key);mapTileCache.set(key,v);while(mapTileCache.size>512){const k=mapTileCache.keys().next().value;const old=mapTileCache.get(k);if(old&&old.tagName==='IMG')old.src='';mapTileCache.delete(k);}resolve(v);};
+    img.crossOrigin='anonymous';img.decoding='async';img.referrerPolicy='strict-origin-when-cross-origin';img.onload=()=>finish(img);img.onerror=()=>finish(null);img.src=MAP_PROVIDERS[provider].url(z,nx,y);
+  });
+  mapTileInflight.set(key,job);return job;
+}
+function mapPixelToGeo(wx,wy,z){const world=MAP_TILE*2**z,xx=((wx%world)+world)%world,lon=xx/world*360-180,n=Math.PI-2*Math.PI*wy/world;return {lon,lat:Math.atan(Math.sinh(n))/DEG};}
+function sampleRGBA(src,w,h,x,y,out,op){
+  if(!Number.isFinite(x)||!Number.isFinite(y)||x<0||y<0||x>w-1||y>h-1){out[op+3]=0;return;}
+  const x0=Math.max(0,Math.min(w-1,Math.floor(x))),y0=Math.max(0,Math.min(h-1,Math.floor(y))),x1=Math.min(w-1,x0+1),y1=Math.min(h-1,y0+1),fx=x-x0,fy=y-y0;
+  const i00=(y0*w+x0)*4,i10=(y0*w+x1)*4,i01=(y1*w+x0)*4,i11=(y1*w+x1)*4;
+  for(let c=0;c<4;c++){const a=src[i00+c]+(src[i10+c]-src[i00+c])*fx,b=src[i01+c]+(src[i11+c]-src[i01+c])*fx;out[op+c]=Math.round(a+(b-a)*fy);}
+}
+function renderBasemapInverse(mosaic,v,size,z,originTx,originTy){
+  const w=Math.max(1,Math.round(size)),h=w,srcCtx=mosaic.getContext('2d',{willReadFrequently:true}),srcImg=srcCtx.getImageData(0,0,mosaic.width,mosaic.height),src=srcImg.data;
+  const outCanvas=document.createElement('canvas');outCanvas.width=w;outCanvas.height=h;const oc=outCanvas.getContext('2d'),dstImg=oc.createImageData(w,h),dst=dstImg.data;
+  // Compute expensive AEQD inverse only on a sparse mesh; interpolate Web-Mercator source coordinates inside each cell.
+  const stride=8,mw=Math.ceil((w-1)/stride)+1,mh=Math.ceil((h-1)/stride)+1,mx=new Float64Array(mw*mh),my=new Float64Array(mw*mh);
+  const world=MAP_TILE*2**z,baseX=originTx*MAP_TILE,baseY=originTy*MAP_TILE;
+  for(let gy=0;gy<mh;gy++){const py=Math.min(h-1,gy*stride),gridY=v.sy+(py/Math.max(1,h-1))*v.sw;for(let gx=0;gx<mw;gx++){const px=Math.min(w-1,gx*stride),gridX=v.sx+(px/Math.max(1,w-1))*v.sw,g=gridToGeo(gridX,gridY),q=gy*mw+gx;if(!g){mx[q]=my[q]=NaN;continue;}let wx=worldPixelX(g.lon,z);while(wx<baseX)wx+=world;while(wx>=baseX+mosaic.width)wx-=world;mx[q]=wx-baseX;my[q]=worldPixelY(g.lat,z)-baseY;}}
+  for(let by=0;by<mh-1;by++){const y0=by*stride,y1=Math.min(h-1,(by+1)*stride),denY=Math.max(1,y1-y0);for(let bx=0;bx<mw-1;bx++){const x0=bx*stride,x1=Math.min(w-1,(bx+1)*stride),denX=Math.max(1,x1-x0),q00=by*mw+bx,q10=q00+1,q01=q00+mw,q11=q01+1;for(let py=y0;py<=y1;py++){const fy=(py-y0)/denY;for(let px=x0;px<=x1;px++){const fx=(px-x0)/denX,sx0=mx[q00]+(mx[q10]-mx[q00])*fx,sx1=mx[q01]+(mx[q11]-mx[q01])*fx,sy0=my[q00]+(my[q10]-my[q00])*fx,sy1=my[q01]+(my[q11]-my[q01])*fx,sx=sx0+(sx1-sx0)*fy,sy=sy0+(sy1-sy0)*fy;sampleRGBA(src,mosaic.width,mosaic.height,sx,sy,dst,(py*w+px)*4);}}}}
+  oc.putImageData(dstImg,0,0);return outCanvas;
+}
+function viewportGeoBBox(){if(!state.view||!state.bbox)return null;const v=state.view,pts=[gridToGeo(v.sx,v.sy),gridToGeo(v.sx+v.sw,v.sy),gridToGeo(v.sx,v.sy+v.sw),gridToGeo(v.sx+v.sw,v.sy+v.sw)];return [Math.min(...pts.map(q=>q.lon)),Math.min(...pts.map(q=>q.lat)),Math.max(...pts.map(q=>q.lon)),Math.max(...pts.map(q=>q.lat))];}
+function scheduleBasemapLoad(delay=120){if(basemapTimer)clearTimeout(basemapTimer);basemapTimer=setTimeout(()=>{basemapTimer=null;loadBasemapViewport();},delay);}
+async function loadBasemapViewport(){
+  const provider=$('baseLayer').value,attr=$('mapAttribution');
+  if(provider==='terrain'){basemapCanvas.width=basemapCanvas.height=0;lastBasemapLoadedSig='';$('mapLayerStatus').textContent='Basemap: DEM only.';attr.textContent='';requestDraw();return;}
+  const bbox=viewportGeoBBox(),v=state.view;if(!bbox||!v||!state.bbox)return;const z=chooseBasemapZoom();if(z==null)return;
+  const tr=tileRangeForBBox(bbox,z),tiles=[];for(let ty=tr.ty0;ty<=tr.ty1;ty++)for(let tx=tr.tx0;tx<=tr.tx1;tx++)tiles.push({x:tx,y:ty});
+  const sig=`${provider}:${z}:${tr.tx0}:${tr.ty0}:${tr.tx1}:${tr.ty1}:${Math.round(v.size)}:${Math.round(v.sx)}:${Math.round(v.sy)}:${Math.round(v.sw)}`;
+  if(sig===lastBasemapLoadedSig&&basemapCanvas.width)return;
+  $('mapLayerStatus').textContent=`Basemap: ${MAP_PROVIDERS[provider].label} z${z} · loading 0/${tiles.length}`;tileProgress(`${MAP_PROVIDERS[provider].label} z${z}`,0,tiles.length);
+  const loadedTiles=new Map();let loaded=0,failed=0,done=0;
+  await mapLimit(tiles,8,async t=>{const bmp=await fetchMapTile(provider,z,t.x,t.y);done++;if(!bmp)failed++;else{loaded++;loadedTiles.set(`${t.x}:${t.y}`,bmp);}tileProgress(`${MAP_PROVIDERS[provider].label} z${z}`,done,tiles.length);});
+  if($('baseLayer').value!==provider)return;
+  const cols=tr.tx1-tr.tx0+1,rows=tr.ty1-tr.ty0+1,mosaic=document.createElement('canvas');mosaic.width=cols*MAP_TILE;mosaic.height=rows*MAP_TILE;const mc=mosaic.getContext('2d');mc.imageSmoothingEnabled=false;
+  for(let ty=tr.ty0;ty<=tr.ty1;ty++)for(let tx=tr.tx0;tx<=tr.tx1;tx++){const img=loadedTiles.get(`${tx}:${ty}`);if(img)mc.drawImage(img,(tx-tr.tx0)*MAP_TILE,(ty-tr.ty0)*MAP_TILE,MAP_TILE,MAP_TILE);}
+  let temp;
+  try{temp=renderBasemapInverse(mosaic,v,v.size,z,tr.tx0,tr.ty0);}catch(e){console.warn('Inverse basemap reprojection failed',e);$('mapLayerStatus').textContent=`Basemap: ${MAP_PROVIDERS[provider].label} z${z} · reprojection failed (${e.message})`;tileProgress('',0,0);return;}
+  basemapCanvas.width=temp.width;basemapCanvas.height=temp.height;bmctx.clearRect(0,0,temp.width,temp.height);bmctx.drawImage(temp,0,0);lastBasemapLoadedSig=sig;
+  $('mapLayerStatus').textContent=`Basemap: ${MAP_PROVIDERS[provider].label} z${z} · ${loaded}/${tiles.length} tiles · inverse AEQD${failed?` · errors ${failed}`:''}`;
+  const P=MAP_PROVIDERS[provider];attr.innerHTML=`<a href="${P.attributionUrl}" target="_blank" rel="noopener">${P.attribution}</a>`;setTimeout(()=>tileProgress('',0,0),400);requestDraw();
+}
+function setData(dem,n,extent,bbox,title,synthetic,urls=[],projection=null,knownStats=null,gpuDemBuffer=null,demReadbackBuffer=null){
+  if(detailController)detailController.abort();if(detailTimer)clearTimeout(detailTimer);if(detailComputeTimer)clearTimeout(detailComputeTimer);const oldReadback=state.demReadbackBuffer;
+  state.dem=dem;state.demReadbackBuffer=demReadbackBuffer||null;state.n=n;state.cell=extent*1000/(n-1);state.bbox=bbox;state.projection=projection;state.baseZoom=null;state.extent=extent;state.title=title;state.synthetic=synthetic;state.urls=urls;
+  state.version++;if(gpuDemBuffer){const old=gpuEngine.demBuffer;if(old&&old!==gpuDemBuffer)retireBuffers({demBuffer:old},['demBuffer']);gpuEngine.demBuffer=gpuDemBuffer;gpuEngine.demVersion=state.version;}else if(gpuEngine.demBuffer){const old=gpuEngine.demBuffer;gpuEngine.demBuffer=null;gpuEngine.demVersion=-1;retireBuffers({demBuffer:old},['demBuffer']);}state.displayEndpoint=null;gpuEngine.autoAngles=null;gpuEngine.frameEma=null;gpuEngine.lastAngleAdjust=0;state.ready=false;state.cpuWorkerPending=false;state.busy=false;state.last=null;state.rose=null;state.roseMeta=null;rosePending=null;roseInFlight=false;roseFlightId=null;state.verified=null;state.desired=null;state.verifyId=null;state.observerNative=null;state.targetNative=null;state.refinedEndpoint=null;state.refineGeneration++;state.lastRayReadback=null;state.lastRayAngles=0;state.lastRayGeneration=0;state.lastRayParams=null;state.observer={x:(n-1)/2,y:(n-1)/2};
+  state.detail=null;state.detailLast=null;state.detailSeed=null;state.detailReady=false;state.detailVersion++;detailBase.width=detailBase.height=detailShade.width=detailShade.height=detailOverlay.width=detailOverlay.height=0;
+  state.camera={cx:(n-1)/2,cy:(n-1)/2,zoom:1};state.interaction={drag:false,suppressClick:false,lastPan:0};
+  $('verify').disabled=false;state.locked=false;updateLock();
+  let min=knownStats?.min,max=knownStats?.max,valid=knownStats?.valid;if(!Number.isFinite(min)||!Number.isFinite(max)||!Number.isFinite(valid)){min=Infinity;max=-Infinity;valid=0;for(const h of dem)if(Number.isFinite(h)){min=Math.min(min,h);max=Math.max(max,h);valid++;}}
+  state.min=min;state.max=max;state.valid=valid;
+  $('placeLabel').textContent=title;$('sourceLabel').textContent=synthetic?'OFFLINE / ANALYTICAL TEST TERRAIN':'MAPTERHORN / OPEN DEM';
+  $('dataBadge').textContent=synthetic?'SYNTHETIC · NOT REAL TERRAIN':'REAL DEM · MAPTERHORN';$('dataBadge').classList.toggle('synthetic',synthetic);
+  $('gridInfo').textContent=`${n} × ${n} · step ${state.cell.toFixed(1)} m · ${min.toFixed(0)}…${max.toFixed(0)} m · ${(valid/dem.length*100).toFixed(1)}% valid data`;
+  if(!synthetic&&state.cell>35)$('gridInfo').textContent+=' · terrain additionally downsampled by compute grid';
+  makeBase();makeOverlay();validationCore.init(dem,n,state.cell);if(oldReadback&&oldReadback!==state.demReadbackBuffer){try{oldReadback.unmap();}catch{}try{oldReadback.destroy();}catch{}}if(n<=4096)ensureCPUWorkerInitialized();
+  queueCompute();requestDraw();setTimeout(()=>scheduleBasemapLoad(30),0);
+}
+function syntheticScene(){
+  ++loadVersion;if(loadController)loadController.abort();state.loading=false;$('load').disabled=false;$('notice').textContent='';tileProgress('',0,0);
+  const n=+$('resolution').value,extent=Math.min(2200,Math.max(2,+$('extent').value||16)),a=new Float32Array(n*n);
+  for(let y=0;y<n;y++)for(let x=0;x<n;x++){
+    const u=x/(n-1),v=y/(n-1),ridge=u-.45-.11*Math.sin(v*8);
+    let h=100+1120*Math.exp(-ridge*ridge/0.038)*Math.exp(-((v-.49)**2)/.28);
+    h+=460*Math.exp(-((u-.77)**2/.035+(v-.18)**2/.025));
+    h+=310*Math.exp(-((u-.21)**2/.027+(v-.80)**2/.018));
+    const rough=(Math.sin(u*41+Math.sin(v*18))*Math.cos(v*36-u*8)*45+Math.sin(u*93+v*67)*11+Math.sin(u*179-v*141)*3);
+    h+=rough*Math.min(1,h/450);
+    h-=180*Math.exp(-((v-.67-.08*Math.sin(u*12))**2)/.0008)*Math.exp(-((u-.6)**2)/.3);
+    a[y*n+x]=Math.max(5,h);
+  }
+  setData(a,n,extent,null,'Synthetic terrain / ridges and valleys',true);$('detailStatus').textContent='Viewport detail disabled for synthetic terrain.';
+  status('Synthetic terrain. This is not real-world elevation data. Press Load DEM for real terrain.');
+}
+async function loadDEM(){
+  const lat=+$('lat').value,lon=+$('lon').value,extent=+$('extent').value,n=+$('resolution').value;if(n>=8192){if(!gpuEngine.adapter&&!gpuEngine.failed)await probeWebGPU();updateResolutionCapability();if($('res8192')?.disabled){status('8192² requires a GPU storage binding of at least 256 MiB; this adapter does not expose it.',true);return;}}
+  const requestedTitle=PRESETS[$('preset').value]?.title||state.customTitle||`${lat.toFixed(4)}°, ${lon.toFixed(4)}°`;if(![lat,lon,extent].every(Number.isFinite)||Math.abs(lat)>80||Math.abs(lon)>179||extent<2||extent>2200){status('Latitude: −80…80, longitude: −179…179, area side: 2…2200 km.',true);return;}
+  const thisLoad=++loadVersion;if(loadController)loadController.abort();loadController=new AbortController();const signal=loadController.signal;state.loading=true;$('load').disabled=true;const timeout=setTimeout(()=>loadController?.abort(),120000);let cpuResampler=null,gpuResampler=null,gpuAdopted=false;
+  try{
+    const projection={type:'aeqd',lat0:lat,lon0:lon},bbox=aeqdBounds(lat,lon,extent),z=chooseTerrainZoom(lat,extent,n),left=worldPixelX(bbox[0],z)-.5,right=worldPixelX(bbox[2],z)-.5,top=worldPixelY(bbox[3],z)-.5,bottom=worldPixelY(bbox[1],z)-.5,tx0=Math.floor(left/TERRAIN_TILE),tx1=Math.floor((right+1)/TERRAIN_TILE),ty0=Math.floor(top/TERRAIN_TILE),ty1=Math.floor((bottom+1)/TERRAIN_TILE),tiles=[];for(let ty=ty0;ty<=ty1;ty++)for(let tx=tx0;tx<=tx1;tx++)tiles.push({x:tx,y:ty});if(tiles.length>1024)throw Error(`requires ${tiles.length} elevation tiles; reduce area or grid resolution`);
+    const c=Math.max(.01,Math.cos(lat*DEG)),sourceMpp=2*Math.PI*6378137*c/(TERRAIN_TILE*2**z);let mode='CPU worker';try{if(window.isSecureContext&&navigator.gpu&&!gpuEngine.failed){gpuResampler=await createGPUBaseResampler({n,extent,lat,lon,z});mode='WebGPU streaming';}}catch(e){console.warn('GPU base resampler unavailable; using worker fallback',e);gpuResampler=null;}
+    status(`Mapterhorn z${z}: ${tiles.length} terrain tiles, ≈ ${sourceMpp.toFixed(1)} m/pixel at center. ${mode}: projection starts as each tile arrives.`);$('notice').textContent=`Streaming DEM · ${mode}… previous terrain remains visible`;
+    let done=0,bytes=0,networkTiles=0,resamplePct=0,resamplePreparedMs=0,resolveResample,rejectResample,resamplePromise=null;const failures=[],fallbackLevels=new Map();
+    const updateProgress=()=>{const net=tiles.length?done/tiles.length:0,res=gpuResampler?net:Math.max(0,Math.min(1,resamplePct/100)),combined=(.45*net+.55*res)*100,label=`Base DEM z${z} · network ${done}/${tiles.length} · ${gpuResampler?'GPU projected':'resample'} ${Math.round(res*100)}%`;tileProgress(label,combined,100);$('notice').textContent=`Streaming DEM · network ${Math.round(net*100)}% · ${gpuResampler?'GPU submit':'resample'} ${Math.round(res*100)}%`;};
+    if(!gpuResampler){resamplePromise=new Promise((resolve,reject)=>{resolveResample=resolve;rejectResample=reject;});cpuResampler=new Worker(resampleWorkerURL);cpuResampler.onmessage=({data:m})=>{if(thisLoad!==loadVersion)return;if(m.type==='prepared'){resamplePreparedMs=m.ms||0;updateProgress();}else if(m.type==='progress'){resamplePct=100*(m.blocksDone||0)/Math.max(1,m.blockCount||1);updateProgress();}else if(m.type==='done'){resamplePct=100;updateProgress();resolveResample(m);}else if(m.type==='error')rejectResample(Error(m.message||'resample worker error'));};cpuResampler.onerror=e=>rejectResample(Error(e.message||'resample worker failed'));cpuResampler.postMessage({type:'init',n,extent,lat,lon,z,tileSize:TERRAIN_TILE,tx0,tx1,ty0,ty1,stride:64});}
+    updateProgress();
+    await mapLimit(tiles,8,async target=>{if(signal.aborted)throw new DOMException('Aborted','AbortError');let sent=false;try{const v=await decodeTerrariumTile(z,target.x,target.y,signal,{allowMissing:true}),r=v?{z,x:v.x,y:v.y,a:v.a,url:v.url,bytes:v.bytes,cached:v.cached}:await resolveLowResAncestor(z,target.x,target.y,z-1,0,signal);if(!r)throw Error(`no terrain tile or parent for ${z}/${target.x}/${target.y}`);fallbackLevels.set(r.z,(fallbackLevels.get(r.z)||0)+1);if(!r.cached){bytes+=r.bytes||0;networkTiles++;}if(gpuResampler){gpuResampler.addTile(target,r);if(r.z===z)terrainTileCache.delete(`${r.z}/${r.x}/${r.y}`);}else{let a;if(r.z===z){terrainTileCache.delete(`${r.z}/${r.x}/${r.y}`);a=r.a;}else a=r.a.slice();cpuResampler.postMessage({type:'tile',tx:target.x,ty:target.y,srcZ:r.z,srcX:r.x,srcY:r.y,buffer:a.buffer},[a.buffer]);}sent=true;}catch(e){if(signal.aborted)throw e;failures.push(`${target.x}/${target.y}: ${e.message}`);}finally{if(!sent&&!gpuResampler)cpuResampler.postMessage({type:'tile',tx:target.x,ty:target.y,missing:true});done++;updateProgress();}});
+    if(signal.aborted)throw new DOMException('Aborted','AbortError');let dem,known,gpuBuffer=null,readBuffer=null,streamInfo='';if(gpuResampler){$('notice').textContent='Network complete · finishing GPU queue + DEM readback…';tileProgress(`Base DEM z${z} · network complete · GPU finalize`,95,100);const rr=await gpuResampler.finish();if(thisLoad!==loadVersion){try{rr.readBuffer.unmap();rr.readBuffer.destroy();rr.gpuBuffer.destroy();}catch{}return;}dem=rr.dem;known=rr.known;gpuBuffer=rr.gpuBuffer;readBuffer=rr.readBuffer;gpuAdopted=true;gpuResampler=null;streamInfo=`WebGPU streamed ${rr.tilesSubmitted} tile projections`;}
+    else{if(resamplePct<100)$('notice').textContent=`Network complete · finishing streamed AEQD resample ${resamplePct.toFixed(0)}%…`;const rr=await resamplePromise;if(thisLoad!==loadVersion)return;dem=new Float32Array(rr.buffer);known={min:rr.min,max:rr.max,valid:rr.valid||0};streamInfo=`Worker mesh prepared in ${resamplePreparedMs.toFixed(0)} ms`;}
+    if(!known||known.valid===0)throw Error('tiles loaded but the area contains no valid elevations');const urls=tiles.map(q=>terrainURL(z,q.x,q.y));setData(dem,n,extent,bbox,requestedTitle,false,urls,projection,known,gpuBuffer,readBuffer);state.baseZoom=z;$('detailStatus').textContent=`Base DEM z${z}. Viewport resolver activates after the first frame.`;setTimeout(()=>{scheduleDetailLoad(50);schedulePointDetail(20);},0);const fb=[...fallbackLevels.entries()].sort((a,b)=>b[0]-a[0]).map(([zz,c])=>`z${zz}:${c}`).join(' · ');status(`DEM ready: target z${z}, ${tiles.length-failures.length}/${tiles.length} target tiles, ${(bytes/1048576).toFixed(1)} MiB new data (${networkTiles} from network). ${streamInfo}. Sources ${fb||'—'}. ${failures.length?'Unresolved holes: '+failures.length+'. ':''}Source: Mapterhorn / Terrarium.`,failures.length>0);
+  }catch(e){if(thisLoad!==loadVersion)return;const reason=e.name==='AbortError'?'loading stopped or timed out':e.message;status(`DEM not loaded: ${reason}. ${state.synthetic?'Synthetic terrain remains on screen.':'Previous area retained.'}`,true);
+  }finally{clearTimeout(timeout);try{cpuResampler?.terminate();}catch{}if(gpuResampler&&!gpuAdopted)try{gpuResampler.dispose();}catch{}if(thisLoad===loadVersion){state.loading=false;$('load').disabled=false;$('notice').textContent='';tileProgress('',0,0);}}
+}
+function clearDetail(message='Viewport detail cleared.'){
+  if(detailController)detailController.abort();detailController=null;state.detail=null;state.detailLast=null;state.detailSeed=null;state.detailReady=false;detailBase.width=detailBase.height=detailShade.width=detailShade.height=detailOverlay.width=detailOverlay.height=0;$('detailStatus').textContent=message;if(!state.synthetic){$('dataBadge').textContent='REAL DEM · MAPTERHORN';}requestDraw();
+}
+function scheduleDetailLoad(delay=180){
+  if(detailTimer)clearTimeout(detailTimer);detailTimer=setTimeout(()=>{detailTimer=null;loadViewportDetail();},delay);
+}
+async function loadViewportDetail(){
+  const spec=chooseDetailZoom();if(!spec){tileProgress('',0,0);if($('detailMode').value==='off')clearDetail('Viewport detail disabled.');else if(!state.synthetic)clearDetail(state.detailSkipReason||'Current scale does not require z13+ detail; using base DEM.');return;}
+  const token=++detailLoadToken;if(detailController)detailController.abort();detailController=new AbortController();const signal=detailController.signal,r=tileRangeForBBox(spec.bbox,spec.z),tiles=[];
+  for(let y=r.ty0;y<=r.ty1;y++)for(let x=r.tx0;x<=r.tx1;x++)tiles.push({x,y});
+  $('detailStatus').textContent=`Viewport detail: probing z${spec.z}, ${tiles.length} target tiles…`;tileProgress(`Detail z${spec.z}`,0,tiles.length);
+  try{
+    const resolved=new Map(),stats=new Map();let done=0;
+    await mapLimit(tiles,8,async t=>{const v=await resolveDetailTile(spec.z,t.x,t.y,12,signal);resolved.set(`${t.x}:${t.y}`,v);if(v)stats.set(v.z,(stats.get(v.z)||0)+1);done++;if(done%4===0||done===tiles.length){$('detailStatus').textContent=`Viewport detail: ${done}/${tiles.length} · target z${spec.z}`;tileProgress(`Detail z${spec.z}`,done,tiles.length);}});
+    if(signal.aborted||token!==detailLoadToken)return;
+    const mode=$('detailMode').value,targetN=Math.max(256,Math.min(1536,Math.round((state.view?.size||700)*(mode==='max'?1.5:mode==='high'?1.3:1.1)))),dem=new Float32Array(targetN*targetN);dem.fill(NaN);let valid=0,min=Infinity,max=-Infinity;
+    for(let y=0;y<targetN;y++){const gy=spec.gy0+(spec.gy1-spec.gy0)*y/(targetN-1);for(let x=0;x<targetN;x++){
+      const gx=spec.gx0+(spec.gx1-spec.gx0)*x/(targetN-1),g=gridToGeo(gx,gy),wx=worldPixelX(g.lon,spec.z)-.5,wy=worldPixelY(g.lat,spec.z)-.5,tx=Math.floor(wx/TERRAIN_TILE),ty=Math.floor(wy/TERRAIN_TILE),rr=resolved.get(`${tx}:${ty}`),h=sampleResolvedTile(rr,g.lon,g.lat),i=y*targetN+x;if(Number.isFinite(h)){dem[i]=h;valid++;min=Math.min(min,h);max=Math.max(max,h);}
+    }}
+    if(!valid)throw Error('detail resolver returned no valid elevations');
+    const cell=state.cell*spec.span/(targetN-1),sourceStats=[...stats.entries()].sort((a,b)=>b[0]-a[0]),maxSource=sourceStats.length?sourceStats[0][0]:state.baseZoom||0,improved=maxSource>(state.baseZoom||0)||cell<state.cell*.8;
+    state.detail={...spec,n:targetN,dem,cell,min,max,valid,resolved,sourceStats,maxSource,improved,version:++state.detailVersion};state.detailLast=null;state.detailSeed=null;state.detailReady=false;
+    makeDetailBase();makeDetailOverlay();const copy=dem.slice();detailWorker.postMessage({type:'init',id:state.detail.version,dem:copy.buffer,n:targetN,cell},[copy.buffer]);
+    const stat=sourceStats.map(([z,c])=>`z${z}:${c}`).join(' · '),native=terrainMpp(spec.lat,maxSource);
+    $('detailStatus').textContent=`Detail ${targetN}² · ${cell.toFixed(2)} m/cell · best source z${maxSource} ≈ ${native.toFixed(2)} m/px · ${stat}${improved?'':' · no gain over base'}`;
+    tileProgress('',0,0);requestDraw();scheduleDetailCompute(80);
+  }catch(e){if(signal.aborted||token!==detailLoadToken)return;tileProgress('',0,0);$('detailStatus').textContent=`Viewport detail: ${e.message}. Base DEM retained.`;console.warn('detail load',e);}
+}
+function makeDetailBase(){
+  const q=state.detail;if(!q)return;const n=q.n,z=q.dem,s=q.cell,image=new ImageData(n,n),shade=new ImageData(n,n),d=image.data,sd=shade.data,colors=[[26,50,65],[45,75,80],[80,103,97],[118,125,112],[168,165,145],[218,221,206]],span=Math.max(1,state.max-state.min);
+  for(let y=0;y<n;y++)for(let x=0;x<n;x++){const i=y*n+x,p=i*4,h=z[i];if(!Number.isFinite(h)){d[p+3]=0;sd[p+3]=0;continue;}const l=z[y*n+Math.max(0,x-1)],rr=z[y*n+Math.min(n-1,x+1)],u=z[Math.max(0,y-1)*n+x],v=z[Math.min(n-1,y+1)*n+x],gx=Number.isFinite(l)&&Number.isFinite(rr)?(rr-l)/(2*s):0,gy=Number.isFinite(u)&&Number.isFinite(v)?(v-u)/(2*s):0;let light=.64+.50*((gx+gy)*.5+.72)/Math.sqrt(gx*gx+gy*gy+1);light=Math.min(1.2,Math.max(.36,light));const c=Math.max(0,Math.min(4.999,(h-state.min)/span*5)),k=Math.floor(c),f=c-k;for(let j=0;j<3;j++)d[p+j]=Math.min(255,(colors[k][j]*(1-f)+colors[k+1][j]*f)*light);d[p+3]=255;const shadeAmt=Math.max(0,Math.min(1,(1-light)/.7));sd[p]=0;sd[p+1]=0;sd[p+2]=0;sd[p+3]=Math.round(255*shadeAmt);}
+  detailBase.width=detailBase.height=n;dbctx.putImageData(image,0,0);detailShade.width=detailShade.height=n;dsctx.putImageData(shade,0,0);
+}
+function makeDetailOverlay(){
+  const q=state.detail,r=state.detailLast;if(!q||!r){detailOverlay.width=detailOverlay.height=0;return;}const n=q.n,img=new ImageData(n,n),d=img.data,m=r.mask,alpha=+$('opacity').value*2.55,darken=$('hidden').checked;
+  for(let i=0;i<m.length;i++){const p=i*4;if(m[i]===1){d[p]=51;d[p+1]=244;d[p+2]=198;d[p+3]=alpha;}else if(m[i]===2&&darken){d[p]=30;d[p+1]=27;d[p+2]=54;d[p+3]=140;}else if(m[i]===3){d[p]=168;d[p+1]=165;d[p+2]=198;d[p+3]=35;}}
+  detailOverlay.width=detailOverlay.height=n;doctx.putImageData(img,0,0);
+}
+function detailObserverParams(){
+  const q=state.detail;if(!q||!$('detailLOS').checked)return null;const fx=(state.observer.x-q.gx0)/(q.gx1-q.gx0)*(q.n-1),fy=(state.observer.y-q.gy0)/(q.gy1-q.gy0)*(q.n-1);if(fx<1||fy<1||fx>q.n-2||fy>q.n-2)return null;
+  const ox=Math.round(fx),oy=Math.round(fy),ground=q.dem[oy*q.n+ox];if(!Number.isFinite(ground))return null;const p=params();return {ox,oy,eye:p.eye,target:p.target,range:p.range,curvature:p.curvature,engine:'fast',nearRange:p.nearRange,farRays:p.farRays,roseStep:q.n>=1400?2:1,version:q.version,observerGround:ground,globalObserverX:state.observer.x,globalObserverY:state.observer.y};
+}
+function scheduleDetailCompute(delay=120){
+  if(detailComputeTimer)clearTimeout(detailComputeTimer);detailComputeTimer=setTimeout(()=>{detailComputeTimer=null;if(!state.detailReady||!state.detail)return;const p=detailObserverParams();if(!p){state.detailLast=null;state.detailSeed=null;makeDetailOverlay();requestDraw();return;}const id=++state.detailComputeId;detailWorker.postMessage({type:'detailCompute',id,params:p});},delay);
+}
+function seededRoseParams(q){
+  const s=state.detailSeed;if(!s||!$('detailLOS').checked||s.globalVersion!==state.version||s.ox!==q.ox||s.oy!==q.oy||s.farRays!==q.farRays)return q;
+  return {...q,observerGround:s.observerGround,seedHorizon:s.horizon,seedUntil:s.coverage,seedRose:s.rose,detailSeedVersion:s.detailVersion};
+}
+function makeBase(){
+  if(!state.dem)return;const n=state.n,z=state.dem,s=state.cell,outN=Math.min(n,2048),scale=(n-1)/Math.max(1,outN-1),image=new ImageData(outN,outN),shade=new ImageData(outN,outN),d=image.data,sd=shade.data;
+  const colors=[[26,50,65],[45,75,80],[80,103,97],[118,125,112],[168,165,145],[218,221,206]];
+  const span=Math.max(1,state.max-state.min),interval=span>1200?100:span>450?50:20,ds=Math.max(1,Math.round(scale));
+  for(let yy=0;yy<outN;yy++){const y=Math.min(n-1,Math.round(yy*scale));for(let xx=0;xx<outN;xx++){
+    const x=Math.min(n-1,Math.round(xx*scale)),i=y*n+x,p=(yy*outN+xx)*4,h=z[i];if(!Number.isFinite(h)){const c=((xx>>3)+(yy>>3))%2?30:40;d[p]=c;d[p+1]=c+9;d[p+2]=c+19;d[p+3]=255;sd[p+3]=0;continue;}
+    const l=z[y*n+Math.max(0,x-ds)],r=z[y*n+Math.min(n-1,x+ds)],u=z[Math.max(0,y-ds)*n+x],v=z[Math.min(n-1,y+ds)*n+x];
+    const denom=Math.max(1,2*ds*s),gx=Number.isFinite(l)&&Number.isFinite(r)?(r-l)/denom:0,gy=Number.isFinite(u)&&Number.isFinite(v)?(v-u)/denom:0;
+    let light=.64+.50*((gx+gy)*.5+.72)/Math.sqrt(gx*gx+gy*gy+1);light=Math.min(1.2,Math.max(.36,light));
+    const c=Math.max(0,Math.min(4.999,(h-state.min)/span*5)),k=Math.floor(c),f=c-k;if($('contours').checked&&Number.isFinite(r)&&Math.floor(h/interval)!==Math.floor(r/interval))light*=.77;
+    for(let j=0;j<3;j++)d[p+j]=Math.min(255,(colors[k][j]*(1-f)+colors[k+1][j]*f)*light);d[p+3]=255;const shadeAmt=Math.max(0,Math.min(1,(1-light)/.7));sd[p]=0;sd[p+1]=0;sd[p+2]=0;sd[p+3]=Math.round(255*shadeAmt);
+  }}
+  base.width=base.height=outN;bctx.putImageData(image,0,0);shadeBase.width=shadeBase.height=outN;sbctx.putImageData(shade,0,0);
+}
+function makeOverlay(){overlayKey='';}
+function ensureOverlayViewport(size,sx,sy,sw){
+  if(!state.last){overlay.width=overlay.height=1;return;}
+  const q=Math.max(128,Math.min(1024,Math.round(size*Math.min(1.35,devicePixelRatio||1))));
+  const alpha=+$('opacity').value*2.55,darken=$('hidden').checked;
+  const key=[state.last.id||0,q,sx.toFixed(3),sy.toFixed(3),sw.toFixed(3),alpha,darken].join('|');if(key===overlayKey)return;
+  overlayKey=key;overlay.width=overlay.height=q;const img=new ImageData(q,q),d=img.data,m=state.last.mask,n=state.n,p=state.last.params;
+  const hybrid=state.last.engine==='hybrid',near2=hybrid?(state.last.nearRange/state.cell)**2:0,rad2=(p.range/state.cell)**2;
+  for(let yy=0;yy<q;yy++){
+    const gy=Math.max(0,Math.min(n-1,Math.round(sy+(yy+.5)*sw/q))),dy=gy-p.oy;
+    for(let xx=0;xx<q;xx++){
+      const gx=Math.max(0,Math.min(n-1,Math.round(sx+(xx+.5)*sw/q))),i=gy*n+gx,v=m[i],o=(yy*q+xx)*4;
+      if(v===1){d[o]=51;d[o+1]=244;d[o+2]=198;d[o+3]=alpha;}
+      else if(v===2&&darken){d[o]=30;d[o+1]=27;d[o+2]=54;d[o+3]=140;}
+      else if(v===3&&((xx>>2)+(yy>>2))%2){d[o]=168;d[o+1]=165;d[o+2]=198;d[o+3]=48;}
+      else if(hybrid&&v===0){const dx=gx-p.ox,d2=dx*dx+dy*dy;if(d2>near2&&d2<=rad2&&((xx>>3)+(yy>>3))%2===0){d[o]=117;d[o+1]=111;d[o+2]=177;d[o+3]=25;}}
+    }
+  }
+  octx.putImageData(img,0,0);
+}
+function endpoint(){
+  const r=state.verified||state.last,p=r?.params||state.last?.params,q=state.refinedEndpoint;let cur=null;
+  if(r&&p&&q&&q.version===state.version&&Math.hypot(q.ox-p.ox,q.oy-p.oy)<.35)cur={x:q.x,y:q.y,distance:q.distance,bearing:q.bearing,lat:q.lat,lon:q.lon,params:{...p},refined:true};
+  else if(r&&p&&r.far>=0&&r.distance>0)cur={x:r.far%state.n,y:Math.floor(r.far/state.n),distance:r.distance,params:{...p}};
+  if(cur){state.displayEndpoint={...cur,version:state.version};return cur;}
+  const old=state.displayEndpoint;if(old&&old.version===state.version)return {...old,stale:true};return null;
+}
+function compass(b){return ['N','NE','E','SE','S','SW','W','NW'][Math.round(b/45)%8];}
+function updateStats(){
+  const r=state.last;if(!r)return;const e=endpoint();
+  if(e){const bearing=Number.isFinite(e.bearing)?e.bearing:(Math.atan2(e.x-e.params.ox,-(e.y-e.params.oy))/DEG+360)%360;
+    $('distance').innerHTML=`${(e.distance/1000).toFixed(2)} <small>km</small>`;$('bearing').innerHTML=`${bearing.toFixed(1)}<small>°</small>`;$('direction').textContent=compass(bearing);
+    const boundary=e.x<1||e.y<1||e.x>state.n-2||e.y>state.n-2,limit=Math.abs(e.distance-e.params.range)<state.cell*1.5;
+    let text=e.stale?'updating · last accepted result':e.refined?'high-res corridor refined':state.verified?(state.verified.certified?'grid maximum verified':'confirmed candidate'):(r.engine==='webgpu'?'≈ GPU longest ray':r.engine==='hybrid'&&e.distance>r.nearRange?'≈ far-ray':'≈ fast mask');if(!e.stale){if(boundary)text+=' · DEM edge';else if(limit)text+=' · radius edge';}$('certLabel').textContent=text;$('certLabel').title=text;
+  }else{$('distance').textContent='—';$('bearing').textContent='—';$('certLabel').textContent='no confirmed point';}
+  if(r.engine==='webgpu'&&!Number.isFinite(r.visible)){$('visible').innerHTML='LIVE';$('visibleSub').textContent='screen-space prefix horizon';}else{$('visible').innerHTML=`${(100*r.visible/Math.max(1,r.inside)).toFixed(1)}<small>% ≈</small>`;$('visibleSub').textContent=r.engine==='hybrid'?`near-zone ${(r.nearRange/1000).toFixed(0)} km`:'of nodes inside radius';}
+  $('timing').innerHTML=`${r.ms.toFixed(1)} <small>ms</small>`;
+  const engineLabel=r.engine==='webgpu'?'WebGPU live':r.engine==='hybrid'?'Hybrid':r.engine==='polar'?'CPU polar':'CPU ref';$('latency').textContent=`${engineLabel} · response ${r.latency?.toFixed(1)||'—'} ms${r.angles?' · '+r.angles+' rays':r.roseAngles?' · '+r.roseAngles+' rays':''}`;
+  const {ox,oy}=r.params,h=Number.isFinite(r.params.observerGround)?r.params.observerGround:sampleMain(ox,oy);
+  const viewKm=(state.extent/state.camera.zoom).toFixed(2);
+  if(state.bbox){const g=gridToGeo(ox,oy),la=g.lat,lo=g.lon;$('coords').textContent=`${Math.abs(la).toFixed(5)}° ${la<0?'S':'N'}, ${Math.abs(lo).toFixed(5)}° ${lo<0?'W':'E'} · DEM ${h.toFixed(1)} m · view ${viewKm} km`;}
+  else $('coords').textContent=`Test grid: ${ox}, ${oy} · surface ${h.toFixed(1)} m · view ${viewKm} km of ${state.extent} km`;
+}
+function requestDraw(){if(frameRequested)return;frameRequested=true;requestAnimationFrame(()=>{frameRequested=false;draw();});}
+function fitCanvas(c){const rect=c.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1),w=Math.max(1,Math.round(rect.width*dpr)),h=Math.max(1,Math.round(rect.height*dpr));if(c.width!==w||c.height!==h){c.width=w;c.height=h;}return {w:rect.width,h:rect.height,dpr};}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+function clampCamera(){
+  const maxCoord=state.n-1,zoom=clamp(state.camera.zoom||1,1,32),span=maxCoord/zoom;
+  state.camera.zoom=zoom;
+  if(span>=maxCoord){state.camera.cx=maxCoord/2;state.camera.cy=maxCoord/2;return;}
+  state.camera.cx=clamp(state.camera.cx,span/2,maxCoord-span/2);
+  state.camera.cy=clamp(state.camera.cy,span/2,maxCoord-span/2);
+}
+function resetCamera(){if(!state.dem)return;state.camera={cx:(state.n-1)/2,cy:(state.n-1)/2,zoom:1};requestDraw();}
+function screenToGrid(clientX,clientY){const v=state.view,rect=map.getBoundingClientRect();if(!v)return null;const sx=(clientX-rect.left-v.x0),sy=(clientY-rect.top-v.y0);if(sx<0||sy<0||sx>v.size||sy>v.size)return null;return {x:v.sx+sx/v.k,y:v.sy+sy/v.k};}
+function gridToScreen(x,y){const v=state.view;if(!v)return null;return {x:v.x0+(x-v.sx)*v.k,y:v.y0+(y-v.sy)*v.k};}
+function drawPointTile(q,color,label){if(!q||!state.bbox)return;const pts=[[q.west,q.north],[q.east,q.north],[q.east,q.south],[q.west,q.south]].map(([lon,lat])=>{const g=geoToGrid(lon,lat);return g?gridToScreen(g.x,g.y):null;}).filter(Boolean);if(pts.length!==4)return;ctx.save();ctx.strokeStyle=color;ctx.lineWidth=1;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i].x,pts[i].y);ctx.closePath();ctx.stroke();ctx.setLineDash([]);const cx=pts.reduce((a,p)=>a+p.x,0)/4,cy=pts.reduce((a,p)=>a+p.y,0)/4;ctx.font='9px ui-monospace,monospace';ctx.textAlign='center';ctx.fillStyle=color;ctx.fillText(label,cx,cy-4);ctx.restore();}
+function draw(){
+  const {w,h,dpr}=fitCanvas(map);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle='#0d1620';ctx.fillRect(0,0,w,h);
+  if(!state.dem)return;
+  clampCamera();
+  const size=Math.min(w-72,h-65),x0=(w-size)/2,y0=(h-size)/2+4,maxCoord=state.n-1,sw=maxCoord/state.camera.zoom,sx=clamp(state.camera.cx-sw/2,0,maxCoord-sw),sy=clamp(state.camera.cy-sw/2,0,maxCoord-sw),k=size/sw;state.view={x0,y0,size,k,sx,sy,sw};
+  const detailSig=`${state.version}:${$('detailMode').value}:${Math.round(sx*4)/4}:${Math.round(sy*4)/4}:${Math.round(sw*4)/4}:${Math.round(size/16)}`;if(detailSig!==lastDetailViewSig){lastDetailViewSig=detailSig;scheduleDetailLoad(220);}
+  const mapSig=`${$('baseLayer').value}:${Math.round(sx*2)/2}:${Math.round(sy*2)/2}:${Math.round(sw*2)/2}:${Math.round(size/16)}`;if(mapSig!==lastBasemapRequestSig){lastBasemapRequestSig=mapSig;scheduleBasemapLoad(120);}
+  // Subtle geometry outside the raster makes the loaded extent unambiguous.
+  ctx.strokeStyle='#172735';ctx.lineWidth=1;for(let x=0;x<w;x+=36){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}for(let y=0;y<h;y+=36){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+  ctx.imageSmoothingEnabled=true;
+  const br=(base.width-1)/Math.max(1,state.n-1),bsx=sx*br,bsy=sy*br,bsw=sw*br;if($('baseLayer').value!=='terrain'&&basemapCanvas.width){ctx.drawImage(basemapCanvas,x0,y0,size,size);if(+$('shadeStrength').value>0&&shadeBase.width){ctx.globalAlpha=+$('shadeStrength').value/100;ctx.drawImage(shadeBase,bsx,bsy,bsw,bsw,x0,y0,size,size);ctx.globalAlpha=1;}}else{ctx.drawImage(base,bsx,bsy,bsw,bsw,x0,y0,size,size);}
+  if(state.detail&&detailBase.width){const q=state.detail,dx=x0+(q.gx0-sx)*k,dy=y0+(q.gy0-sy)*k,dw=(q.gx1-q.gx0)*k,dh=(q.gy1-q.gy0)*k;ctx.save();ctx.beginPath();ctx.rect(x0,y0,size,size);ctx.clip();if($('baseLayer').value==='terrain'){ctx.globalAlpha=.96;ctx.drawImage(detailBase,dx,dy,dw,dh);ctx.globalAlpha=1;}if(+$('shadeStrength').value>0&&detailShade.width){ctx.globalAlpha=+$('shadeStrength').value/100;ctx.drawImage(detailShade,dx,dy,dw,dh);ctx.globalAlpha=1;}ctx.restore();}
+  drawPointTile(state.observerNative,'#69f0d2aa',state.observerNative?`obs z${state.observerNative.z}`:'');drawPointTile(state.targetNative,'#ffce79aa',state.targetNative?`target z${state.targetNative.z}`:'');
+  if(state.last?.engine!=='webgpu'){gpuMaskCanvas.style.display='none';ensureOverlayViewport(size,sx,sy,sw);ctx.imageSmoothingEnabled=false;ctx.drawImage(overlay,x0,y0,size,size);}else renderGPUMask(dpr);
+  if(state.detail&&state.detailLast&&detailOverlay.width){const q=state.detail,dx=x0+(q.gx0-sx)*k,dy=y0+(q.gy0-sy)*k,dw=(q.gx1-q.gx0)*k,dh=(q.gy1-q.gy0)*k;ctx.save();ctx.beginPath();ctx.rect(x0,y0,size,size);ctx.clip();ctx.drawImage(detailOverlay,dx,dy,dw,dh);ctx.strokeStyle='#69f0d266';ctx.setLineDash([4,4]);ctx.strokeRect(dx+.5,dy+.5,dw-1,dh-1);ctx.setLineDash([]);ctx.restore();}
+  ctx.strokeStyle='#69858e77';ctx.strokeRect(x0-.5,y0-.5,size+1,size+1);
+  if($('contours').checked){ctx.font='10px ui-monospace,monospace';ctx.textAlign='center';for(let j=0;j<=4;j++){
+    const t=j/4;ctx.strokeStyle='#d5e3e424';ctx.beginPath();ctx.moveTo(x0+size*t,y0);ctx.lineTo(x0+size*t,y0+size);ctx.moveTo(x0,y0+size*t);ctx.lineTo(x0+size,y0+size*t);ctx.stroke();
+    ctx.fillStyle='#8aa4b7';const gg=state.bbox?gridToGeo(sx+sw*t,sy+sw):null,label=gg?gg.lon.toFixed(3)+'°':(state.extent*t).toFixed(0)+' km';ctx.fillText(label,x0+size*t,y0+size+17);
+  }}
+  const r=state.last;
+  if(r){const p=r.params,osc=gridToScreen(p.ox,p.oy);if(!osc){}else{const ox=osc.x,oy=osc.y;
+    ctx.save();ctx.beginPath();ctx.rect(x0,y0,size,size);ctx.clip();ctx.strokeStyle='#e9eff14d';ctx.setLineDash([5,5]);ctx.beginPath();ctx.arc(ox,oy,p.range/state.cell*k,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+    if($('roseOnMap').checked&&state.last?.engine!=='webgpu'&&state.rose&&state.rose.length){const rr=state.rose;ctx.beginPath();for(let i=0;i<rr.length;i++){const t=i*2*Math.PI/rr.length,rkm=rr[i]/state.cell,gx=p.ox+Math.cos(t)*rkm,gy=p.oy+Math.sin(t)*rkm,sc=gridToScreen(gx,gy);if(!sc)continue;if(i===0)ctx.moveTo(sc.x,sc.y);else ctx.lineTo(sc.x,sc.y);}ctx.closePath();ctx.fillStyle='#ffad3318';ctx.strokeStyle='#ffad55aa';ctx.lineWidth=1.2;ctx.fill();ctx.stroke();}
+    const e=endpoint();if(e && !(e.stale && r.engine==='webgpu')){const esc=gridToScreen(e.x,e.y);if(esc){const ex=esc.x,ey=esc.y,angle=Math.atan2(ey-oy,ex-ox);
+      ctx.lineWidth=4;ctx.strokeStyle='#182630aa';ctx.beginPath();ctx.moveTo(ox,oy);ctx.lineTo(ex,ey);ctx.stroke();ctx.lineWidth=1.7;ctx.strokeStyle='#ffce79';ctx.beginPath();ctx.moveTo(ox,oy);ctx.lineTo(ex,ey);ctx.stroke();
+      ctx.fillStyle='#ffce79';ctx.beginPath();ctx.moveTo(ex,ey);ctx.lineTo(ex-11*Math.cos(angle-.38),ey-11*Math.sin(angle-.38));ctx.lineTo(ex-11*Math.cos(angle+.38),ey-11*Math.sin(angle+.38));ctx.closePath();ctx.fill();ctx.beginPath();ctx.arc(ex,ey,4,0,Math.PI*2);ctx.fill();
+      if(e.distance>state.cell*3){const tx=ox+(ex-ox)*.16,ty=oy+(ey-oy)*.16-12,label=(e.distance/1000).toFixed(2)+' km';ctx.font='600 11px system-ui';const tw=ctx.measureText(label).width;ctx.fillStyle='#0b1829e8';ctx.fillRect(tx-tw/2-7,ty-11,tw+14,20);ctx.fillStyle='#ffdb9d';ctx.textAlign='center';ctx.fillText(label,tx,ty+3);} }
+    }
+    ctx.lineWidth=1.5;ctx.strokeStyle='#ffffff';ctx.fillStyle='#0a1b29';ctx.beginPath();ctx.arc(ox,oy,6,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#ffffff';ctx.beginPath();ctx.arc(ox,oy,2,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(ox-13,oy);ctx.lineTo(ox-8,oy);ctx.moveTo(ox+8,oy);ctx.lineTo(ox+13,oy);ctx.moveTo(ox,oy-13);ctx.lineTo(ox,oy-8);ctx.moveTo(ox,oy+8);ctx.lineTo(ox,oy+13);ctx.stroke();ctx.restore();}
+  }
+  // True north in this local top-down map.
+  ctx.fillStyle='#c8d9e7';ctx.font='600 10px system-ui';ctx.textAlign='center';ctx.fillText('N',w-29,h-68);ctx.beginPath();ctx.moveTo(w-29,h-60);ctx.lineTo(w-34,h-45);ctx.lineTo(w-29,h-49);ctx.lineTo(w-24,h-45);ctx.closePath();ctx.fill();
+  const visibleKm=state.extent/state.camera.zoom,lengthKm=visibleKm>=160?20:visibleKm>=80?10:visibleKm>=40?5:visibleKm>=16?2:visibleKm>=8?1:.5,px=lengthKm/visibleKm*size;
+  ctx.strokeStyle='#dce6ef';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x0,y0+size-11);ctx.lineTo(x0+px,y0+size-11);ctx.stroke();ctx.fillStyle='#f1f5f8';ctx.font='10px system-ui';ctx.textAlign='left';ctx.fillText(lengthKm+' km',x0+3,y0+size-17);
+  drawProfile();lastPaint=performance.now();
+}
+function sampleMain(x,y){
+  const n=state.n;if(x<0||y<0||x>n-1||y>n-1)return NaN;const ix=Math.max(0,Math.min(n-2,Math.floor(x))),iy=Math.max(0,Math.min(n-2,Math.floor(y))),u=x-ix,v=y-iy,p=iy*n+ix,z=state.dem,a=z[p],b=z[p+1],c=z[p+n],d=z[p+n+1];if(![a,b,c,d].every(Number.isFinite))return NaN;
+  return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;
+}
+function drawProfile(){
+  const {w,h,dpr}=fitCanvas(profile);pctx.setTransform(dpr,0,0,dpr,0,0);pctx.clearRect(0,0,w,h);const e=endpoint();if(!e)return;
+  const p=e.params,steps=Math.max(240,Math.ceil(Math.hypot(e.x-p.ox,e.y-p.oy))*2),clearance=new Float32Array(steps+1);
+  const ground=Number.isFinite(p.observerGround)?p.observerGround:sampleMain(p.ox,p.oy),zo=ground+p.eye,dropTotal=p.curvature*e.distance**2/(2*R),targetGround=(e.refined&&state.targetNative&&Number.isFinite(state.targetNative.height))?state.targetNative.height:sampleMain(e.x,e.y),targetActual=Number.isFinite(targetGround)?targetGround+p.target:NaN,targetAdjusted=Number.isFinite(targetActual)?targetActual-dropTotal:NaN;
+  let min=0,max=0;
+  for(let j=0;j<=steps;j++){
+    const t=j/steps,x=p.ox+(e.x-p.ox)*t,y=p.oy+(e.y-p.oy)*t,h0=sampleMain(x,y),drop=dropTotal*t*t;
+    // Work in the observer-tangent frame: subtract curvature/refraction from terrain,
+    // then subtract the straight LOS itself. Gold therefore stays exactly at y=0.
+    const terrainAdjusted=Number.isFinite(h0)?h0-drop:NaN;
+    const losAdjusted=Number.isFinite(targetAdjusted)?zo+(targetAdjusted-zo)*t:NaN;
+    const c=(Number.isFinite(terrainAdjusted)&&Number.isFinite(losAdjusted))?terrainAdjusted-losAdjusted:NaN;
+    clearance[j]=c;if(Number.isFinite(c)){min=Math.min(min,c);max=Math.max(max,c);}
+  }
+  const span=Math.max(20,max-min),pad=Math.max(15,span*.08),left=58,right=w-9,top=11,bottom=h-18,lo=min-pad,hi=max+pad,range=Math.max(10,hi-lo),py=z=>bottom-(z-lo)/range*(bottom-top),zeroY=py(0);
+  pctx.font='9px ui-monospace,monospace';pctx.textAlign='right';pctx.fillStyle='#91a7bb';pctx.fillText((hi>=0?'+':'')+hi.toFixed(0)+' m',left-8,top+4);pctx.fillText((lo>=0?'+':'')+lo.toFixed(0)+' m',left-8,bottom);
+  pctx.strokeStyle='#293b4a';pctx.lineWidth=1;for(let j=0;j<=2;j++){const y=top+(bottom-top)*j/2;pctx.beginPath();pctx.moveTo(left,y);pctx.lineTo(right,y);pctx.stroke();}
+  // LOS is the zero-clearance baseline.
+  pctx.beginPath();pctx.moveTo(left,zeroY);pctx.lineTo(right,zeroY);pctx.strokeStyle='#ffce79';pctx.lineWidth=1.6;pctx.stroke();
+  pctx.beginPath();let pen=false;for(let j=0;j<=steps;j++){const x=left+(right-left)*j/steps,z=clearance[j];if(Number.isFinite(z)){if(pen)pctx.lineTo(x,py(z));else pctx.moveTo(x,py(z));pen=true;}else pen=false;}pctx.strokeStyle='#7ab2af';pctx.lineWidth=1.4;pctx.stroke();
+  pctx.fillStyle='#849aaf';pctx.textAlign='left';pctx.fillText('0',left,h-3);pctx.textAlign='right';pctx.fillText((e.distance/1000).toFixed(2)+' km',right,h-3);
+  $('profileTitle').textContent='Profile to farthest point · terrain clearance relative to LOS · gold = 0 m';
+}
+function prepareRoseParams(p){
+  const raw={...p,farRays:p.farRays||2880,roseStep:Math.max(1,p.roseStep||1)};
+  return p.engine==='webgpu'?raw:seededRoseParams(raw);
+}
+function pumpRoseLatest(){
+  if(roseInFlight||!rosePending||!state.ready)return;
+  const p=rosePending;rosePending=null;const q=prepareRoseParams(p),id=++state.seq;
+  roseInFlight=true;roseFlightId=id;state.roseId=id;
+  worker.postMessage({type:'rose',id,params:q});
+}
+function requestRoseFirst(p){
+  if(p.engine==='webgpu')return;
+  if(!state.ready){rosePending=p;return;}
+  // Coalesce all intermediate mouse positions: keep only the newest request.
+  rosePending=p;pumpRoseLatest();
+}
+function scheduleRose(p){
+  if(p.engine==='webgpu')return;
+  if(roseTimer)clearTimeout(roseTimer);const signature=`${p.version}:${p.ox}:${p.oy}:${p.eye}:${p.target}:${p.range}:${p.curvature}:${p.farRays}`;
+  roseTimer=setTimeout(()=>{roseTimer=null;if(!state.ready||state.desired||!state.last)return;const raw=params(),sig2=`${raw.version}:${raw.ox}:${raw.oy}:${raw.eye}:${raw.target}:${raw.range}:${raw.curvature}:${raw.farRays}`;if(sig2!==signature)return;requestRoseFirst(raw);},110);
+}
+function updateLock(){$('lock').textContent=state.locked?'Locked':'Follow';$('lock').classList.toggle('active',state.locked);}
+function setObserverFromEvent(e){const g=screenToGrid(e.clientX,e.clientY);if(!g)return false;const xx=g.x,yy=g.y;if(Math.hypot(xx-state.observer.x,yy-state.observer.y)<.02)return true;state.observer={x:xx,y:yy};state.observerNative=null;state.targetNative=null;state.refinedEndpoint=null;state.refineGeneration++;queueCompute();schedulePointDetail(110);return true;}
+function zoomAt(clientX,clientY,factor){if(!state.dem)return;const before=screenToGrid(clientX,clientY);const old=state.camera.zoom;state.camera.zoom=clamp(state.camera.zoom*factor,1,32);if(before){const v=state.view;if(v){const rect=map.getBoundingClientRect(),sx=(clientX-rect.left-v.x0),sy=(clientY-rect.top-v.y0),newSpan=(state.n-1)/state.camera.zoom;state.camera.cx=before.x-(sx/sizeRatio())*newSpan;state.camera.cy=before.y-(sy/sizeRatio())*newSpan;}}clampCamera();if(Math.abs(state.camera.zoom-old)>1e-6)requestDraw();}
+function sizeRatio(){return state.view?state.view.size:1;}
+map.addEventListener('contextmenu',e=>e.preventDefault());
+map.addEventListener('pointerdown',e=>{
+  const pan=e.button===1||e.button===2||e.shiftKey;
+  if(pan&&state.view){map.setPointerCapture?.(e.pointerId);state.interaction.drag={pointerId:e.pointerId,startX:e.clientX,startY:e.clientY,startCx:state.camera.cx,startCy:state.camera.cy,moved:false};state.interaction.suppressClick=false;e.preventDefault();}
+});
+map.addEventListener('pointermove',e=>{
+  const drag=state.interaction.drag;
+  if(drag&&drag.pointerId===e.pointerId&&state.view){const dx=(e.clientX-drag.startX)/state.view.k,dy=(e.clientY-drag.startY)/state.view.k;state.camera.cx=drag.startCx-dx;state.camera.cy=drag.startCy-dy;clampCamera();drag.moved=drag.moved||Math.abs(dx)>0.5||Math.abs(dy)>0.5;requestDraw();return;}
+  if(!state.locked)setObserverFromEvent(e);
+});
+map.addEventListener('pointerup',e=>{const drag=state.interaction.drag;if(drag&&drag.pointerId===e.pointerId){state.interaction.suppressClick=!!drag.moved;state.interaction.lastPan=performance.now();state.interaction.drag=false;scheduleDetailLoad(120);}});
+map.addEventListener('pointercancel',()=>{state.interaction.drag=false;});
+map.addEventListener('wheel',e=>{if(!state.view)return;const factor=Math.exp(-e.deltaY*0.0012);if(Math.abs(factor-1)<1e-3)return;e.preventDefault();const g=screenToGrid(e.clientX,e.clientY);const oldZoom=state.camera.zoom;state.camera.zoom=clamp(state.camera.zoom*factor,1,32);if(g){const rect=map.getBoundingClientRect(),vx=(e.clientX-rect.left-state.view.x0)/state.view.size,vy=(e.clientY-rect.top-state.view.y0)/state.view.size,newSpan=(state.n-1)/state.camera.zoom;state.camera.cx=g.x-(vx-.5)*newSpan;state.camera.cy=g.y-(vy-.5)*newSpan;}clampCamera();if(Math.abs(state.camera.zoom-oldZoom)>1e-6)requestDraw();},{passive:false});
+map.addEventListener('click',e=>{if(state.interaction.suppressClick&&performance.now()-state.interaction.lastPan<250){state.interaction.suppressClick=false;return;}if(!state.locked){if(!setObserverFromEvent(e))return;state.locked=true;schedulePointDetail(20);scheduleRecordRefinement(220);}else{state.locked=false;if(refineController)refineController.abort();}updateLock();});
+$('lock').onclick=()=>{state.locked=!state.locked;updateLock();if(state.locked){schedulePointDetail(20);scheduleRecordRefinement(100);}else if(refineController)refineController.abort();};
+$('fitview').onclick=resetCamera;
+document.addEventListener('keydown',e=>{if(e.code==='Space'&&!['INPUT','SELECT','BUTTON','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();state.locked=!state.locked;updateLock();if(state.locked){schedulePointDetail(20);scheduleRecordRefinement(100);}else if(refineController)refineController.abort();}else if(e.code==='Digit0'&&e.ctrlKey){e.preventDefault();resetCamera();}});
+$('center').onclick=()=>{if(!state.dem)return;state.observer={x:(state.n-1)/2,y:(state.n-1)/2};state.camera.cx=state.observer.x;state.camera.cy=state.observer.y;state.observerNative=null;state.targetNative=null;state.refinedEndpoint=null;state.refineGeneration++;state.locked=true;updateLock();queueCompute();schedulePointDetail(10);scheduleRecordRefinement(220);requestDraw();};
+$('peak').onclick=()=>{if(!state.dem)return;let best=-Infinity,index=0;for(let i=0;i<state.dem.length;i++)if(state.dem[i]>best){best=state.dem[i];index=i;}state.observer={x:index%state.n,y:Math.floor(index/state.n)};state.camera.cx=state.observer.x;state.camera.cy=state.observer.y;state.observerNative=null;state.targetNative=null;state.refinedEndpoint=null;state.refineGeneration++;state.locked=true;updateLock();queueCompute();schedulePointDetail(10);scheduleDetailCompute(80);scheduleRecordRefinement(220);requestDraw();};
+function beginVerify(){
+  if(!state.last||state.last.params.version!==state.version)return;if(!state.ready){verifyAfter=true;$('verify').disabled=true;$('verifyStatus').textContent='Preparing CPU verification copy…';ensureCPUWorkerInitialized();return;}
+  state.locked=true;updateLock();$('verify').disabled=true;$('verifyStatus').textContent='Independent LOS checks from far blocks inward…';
+  const id=++state.seq;state.verifyId=id;worker.postMessage({type:'verify',id,params:state.last.params,seed:state.last.far});
+}
+$('verify').onclick=()=>{state.locked=true;updateLock();if(state.busy||state.desired){verifyAfter=true;$('verify').disabled=true;}else beginVerify();};
+$('load').onclick=loadDEM;$('synthetic').onclick=syntheticScene;
+$('preset').onchange=()=>{const key=$('preset').value;if(key==='custom'){scheduleSaveSettings();return;}if(key==='current'){scheduleSaveSettings();useCurrentLocation({autoLoad:true});return;}applyPreset(key,{autoLoad:true});scheduleSaveSettings();};
+for(const id of ['lat','lon'])$(id).addEventListener('input',()=>{$('preset').value='custom';state.customTitle=null;scheduleSaveSettings();});
+$('searchPlace').onclick=searchPlace;$('placeSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchPlace();}});
+$('placeResults').addEventListener('change',()=>{const o=$('placeResults').selectedOptions[0];if(!o)return;applyLocationValues(+o.dataset.lat,+o.dataset.lon,{title:o.textContent,preset:'custom'});setPlaceSearchStatus('Selected: '+o.textContent+' · loading…');loadDEM();});
+for(const id of ['eye','target','range','earth','engine','nearRange','farRays','gpuQuality','gpuBudget'])$(id).addEventListener('input',()=>{$('rangeLabel').textContent=$('range').value+' km';$('verifyStatus').textContent='Parameters changed; maximum not verified yet.';scheduleSaveSettings();queueCompute();});
+for(const id of ['extent','resolution'])$(id).addEventListener('change',scheduleSaveSettings);
+for(const id of ['detailMode','baseLayer','shadeStrength','roseOnMap','detailLOS','opacity','hidden','contours'])$(id).addEventListener('change',scheduleSaveSettings);
+$('detailMode').addEventListener('change',()=>{lastDetailViewSig='';if($('detailMode').value==='off')clearDetail('Viewport detail disabled.');else{requestDraw();scheduleDetailLoad(20);}});
+$('baseLayer').addEventListener('change',()=>{lastBasemapRequestSig='';lastBasemapLoadedSig='';basemapCanvas.width=basemapCanvas.height=0;if($('baseLayer').value==='terrain'){$('mapLayerStatus').textContent='Basemap: DEM only.';$('mapAttribution').textContent='';const w=map.width,h=map.height;map.width=w;map.height=h;}requestDraw();scheduleBasemapLoad(20);});
+$('shadeStrength').addEventListener('change',()=>requestDraw());
+$('roseOnMap').addEventListener('change',()=>{requestDraw();if(state.last?.engine==='webgpu')renderWebGPUMask(state.last);});
+$('detailLOS').addEventListener('change',()=>{state.detailSeed=null;state.detailLast=null;makeDetailOverlay();scheduleDetailCompute(20);const p=params();if(p.engine!=='webgpu')scheduleRose(p);requestDraw();});
+$('opacity').oninput=()=>{$('opacityLabel').textContent=$('opacity').value+'%';makeOverlay();makeDetailOverlay();requestDraw();};$('hidden').onchange=()=>{makeOverlay();makeDetailOverlay();requestDraw();};$('contours').onchange=()=>{makeBase();requestDraw();};
+$('selftest').onclick=()=>worker.postMessage({type:'test',id:++state.seq});
+function saveBlob(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),30000);}
+$('png').onclick=()=>{try{draw();const out=document.createElement('canvas');out.width=map.width;out.height=map.height+100;const c=out.getContext('2d');c.fillStyle='#0b1118';c.fillRect(0,0,out.width,out.height);c.drawImage(map,0,0);if(state.last?.engine==='webgpu'&&gpuMaskCanvas.style.display!=='none')c.drawImage(gpuMaskCanvas,0,0,map.width,map.height);c.fillStyle='#e6f0f7';c.font='16px sans-serif';c.fillText(state.title+' · '+(state.synthetic?'SYNTHETIC':'MAPTERHORN DEM'),16,map.height+25);c.font='11px sans-serif';c.fillText('Approximate viewshed; local grid; not a real-world visibility certificate.',16,map.height+44);if(!state.synthetic)c.fillText('Elevation: Mapterhorn Terrarium DEM; see source attribution in HTML.',16,map.height+66);out.toBlob(b=>{if(!b)throw Error('canvas export blocked');saveBlob(b,'viewshed.png');},'image/png');}catch(e){status(`PNG export is unavailable with the current cross-origin basemap (${e.message}). Switch basemap to DEM only and retry.`,true);}};
+$('json').onclick=()=>{if(!state.last)return;const e=endpoint();const data={application:'Viewshed Lab',synthetic:state.synthetic,title:state.title,source_urls:state.urls,bbox:state.bbox,grid:state.n,spacing_m:state.cell,params:state.last.params,engine:state.last.engine,farthest:e,verification:state.verified,detail:state.detail?{target_z:state.detail.z,best_source_z:state.detail.maxSource,grid:state.detail.n,spacing_m:state.detail.cell,source_zoom_counts:Object.fromEntries(state.detail.sourceStats),horizon_seed_active:!!state.detailSeed}:null,observer_native:state.observerNative?{lat:state.observerNative.lat,lon:state.observerNative.lon,height_m:state.observerNative.height,z:state.observerNative.z,mpp:state.observerNative.mpp}:null,target_native:state.targetNative?{lat:state.targetNative.lat,lon:state.targetNative.lon,height_m:state.targetNative.height,z:state.targetNative.z,mpp:state.targetNative.mpp}:null,refined_endpoint:state.refinedEndpoint,rose_m:state.rose?Array.from(state.rose):null,mask_codes:{0:state.last.engine==='hybrid'?'outside dense near-mask / far-zone sampled only by rose':'outside radius',1:'visible approximate',2:'hidden approximate',3:'unknown'},mask:state.last.mask?Array.from(state.last.mask):null,note:'Row-major north-to-south. Hybrid far-zone is represented by rose_m, not the dense mask. Verification concerns the resampled bilinear grid only; maximum limited to loaded region and radius.'};saveBlob(new Blob([JSON.stringify(data)],{type:'application/json'}),'viewshed.json');};
+new ResizeObserver(()=>{requestDraw();lastDetailViewSig='';scheduleDetailLoad(250);}).observe($('mapWrap'));
+if(location.protocol==='file:'){document.getElementById('protocolWarning').style.display='block';$('mapLayerStatus').textContent='Use localhost for OSM/satellite: some tile servers reject file:// without a Referrer.';}
+window.VIEWSHED_DEBUG={state,makeEngine,loadDEM,syntheticScene,params,terrainTileCache,terrainMissingCache,terrainMissingSubtrees,highResCoverage,ensureHighResCoverageManifest,decodeTerrariumTile,chooseTerrainZoom,chooseDetailZoom,loadViewportDetail,resolvePointMaxDetail,loadObserverPointDetail,readCurrentRayFar,runRecordRefinement,resetCamera,gpuEngine,probeWebGPU,runWebGPU,aeqdForward,aeqdInverse,validationCore};
+const restoredSettings=restoreSettings();$('rangeLabel').textContent=$('range').value+' km';$('opacityLabel').textContent=$('opacity').value+'%';const offlineMode=new URLSearchParams(location.search).has('offline');if(offlineMode)syntheticScene();else{$('notice').textContent=restoredSettings?'Restoring saved settings…':'Requesting location…';$('loadStatus').textContent=restoredSettings?'Restoring locally saved settings.':'Waiting for location or a preset. You can also search for a place.';}probeWebGPU().then(updateResolutionCapability);
+const dynamicTitleIds=['loadStatus','gridInfo','detailStatus','pointDetailStatus','refineStatus','mapLayerStatus','rangeCoverage','gpuStatus','verifyStatus','certLabel','latency','coords'];
+const titleObserver=new MutationObserver(ms=>{for(const m of ms){const el=m.target.nodeType===3?m.target.parentElement:m.target;if(el&&el.textContent!=null)el.title=el.textContent.trim();}});for(const id of dynamicTitleIds){const el=$(id);if(el){el.title=el.textContent.trim();titleObserver.observe(el,{childList:true,subtree:true,characterData:true});}}
+async function bootRealTerrain(){if(offlineMode)return;if($('preset').value==='current')await useCurrentLocation({autoLoad:true});else loadDEM();$('notice').textContent='';}
+setTimeout(bootRealTerrain,180);
+</script>
+</body></html>
