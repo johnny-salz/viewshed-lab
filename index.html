@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Viewshed Lab — live terrain visibility · build 2026-09-26.9</title>
+<title>Viewshed Lab — live terrain visibility · build 2026-09-26.10</title>
 <style>
 :root{--bg:#0b1118;--panel:#121c27;--panel2:#182433;--line:#2a3a4b;--text:#e8eff6;--muted:#94a9be;--mint:#69f0d2;--gold:#ffce79;--purple:#a3a0d3}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}button,select,input[type=number]{color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-width:0}button{cursor:pointer}button:hover{border-color:var(--mint)}button:disabled{opacity:.4;cursor:wait}button.primary{color:#0b2423;background:var(--mint);border-color:var(--mint);font-weight:700}button.active{border-color:var(--gold);color:var(--gold)}input[type=range]{width:100%;accent-color:var(--mint)}input[type=checkbox]{accent-color:var(--mint)}select{width:100%}a{color:var(--mint)}header{height:77px;padding:15px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.035em;font-size:22px}.brand span{font-weight:400;color:var(--mint)}.eyebrow{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}.badge{font:11px ui-monospace,SFMono-Regular,Consolas,monospace;display:inline-block;border:1px solid var(--line);border-radius:20px;padding:5px 10px;color:var(--mint)}.layout{display:grid;grid-template-columns:302px minmax(0,1fr);height:calc(100vh - 77px);min-height:610px}aside{overflow:auto;background:var(--panel);border-right:1px solid var(--line);padding:18px}section.controls{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:16px}h2{font-size:12px;text-transform:uppercase;letter-spacing:.09em;font-weight:650;margin:0 0 12px;color:var(--muted)}.row{display:flex;gap:8px;margin-top:9px}.row>*{flex:1;min-width:0}.field input{width:100%}.field{min-width:0;display:flex;flex-direction:column;gap:4px}.field label,.subtle{color:var(--muted);font-size:11px}.small{font-size:11px;line-height:1.55;color:var(--muted)}.labelrow{display:flex;justify-content:space-between;margin:11px 0 2px}.labelrow span:last-child{color:var(--mint);font-variant-numeric:tabular-nums}details{font-size:12px}summary{cursor:pointer;color:var(--muted)}details p{margin:8px 0}.check{display:block;margin-top:9px;font-size:12px;color:var(--muted)}.stage{display:flex;flex-direction:column;min-width:0;overflow:hidden}.toolbar{min-height:55px;padding:9px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:10px}.toolbar .hint{color:var(--muted);font-size:12px}.toolbar button{padding:5px 10px;font-size:12px}.map-wrap{position:relative;flex:1;min-height:270px;overflow:hidden;background:#0d1620}.map-wrap canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}.map-wrap #gpuMask{pointer-events:none;z-index:2}.map-wrap #map{z-index:1}.map-label{position:absolute;left:18px;top:15px;pointer-events:none;max-width:70%;text-shadow:0 1px 6px #000}.map-label strong{display:block;font-size:16px}.map-label .eyebrow{color:#c6d7e8}.map-state{position:absolute;top:15px;right:16px;border:1px solid #52616d;background:#111e29d9;backdrop-filter:blur(5px);font-size:10px;padding:5px 9px;border-radius:20px;pointer-events:none;letter-spacing:.06em}.map-state.synthetic{color:var(--gold)}.legend{position:absolute;bottom:14px;left:18px;display:flex;gap:14px;padding:7px 10px;background:#0c1620da;border:1px solid #334659;border-radius:7px;font-size:10px;pointer-events:none}.dot{width:8px;height:8px;display:inline-block;border-radius:50%;margin-right:5px;background:var(--mint)}.dot.gold{background:var(--gold)}.dot.gray{background:#808c99}.mapnotice{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);background:#111e29ee;border:1px solid var(--line);padding:15px 22px;border-radius:10px;text-align:center;pointer-events:none;max-width:400px;box-shadow:0 12px 60px #0008}.mapnotice:empty{display:none}.tile-progress{position:absolute;right:16px;bottom:50px;z-index:4;width:min(330px,45%);padding:7px 9px;border:1px solid #334659;border-radius:7px;background:#0c1620e8;backdrop-filter:blur(4px);pointer-events:none;font-size:10px;color:#b8cad9}.tile-progress:empty{display:none}.tile-progress .bar{height:4px;margin-top:5px;background:#263848;border-radius:3px;overflow:hidden}.tile-progress .bar>i{display:block;height:100%;background:var(--mint);width:0%}.map-attribution{position:absolute;right:12px;bottom:12px;z-index:4;padding:3px 6px;border-radius:4px;background:#08111bd9;color:#b7c7d6;font-size:9px;pointer-events:auto}.map-attribution a{color:#cfe4f5;text-decoration:none}.map-attribution:empty{display:none}.stats{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}.stat{padding:13px 18px;border-right:1px solid var(--line)}.stat:last-child{border:0}.value{font-size:24px;line-height:1.35;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.025em}.value.accent{color:var(--gold)}.value small{font-size:13px;letter-spacing:0;color:var(--muted);font-weight:400}.stat .small{white-space:nowrap}.analysis-strip{height:330px;background:#0e1721;display:grid;grid-template-rows:1fr 1fr}.profile-box,.panorama-box{position:relative;padding:9px 18px;min-width:0;border-top:1px solid #15202b}.analysis-strip>div:first-child{border-top:0}.profile-title,.panorama-title{font-size:10px;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.profile-box canvas,.panorama-box canvas{width:100%;height:123px;display:block}.footer{padding:8px 18px;min-height:38px;color:var(--muted);font-size:10px;border-top:1px solid var(--line);display:flex;gap:15px;justify-content:space-between}.status{font-size:11px;line-height:1.5;border-left:2px solid var(--mint);padding-left:9px;margin-top:10px;overflow-wrap:anywhere}.status.error{border-color:var(--gold);color:var(--gold)}dialog{color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:650px;padding:24px}dialog::backdrop{background:#000b}dialog pre{white-space:pre-wrap;font-size:12px}kbd{font-size:10px;border:1px solid #465563;border-radius:3px;padding:1px 4px}.linkbuttons{display:flex;gap:6px}.linkbuttons button{font-size:11px;padding:6px}
-@media(max-width:1000px){header{padding:14px 16px}.layout{grid-template-columns:266px minmax(0,1fr)}aside{padding:14px}.toolbar{padding:9px 12px}.toolbar .hint{font-size:10px}.stats .stat{padding:11px}.value{font-size:20px}.stat .small{font-size:9px}.legend{gap:9px;font-size:9px}.footer{font-size:9px}.analysis-strip{height:290px}.profile-box canvas,.panorama-box canvas{height:103px}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}button,select,input[type=number]{color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-width:0}button{cursor:pointer}button:hover{border-color:var(--mint)}button:disabled{opacity:.4;cursor:wait}button.primary{color:#0b2423;background:var(--mint);border-color:var(--mint);font-weight:700}button.active{border-color:var(--gold);color:var(--gold)}input[type=range]{width:100%;accent-color:var(--mint)}input[type=checkbox]{accent-color:var(--mint)}select{width:100%}a{color:var(--mint)}header{height:77px;padding:15px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.035em;font-size:22px}.brand span{font-weight:400;color:var(--mint)}.eyebrow{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}.badge{font:11px ui-monospace,SFMono-Regular,Consolas,monospace;display:inline-block;border:1px solid var(--line);border-radius:20px;padding:5px 10px;color:var(--mint)}.layout{display:grid;grid-template-columns:302px minmax(0,1fr);height:calc(100vh - 77px);min-height:610px}aside{overflow:auto;background:var(--panel);border-right:1px solid var(--line);padding:18px}section.controls{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:16px}h2{font-size:12px;text-transform:uppercase;letter-spacing:.09em;font-weight:650;margin:0 0 12px;color:var(--muted)}.row{display:flex;gap:8px;margin-top:9px}.row>*{flex:1;min-width:0}.field input{width:100%}.field{min-width:0;display:flex;flex-direction:column;gap:4px}.field label,.subtle{color:var(--muted);font-size:11px}.small{font-size:11px;line-height:1.55;color:var(--muted)}.labelrow{display:flex;justify-content:space-between;margin:11px 0 2px}.labelrow span:last-child{color:var(--mint);font-variant-numeric:tabular-nums}details{font-size:12px}summary{cursor:pointer;color:var(--muted)}details p{margin:8px 0}.check{display:block;margin-top:9px;font-size:12px;color:var(--muted)}.stage{display:flex;flex-direction:column;min-width:0;overflow:hidden}.toolbar{min-height:55px;padding:9px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:10px}.toolbar .hint{color:var(--muted);font-size:12px}.toolbar button{padding:5px 10px;font-size:12px}.map-wrap{position:relative;flex:1;min-height:270px;overflow:hidden;background:#0d1620}.map-wrap canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}.map-wrap #gpuMask{pointer-events:none;z-index:2}.map-wrap #map{z-index:1}.map-label{position:absolute;left:18px;top:15px;pointer-events:none;max-width:70%;text-shadow:0 1px 6px #000}.map-label strong{display:block;font-size:16px}.map-label .eyebrow{color:#c6d7e8}.map-state{position:absolute;top:15px;right:16px;border:1px solid #52616d;background:#111e29d9;backdrop-filter:blur(5px);font-size:10px;padding:5px 9px;border-radius:20px;pointer-events:none;letter-spacing:.06em}.map-state.synthetic{color:var(--gold)}.legend{position:absolute;bottom:14px;left:18px;display:flex;gap:14px;padding:7px 10px;background:#0c1620da;border:1px solid #334659;border-radius:7px;font-size:10px;pointer-events:none}.dot{width:8px;height:8px;display:inline-block;border-radius:50%;margin-right:5px;background:var(--mint)}.dot.gold{background:var(--gold)}.dot.gray{background:#808c99}.mapnotice{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);background:#111e29ee;border:1px solid var(--line);padding:15px 22px;border-radius:10px;text-align:center;pointer-events:none;max-width:400px;box-shadow:0 12px 60px #0008}.mapnotice:empty{display:none}.tile-progress{position:absolute;right:16px;bottom:50px;z-index:4;width:min(330px,45%);padding:7px 9px;border:1px solid #334659;border-radius:7px;background:#0c1620e8;backdrop-filter:blur(4px);pointer-events:none;font-size:10px;color:#b8cad9}.tile-progress:empty{display:none}.tile-progress .bar{height:4px;margin-top:5px;background:#263848;border-radius:3px;overflow:hidden}.tile-progress .bar>i{display:block;height:100%;background:var(--mint);width:0%}.map-attribution{position:absolute;right:12px;bottom:12px;z-index:4;padding:3px 6px;border-radius:4px;background:#08111bd9;color:#b7c7d6;font-size:9px;pointer-events:auto}.map-attribution a{color:#cfe4f5;text-decoration:none}.map-attribution:empty{display:none}.stats{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}.stat{padding:13px 18px;border-right:1px solid var(--line)}.stat:last-child{border:0}.value{font-size:24px;line-height:1.35;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.025em}.value.accent{color:var(--gold)}.value small{font-size:13px;letter-spacing:0;color:var(--muted);font-weight:400}.stat .small{white-space:nowrap}.analysis-strip{height:430px;background:#0e1721;display:grid;grid-template-rows:.82fr 1.48fr}.profile-box,.panorama-box{position:relative;padding:9px 18px;min-width:0;border-top:1px solid #15202b}.analysis-strip>div:first-child{border-top:0}.profile-title,.panorama-title{font-size:10px;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.profile-box canvas{width:100%;height:104px;display:block}.panorama-box canvas{width:100%;height:214px;display:block}.footer{padding:8px 18px;min-height:38px;color:var(--muted);font-size:10px;border-top:1px solid var(--line);display:flex;gap:15px;justify-content:space-between}.status{font-size:11px;line-height:1.5;border-left:2px solid var(--mint);padding-left:9px;margin-top:10px;overflow-wrap:anywhere}.status.error{border-color:var(--gold);color:var(--gold)}dialog{color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:650px;padding:24px}dialog::backdrop{background:#000b}dialog pre{white-space:pre-wrap;font-size:12px}kbd{font-size:10px;border:1px solid #465563;border-radius:3px;padding:1px 4px}.linkbuttons{display:flex;gap:6px}.linkbuttons button{font-size:11px;padding:6px}
+@media(max-width:1000px){header{padding:14px 16px}.layout{grid-template-columns:266px minmax(0,1fr)}aside{padding:14px}.toolbar{padding:9px 12px}.toolbar .hint{font-size:10px}.stats .stat{padding:11px}.value{font-size:20px}.stat .small{font-size:9px}.legend{gap:9px;font-size:9px}.footer{font-size:9px}.analysis-strip{height:370px;grid-template-rows:.82fr 1.48fr}.profile-box canvas{height:88px}.panorama-box canvas{height:178px}}
 @media(max-width:740px){header{height:65px}.brand{font-size:19px}header>.small{display:none}.layout{height:auto;display:flex;flex-direction:column;min-height:0}aside{order:2;overflow:visible;border:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}.stage{order:1;height:calc(100vh - 65px);min-height:600px}.toolbar .hint{max-width:53%}.toolbar .row{margin:0}.stat .eyebrow{font-size:8px}.value{font-size:18px}.stat .small{white-space:normal}section.controls{margin:0}.legend{font-size:9px}.footer{min-height:35px}.map-label strong{font-size:13px}}
 @media(max-width:480px){aside{grid-template-columns:1fr}.map-label{max-width:95%;top:12px}.map-state{top:60px;font-size:8px;right:12px}.stat{min-width:0}.stats{grid-template-columns:1.1fr .95fr .9fr 1fr}.legend{left:8px;gap:7px;padding:6px;font-size:8px}.footer{gap:8px}.footer>span{min-width:0;overflow-wrap:anywhere}}
 
@@ -20,7 +20,7 @@ header .brand{white-space:nowrap}.badge{width:154px;min-width:154px;text-align:c
 .stats{height:104px;min-height:104px;grid-template-columns:1.2fr 1fr 1fr 1fr}
 .stat{height:103px;min-width:0;overflow:hidden;padding:11px 14px}.stat .eyebrow{height:28px;line-height:13px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .value{height:34px;line-height:34px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stat .small{height:18px;line-height:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.analysis-strip{height:330px;min-height:330px}.profile-title,.panorama-title{height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.analysis-strip{height:430px;min-height:430px}.profile-title,.panorama-title{height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .toolbar{height:55px;min-height:55px}.toolbar .hint{height:32px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .place-search-results{margin-top:7px}.place-search-note{height:18px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .cap-note{color:var(--muted);font-size:10px;margin-top:4px;min-height:15px}
@@ -29,7 +29,7 @@ header .brand{white-space:nowrap}.badge{width:154px;min-width:154px;text-align:c
 </style>
 </head>
 <body><div id="protocolWarning" style="display:none;position:fixed;z-index:9999;left:50%;top:10px;transform:translateX(-50%);background:#3b2612;color:#ffd89a;border:1px solid #8b6331;border-radius:8px;padding:8px 12px;font:12px system-ui;box-shadow:0 8px 30px #0008">FILE:// mode: run <code>python -m http.server 8000</code> and open localhost. WebGPU and tile CORS are unreliable from file://.</div>
-<header><div><div class="eyebrow">Terrain visibility / browser prototype</div><div class="brand">VIEWSHED <span>LAB</span> <small style="font-size:9px;color:var(--muted);font-weight:500;letter-spacing:.08em">BUILD 2026-09-26.9 · PANORAMA+FIX</small></div></div><span class="badge" id="computeBadge" title="Compute status">WebGPU probe…</span></header>
+<header><div><div class="eyebrow">Terrain visibility / browser prototype</div><div class="brand">VIEWSHED <span>LAB</span> <small style="font-size:9px;color:var(--muted);font-weight:500;letter-spacing:.08em">BUILD 2026-09-26.10 · LAYERED PANORAMA</small></div></div><span class="badge" id="computeBadge" title="Compute status">WebGPU probe…</span></header>
 <div class="layout"><aside>
 <section class="controls"><h2>01 / Data &amp; area</h2>
 <select id="preset" aria-label="Location preset"><option value="current" selected>Current location</option><option value="hanoi">Hanoi</option><option value="london">London</option><option value="dankova">All The Views #1 · Pik Dankova / Kunlun · 530 km</option><option value="colombia">All The Views #2 · Colombia · 504 km</option><option value="elbrus">All The Views #3 · Elbrus / Pontic · 483 km</option><option value="everest">Everest → Parasnath · 453.3 km</option><option value="custom">Custom coordinates</option></select>
@@ -1196,74 +1196,120 @@ function panoramaSig(){
   const e=endpoint(),p=e?.params||state.last?.params;
   return (!state.dem||!p)?'':`${state.version}:${p.ox.toFixed(2)}:${p.oy.toFixed(2)}:${p.eye}:${p.range}:${p.curvature}:${state.cell}:${state.last?.engine||''}:${state.rose?.length||0}:${e?.bearing?.toFixed?.(2)||''}:${e?.distance?.toFixed?.(1)||''}`;
 }
-function topoColor(h,light){
+function topoRgb(h,light=1){
   const t=Math.max(0,Math.min(1,(h+50)/2600));
   const cols=[[26,40,54],[52,92,78],[111,134,78],[155,123,77],[132,111,103],[210,217,223]];
   const k=Math.min(cols.length-2,Math.floor(t*(cols.length-1))),f=t*(cols.length-1)-k,a=cols[k],b=cols[k+1];
-  return `rgb(${Math.round((a[0]*(1-f)+b[0]*f)*light)},${Math.round((a[1]*(1-f)+b[1]*f)*light)},${Math.round((a[2]*(1-f)+b[2]*f)*light)})`;
+  return [Math.round((a[0]*(1-f)+b[0]*f)*light),Math.round((a[1]*(1-f)+b[1]*f)*light),Math.round((a[2]*(1-f)+b[2]*f)*light),255];
+}
+function topoColor(h,light){const c=topoRgb(h,light);return `rgb(${c[0]},${c[1]},${c[2]})`;}
+function mixRgb(a,b,t){return [Math.round(a[0]*(1-t)+b[0]*t),Math.round(a[1]*(1-t)+b[1]*t),Math.round(a[2]*(1-t)+b[2]*t),255];}
+function canvasImageCache(canvas){
+  if(!canvas||!canvas.width||!canvas.height)return null;
+  try{const c=canvas.getContext('2d',{willReadFrequently:true});const img=c.getImageData(0,0,canvas.width,canvas.height);return {w:canvas.width,h:canvas.height,data:img.data};}
+  catch(_){return null;}
+}
+function sampleImageRGBA(cache,x,y){
+  if(!cache||!Number.isFinite(x)||!Number.isFinite(y)||x<0||y<0||x>cache.w-1||y>cache.h-1)return null;
+  const x0=Math.max(0,Math.min(cache.w-1,Math.floor(x))),y0=Math.max(0,Math.min(cache.h-1,Math.floor(y))),x1=Math.min(cache.w-1,x0+1),y1=Math.min(cache.h-1,y0+1),fx=x-x0,fy=y-y0;
+  const i00=(y0*cache.w+x0)*4,i10=(y0*cache.w+x1)*4,i01=(y1*cache.w+x0)*4,i11=(y1*cache.w+x1)*4,out=[0,0,0,0];
+  for(let c=0;c<4;c++){const a=cache.data[i00+c]+(cache.data[i10+c]-cache.data[i00+c])*fx,b=cache.data[i01+c]+(cache.data[i11+c]-cache.data[i01+c])*fx;out[c]=a+(b-a)*fy;}
+  return out;
+}
+function panoramaRasterCaches(){
+  const v=state.view,viewSig=v?`${v.sx.toFixed(1)}:${v.sy.toFixed(1)}:${v.sw.toFixed(1)}:${Math.round(v.size)}`:'';
+  const sig=`${state.version}:${$('baseLayer').value}:${lastBasemapLoadedSig}:${viewSig}:${base.width}x${base.height}`;
+  if(state.panoramaRaster&&state.panoramaRaster.sig===sig)return state.panoramaRaster;
+  state.panoramaRaster={sig,terrain:canvasImageCache(base),shade:canvasImageCache(shadeBase),basemap:$('baseLayer').value!=='terrain'?canvasImageCache(basemapCanvas):null};
+  return state.panoramaRaster;
+}
+function panoramaSampleColor(x,y,h,d,b,maxRange,sources){
+  let rgba=null;
+  if(sources?.basemap&&state.view){
+    const s=gridToScreen(x,y);
+    if(s){rgba=sampleImageRGBA(sources.basemap,s.x-state.view.x0,s.y-state.view.y0);if(rgba&&rgba[3]<8)rgba=null;}
+  }
+  if(!rgba&&sources?.terrain){
+    const scale=(base.width-1)/Math.max(1,state.n-1);rgba=sampleImageRGBA(sources.terrain,x*scale,y*scale);
+    const sh=sampleImageRGBA(sources.shade,x*scale,y*scale),sa=sh?(sh[3]/255):0;if(rgba&&sa>0){rgba=[rgba[0]*(1-.28*sa),rgba[1]*(1-.28*sa),rgba[2]*(1-.28*sa),255];}
+  }
+  if(!rgba)rgba=topoRgb(h,.92+.08*Math.cos((b-315)*DEG));
+  let rgb=[rgba[0],rgba[1],rgba[2],255];
+  const lit=.90+.10*Math.cos((b-315)*DEG);rgb=[rgb[0]*lit,rgb[1]*lit,rgb[2]*lit,255];
+  const sky=[150,184,214,255],haze=Math.max(0,Math.min(.76,Math.pow(d/Math.max(1,maxRange),1.1)*.58));
+  return mixRgb(rgb,sky,haze);
 }
 function buildPanoramaData(){
-  const sig=panoramaSig();
+  const sig=panoramaSig()+`:${$('baseLayer').value}:${lastBasemapLoadedSig}`;
   if(sig&&sig===state.panoramaSig&&state.panorama)return state.panorama;
   const e=endpoint(),p=e?.params||state.last?.params;
   if(!state.dem||!p){state.panorama=null;state.panoramaSig=sig;return null;}
-  const cols=960,steps=300,topN=3,ground=Number.isFinite(p.observerGround)?p.observerGround:sampleMain(p.ox,p.oy),zo=ground+p.eye,curv=p.curvature/(2*R),maxRange=Math.max(state.cell*10,p.range);
-  const all=new Array(cols); let minA=Infinity,maxA=-Infinity;
+  const cols=Math.max(720,Math.min(1440,Math.round((panorama.getBoundingClientRect().width||900)*1.12))),maxBands=6;
+  const ground=Number.isFinite(p.observerGround)?p.observerGround:sampleMain(p.ox,p.oy),zo=ground+p.eye,curv=p.curvature/(2*R),maxRange=Math.max(state.cell*10,p.range);
+  const steps=Math.max(300,Math.min(900,Math.round(maxRange/Math.max(state.cell*3.5,90)))),bandMinDeg=.06,bandMinDist=Math.max(800,maxRange*.02),eps=.004;
+  const all=new Array(cols),sources=panoramaRasterCaches(); let minA=Infinity,maxA=-Infinity;
   for(let i=0;i<cols;i++){
-    const rel=((i+.5)/cols)*360-180,b=(rel+360)%360,ang=bearingToAngleRad(b);
-    const cx=Math.cos(ang),cy=Math.sin(ang),samples=[];let best=-Infinity,lastKeep=-1e9;
+    const rel=((i+.5)/cols)*360-180,b=(rel+360)%360,ang=bearingToAngleRad(b),cx=Math.cos(ang),cy=Math.sin(ang),records=[];let best=-Infinity,lastKeepD=-1e9;
     for(let j=1;j<=steps;j++){
       const d=maxRange*j/steps,r=d/state.cell,x=p.ox+cx*r,y=p.oy+cy*r,h=sampleMain(x,y);if(!Number.isFinite(h))continue;
-      const elev=Math.atan2(h-zo-curv*d*d,d)/DEG;
-      if(elev>best+0.01){
-        best=elev;
-        if(samples.length<topN||elev>samples[samples.length-1].elev+0.16||d-lastKeep>maxRange*.18){
-          const shade=.82+.18*Math.cos((b-315)*DEG),alpha=.18+.22*(1-d/maxRange),entry={bearing:b,distance:d,elev,height:h,light:shade,alpha};
-          if(samples.length>=topN)samples.shift();
-          samples.push(entry);lastKeep=d;
-        }else samples[samples.length-1]={bearing:b,distance:d,elev,height:h,light:.82+.18*Math.cos((b-315)*DEG),alpha:.18+.22*(1-d/maxRange)};
-        minA=Math.min(minA,elev);maxA=Math.max(maxA,elev);
+      const elev=Math.atan2(h-zo-curv*d*d,d)/DEG;if(!Number.isFinite(elev))continue;
+      if(elev>best+eps){
+        best=elev;minA=Math.min(minA,elev);maxA=Math.max(maxA,elev);
+        const rec={bearing:b,distance:d,elev,height:h,x,y,rgb:panoramaSampleColor(x,y,h,d,b,maxRange,sources)};
+        if(!records.length||elev-records[records.length-1].elev>=bandMinDeg||d-lastKeepD>=bandMinDist){records.push(rec);lastKeepD=d;}
+        else records[records.length-1]=rec;
+        while(records.length>maxBands){
+          let drop=1,score=Infinity;
+          for(let k=1;k<records.length-1;k++){const gain=records[k].elev-records[k-1].elev,span=records[k+1].distance-records[k-1].distance,s=gain+span*1e-5;if(s<score){score=s;drop=k;}}
+          records.splice(drop,1);
+        }
       }
     }
-    all[i]=samples;
+    all[i]=records;
   }
   if(!Number.isFinite(minA)||!Number.isFinite(maxA)){state.panorama=null;state.panoramaSig=sig;return null;}
-  const lo=Math.min(-1.5,minA-1),hi=Math.max(3,maxA+1.2),data={cols,topN,lo,hi,maxRange,samples:all,endpointBearing:Number.isFinite(e?.bearing)?e.bearing:(e?((Math.atan2(e.x-p.ox,-(e.y-p.oy))/DEG+360)%360):null)};
+  const lo=Math.min(-2.2,minA-.75),hi=Math.max(6.0,maxA+.7),data={cols,maxBands,lo,hi,maxRange,columns:all,endpointBearing:Number.isFinite(e?.bearing)?e.bearing:(e?((Math.atan2(e.x-p.ox,-(e.y-p.oy))/DEG+360)%360):null)};
   state.panorama=data;state.panoramaSig=sig;return data;
 }
 function drawPanorama(){
   const {w,h,dpr}=fitCanvas(panorama);panctx.setTransform(dpr,0,0,dpr,0,0);panctx.clearRect(0,0,w,h);
   const data=buildPanoramaData();
-  const title='Horizon panorama · 360° around north-centered heading · light band = farthest LOS sector';
+  const title='Horizon panorama · terrain layers unfolded from visible rays · north centered';
   $('panoramaTitle').textContent=title;
-  if(!data){
-    const g=panctx.createLinearGradient(0,0,0,h);g.addColorStop(0,'#1c2f47');g.addColorStop(.72,'#8fb5d6');g.addColorStop(1,'#d8e6f1');panctx.fillStyle=g;panctx.fillRect(0,0,w,h);return;
-  }
-  const left=34,right=w-8,top=8,bottom=h-20,pw=right-left,ph=bottom-top,py=a=>bottom-(a-data.lo)/(data.hi-data.lo)*ph;
-  const sky=panctx.createLinearGradient(0,top,0,bottom);sky.addColorStop(0,'#183251');sky.addColorStop(.55,'#5c8ab4');sky.addColorStop(1,'#dbe8f2');panctx.fillStyle=sky;panctx.fillRect(left,top,pw,ph);
+  const left=36,right=w-8,top=8,bottom=h-24,pw=right-left,ph=bottom-top,horizonFrac=.34,horizonY=top+ph*horizonFrac;
+  const py=a=>a>=0?horizonY-(a/Math.max(.5,data?.hi||6))*(horizonY-top):horizonY+(-a/Math.max(.5,Math.abs(data?.lo||-2.2)))*(bottom-horizonY);
+  const sky=panctx.createLinearGradient(0,top,0,bottom);sky.addColorStop(0,'#173251');sky.addColorStop(.56,'#4e80ad');sky.addColorStop(.82,'#9ebdd8');sky.addColorStop(1,'#dde8f1');panctx.fillStyle=sky;panctx.fillRect(left,top,pw,ph);
+  panctx.fillStyle='rgba(226,237,246,.10)';panctx.fillRect(left,horizonY,pw,1);
+  if(!data){return;}
   if(Number.isFinite(data.endpointBearing)){
-    const center=data.endpointBearing<=180?data.endpointBearing:data.endpointBearing-360,half=28;
-    let x0=left+((center-half)+180)/360*pw,x1=left+((center+half)+180)/360*pw;
-    panctx.fillStyle='rgba(255,255,255,0.08)';
+    const center=data.endpointBearing<=180?data.endpointBearing:data.endpointBearing-360,half=22;let x0=left+((center-half)+180)/360*pw,x1=left+((center+half)+180)/360*pw;panctx.fillStyle='rgba(255,220,150,0.10)';
     if(x0<left){panctx.fillRect(left,top,x1-left,ph);panctx.fillRect(x0+pw,top,right-(x0+pw),ph);} else if(x1>right){panctx.fillRect(x0,top,right-x0,ph);panctx.fillRect(left,top,x1-right,ph);} else panctx.fillRect(x0,top,x1-x0,ph);
   }
-  for(let i=0;i<data.cols;i++){
-    const x=left+i/(data.cols-1)*pw,list=data.samples[i];
-    if(!list||!list.length)continue;
-    for(const s of list){const y=py(s.elev);panctx.strokeStyle=topoColor(s.height,s.light);panctx.globalAlpha=s.alpha;panctx.beginPath();panctx.moveTo(x,bottom);panctx.lineTo(x,y);panctx.stroke();}
+  for(let layer=0;layer<data.maxBands;layer++){
+    for(let i=0;i<data.cols-1;i++){
+      const a=data.columns[i]||[],b=data.columns[i+1]||[],ra=a[layer]||null,rb=b[layer]||null,prevA=layer?a[layer-1]||null:null,prevB=layer?b[layer-1]||null:null;
+      const x0=left+i/(data.cols-1)*pw,x1=left+(i+1)/(data.cols-1)*pw;
+      const y0b=prevA?py(prevA.elev):bottom,y1b=prevB?py(prevB.elev):bottom,y0t=ra?py(ra.elev):y0b,y1t=rb?py(rb.elev):y1b;
+      if(Math.abs(y0b-y0t)<.4&&Math.abs(y1b-y1t)<.4)continue;
+      const ca=ra?.rgb||rb?.rgb||[90,110,128,255],cb=rb?.rgb||ra?.rgb||ca;
+      const cc=mixRgb(ca,cb,.5),depth=((ra?.distance||rb?.distance||0)/Math.max(1,data.maxRange)),fade=.14+.12*layer+depth*.20;
+      panctx.fillStyle=`rgba(${cc[0]},${cc[1]},${cc[2]},${Math.max(.22,Math.min(.96,.92-fade))})`;
+      panctx.beginPath();panctx.moveTo(x0,y0b);panctx.lineTo(x0,y0t);panctx.lineTo(x1,y1t);panctx.lineTo(x1,y1b);panctx.closePath();panctx.fill();
+    }
   }
-  panctx.globalAlpha=1;
-  const skyline=new Float32Array(data.cols);skyline.fill(bottom);
-  for(let i=0;i<data.cols;i++){const list=data.samples[i];if(list&&list.length)skyline[i]=py(list[list.length-1].elev);}
-  panctx.beginPath();for(let i=0;i<data.cols;i++){const x=left+i/(data.cols-1)*pw,y=skyline[i];if(i===0)panctx.moveTo(x,y);else panctx.lineTo(x,y);}panctx.lineTo(right,bottom);panctx.lineTo(left,bottom);panctx.closePath();panctx.fillStyle='rgba(25,37,51,0.28)';panctx.fill();
-  panctx.beginPath();for(let i=0;i<data.cols;i++){const x=left+i/(data.cols-1)*pw,y=skyline[i];if(i===0)panctx.moveTo(x,y);else panctx.lineTo(x,y);}panctx.strokeStyle='rgba(241,247,252,0.9)';panctx.lineWidth=1.15;panctx.stroke();
-  panctx.strokeStyle='rgba(255,255,255,0.11)';panctx.lineWidth=1;
-  ['S','W','N','E','S'].forEach((lab,idx)=>{const x=left+pw*idx/4;panctx.beginPath();panctx.moveTo(x,top);panctx.lineTo(x,bottom);panctx.stroke();panctx.fillStyle=lab==='N'?'#ffe3a7':'#c0d2e3';panctx.font=lab==='N'?'700 10px system-ui':'600 10px system-ui';panctx.textAlign='center';panctx.fillText(lab,x,bottom+12);});
-  panctx.beginPath();panctx.moveTo(left,py(0));panctx.lineTo(right,py(0));panctx.strokeStyle='rgba(255,255,255,0.08)';panctx.stroke();
+  const skyline=new Float32Array(data.cols),skyElev=new Float32Array(data.cols);skyline.fill(horizonY);skyElev.fill(0);
+  for(let i=0;i<data.cols;i++){const list=data.columns[i];if(list&&list.length){skyElev[i]=list[list.length-1].elev;skyline[i]=py(skyElev[i]);}}
+  panctx.beginPath();for(let i=0;i<data.cols;i++){const x=left+i/(data.cols-1)*pw,y=skyline[i];if(i===0)panctx.moveTo(x,y);else panctx.lineTo(x,y);}panctx.strokeStyle='rgba(246,250,253,.94)';panctx.lineWidth=1.25;panctx.stroke();
+  for(let layer=0;layer<Math.min(3,data.maxBands);layer++){
+    panctx.beginPath();let started=false;for(let i=0;i<data.cols;i++){const rec=data.columns[i]?.[layer];if(!rec){started=false;continue;}const x=left+i/(data.cols-1)*pw,y=py(rec.elev);if(!started){panctx.moveTo(x,y);started=true;}else panctx.lineTo(x,y);}panctx.strokeStyle=`rgba(255,255,255,${.06+.04*layer})`;panctx.lineWidth=.7;panctx.stroke();
+  }
+  panctx.strokeStyle='rgba(255,255,255,0.10)';panctx.lineWidth=1;
+  ['S','W','N','E','S'].forEach((lab,idx)=>{const x=left+pw*idx/4;panctx.beginPath();panctx.moveTo(x,top);panctx.lineTo(x,bottom);panctx.stroke();panctx.fillStyle=lab==='N'?'#ffe3a7':'#c0d2e3';panctx.font=lab==='N'?'700 10px system-ui':'600 10px system-ui';panctx.textAlign='center';panctx.fillText(lab,x,bottom+14);});
   if(Number.isFinite(data.endpointBearing)){
-    const center=data.endpointBearing<=180?data.endpointBearing:data.endpointBearing-360,x=left+(center+180)/360*pw;panctx.strokeStyle='#ffce79';panctx.lineWidth=1.4;panctx.beginPath();panctx.moveTo(x,top);panctx.lineTo(x,bottom);panctx.stroke();panctx.fillStyle='#ffce79';panctx.beginPath();panctx.moveTo(x,top+2);panctx.lineTo(x-4,top+10);panctx.lineTo(x+4,top+10);panctx.closePath();panctx.fill();
+    const center=data.endpointBearing<=180?data.endpointBearing:data.endpointBearing-360,xf=left+(center+180)/360*pw,idx=Math.max(0,Math.min(data.cols-1,Math.round((xf-left)/pw*(data.cols-1)))),yf=skyline[idx];
+    panctx.fillStyle='rgba(255,206,121,0.18)';panctx.fillRect(xf-6,top,12,ph);panctx.strokeStyle='#ffce79';panctx.lineWidth=1.5;panctx.beginPath();panctx.moveTo(xf,yf-2);panctx.lineTo(xf,bottom);panctx.stroke();panctx.fillStyle='#ffce79';panctx.beginPath();panctx.arc(xf,yf,3.2,0,Math.PI*2);panctx.fill();
   }
-  panctx.fillStyle='#99afc2';panctx.font='9px ui-monospace,monospace';panctx.textAlign='left';panctx.fillText(data.lo.toFixed(1)+'°',left+2,top+10);panctx.fillText(data.hi.toFixed(1)+'°',left+2,top+20);
+  panctx.fillStyle='#99afc2';panctx.font='9px ui-monospace,monospace';panctx.textAlign='left';panctx.fillText((data.hi).toFixed(1)+'°',left+2,top+11);panctx.fillText('0°',left+2,horizonY-3);panctx.fillText((data.lo).toFixed(1)+'°',left+2,bottom-4);
 }
 function drawProfile(){
   const {w,h,dpr}=fitCanvas(profile);pctx.setTransform(dpr,0,0,dpr,0,0);pctx.clearRect(0,0,w,h);const e=endpoint();if(!e)return;
